@@ -80,17 +80,20 @@ public class WheelInteractable : XRBaseInteractable
     {
         HandVelocitySupplier interactorVelocity = interactor.GetComponent<HandVelocitySupplier>();
 
-        while (grabPoint)
+        if (interactorVelocity != null)
         {
-            // If the interactor's forward/backward movement approximates zero, it is considered to be braking.
-            if (interactorVelocity.velocity.z < 0.05f && interactorVelocity.velocity.z > -0.05f)
+            while (grabPoint)
             {
-                m_Rigidbody.AddTorque(-m_Rigidbody.angularVelocity.normalized * 25f);
+                // If the interactor's forward/backward movement approximates zero, it is considered to be braking.
+                if (interactorVelocity.velocity.z < 0.05f && interactorVelocity.velocity.z > -0.05f)
+                {
+                    m_Rigidbody.AddTorque(-m_Rigidbody.angularVelocity.normalized * 25f);
 
-                SpawnGrabPoint(interactor);
+                    SpawnGrabPoint(interactor);
+                }
+
+                yield return new WaitForFixedUpdate();
             }
-
-            yield return new WaitForFixedUpdate();
         }
     }
 
@@ -116,28 +119,32 @@ public class WheelInteractable : XRBaseInteractable
 
         ActionBasedController controller = interactor.GetComponent<ActionBasedController>();
 
-        Vector3 lastAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
 
-        while (grabPoint)
+        if (controller != null)
         {
-            Vector3 currentAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
-            Vector3 angularAcceleration = (currentAngularVelocity - lastAngularVelocity) / runInterval;
+            Vector3 lastAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
 
-            // If current velocity and acceleration have perpendicular or opposite directions, the wheel is decelerating.
-            if (Vector3.Dot(currentAngularVelocity.normalized, angularAcceleration.normalized) < 0f)
+            while (grabPoint)
             {
-                float impulseAmplitude = Mathf.Abs(angularAcceleration.x);
+                Vector3 currentAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
+                Vector3 angularAcceleration = (currentAngularVelocity - lastAngularVelocity) / runInterval;
 
-                if (impulseAmplitude > 1.5f)
+                // If current velocity and acceleration have perpendicular or opposite directions, the wheel is decelerating.
+                if (Vector3.Dot(currentAngularVelocity.normalized, angularAcceleration.normalized) < 0f)
                 {
-                    float remappedImpulseAmplitude = Remap(impulseAmplitude, 1.5f, 40f, 0f, 1f);
+                    float impulseAmplitude = Mathf.Abs(angularAcceleration.x);
 
-                    controller.SendHapticImpulse(remappedImpulseAmplitude, runInterval * 2f);
+                    if (impulseAmplitude > 1.5f)
+                    {
+                        float remappedImpulseAmplitude = Remap(impulseAmplitude, 1.5f, 40f, 0f, 1f);
+
+                        controller.SendHapticImpulse(remappedImpulseAmplitude, runInterval * 2f);
+                    }
                 }
-            }
 
-            lastAngularVelocity = currentAngularVelocity;
-            yield return new WaitForSeconds(runInterval);
+                lastAngularVelocity = currentAngularVelocity;
+                yield return new WaitForSeconds(runInterval);
+            }
         }
     }
 
