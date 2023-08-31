@@ -4,51 +4,73 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public bool elevatorActive;
-
+    public bool fuseActive;     // 퓨즈 활성화 여부
+    public bool leverActive;    // 레버 활성화 여부
+        
     public bool open;
 
     public GameObject leftDoor;
     public GameObject rightDoor;
 
-    void Awake()
+    public void EnableFuse()
     {
-        DisableDoor();
+        Debug.Log("Enable Fuse");
+
+        fuseActive = true;
+        if (fuseActive && leverActive) Debug.Log("Elevator Active");
     }
 
-    void EnableDoor()
+    public void DisableFuse()
     {
-        // TODO : Elevator Activate
-        Debug.Log("Enable Door");
+        Debug.Log("Disable Fuse");
 
-        elevatorActive = true;
+        fuseActive = false;
     }
 
-    void DisableDoor()
+    public void EnableLever()
     {
-        // TODO : Elevator Deactivate
-        Debug.Log("Disable Door");
+        Debug.Log("Enable Lever");
 
-        elevatorActive = false;
+        leverActive = true;
+        if (fuseActive && leverActive) Debug.Log("Elevator Active");
     }
 
-    public void SetDoorActive(bool active)
+    public void DisableLever()
+    {
+        Debug.Log("Disable Lever");
+
+        leverActive = false;
+    }
+
+    public void SetFuseActive(bool active)
     {
         // It's the same state?
-        if (active == elevatorActive)
+        if (active == fuseActive)
             return;
 
         // Change the machine state
-        elevatorActive = active;
-        if (elevatorActive)
-            EnableDoor();
+        fuseActive = active;
+        if (fuseActive)
+            EnableFuse();
         else
-            DisableDoor();
+            DisableFuse();
+    }
+
+    public void SetLeverActive(bool active)
+    {
+        if (active == leverActive)
+            return;
+
+        leverActive = active;
+        if (leverActive)
+            EnableLever();
+        else
+            DisableLever();
     }
 
     public void OpenDoor()
     {
-        if (elevatorActive)
+        if (fuseActive && leverActive)
         {
             StartCoroutine(OpenElevatorRoutine());
         }
