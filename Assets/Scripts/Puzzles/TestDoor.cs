@@ -13,8 +13,7 @@ public class TestDoor : MonoBehaviour
 
     public void Test()
     {
-        if(!isActivated)
-            StartCoroutine(CardTestRoutine());
+        StartCoroutine(CardTestRoutine());
     }
 
     IEnumerator CardTestRoutine()

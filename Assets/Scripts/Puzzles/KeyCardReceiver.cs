@@ -30,9 +30,11 @@ public class KeyCardReceiver : MonoBehaviour
         // KeyCard 컴포넌트가 있다면(null이 아니면) 이벤트 실행.
         if (proj != null)
         {
+            // proj -> KeyCard 컴포넌트를 가진 객체를 파괴
+            Destroy(proj.gameObject);
             OnKeyCardCollision.Invoke();
 
-            // DestroyedOnTriggered 활성화 되있으면 오브젝트 파괴(1회용 KeyCard)
+            // DestroyedOnTriggered 활성화 되있으면 컴포넌트 파괴 => 카드 키를 판정하는 스크립트 제거
             if (DestroyedOnTriggered)
                 Destroy(this);
         }
