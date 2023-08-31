@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class WheelInteractable : XRBaseInteractable
+public class WheelInteractable : XRGrabInteractable
 {
     Rigidbody m_Rigidbody;
 
