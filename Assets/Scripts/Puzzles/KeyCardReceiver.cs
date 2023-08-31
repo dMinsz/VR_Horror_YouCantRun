@@ -13,8 +13,11 @@ public class KeyCardReceiver : MonoBehaviour
     Material activateColor;
     Renderer render;
 
+    // public AudioSource audioSource;
+
     private void Awake()
     {
+        // audioSource = GetComponent<AudioSource>();
         render = GetComponent<Renderer>();
     }
 
@@ -33,6 +36,7 @@ public class KeyCardReceiver : MonoBehaviour
             // proj -> KeyCard 컴포넌트를 가진 객체를 파괴
             Destroy(proj.gameObject);
             OnKeyCardCollision.Invoke();
+            // audioSource.Play();
 
             // DestroyedOnTriggered 활성화 되있으면 컴포넌트 파괴 => 카드 키를 판정하는 스크립트 제거
             if (DestroyedOnTriggered)
