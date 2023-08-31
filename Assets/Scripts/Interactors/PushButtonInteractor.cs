@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace ldw.Interactor
+namespace ldw
 {
     public class PushButtonInteractor : XRBaseInteractable
     {

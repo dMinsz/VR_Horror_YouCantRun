@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &736766372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736766373}
+  m_Layer: 0
+  m_Name: Attach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736766373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736766372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.037, z: -0.307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7716553954562363515}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237102240531928815
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,8 +109,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1817239808501453544}
   - component: {fileID: 5178045700018716324}
-  - component: {fileID: 4023283204092274440}
-  - component: {fileID: 7231848469817017759}
+  - component: {fileID: 1126362377}
+  - component: {fileID: 1126362376}
   m_Layer: 0
   m_Name: FuseSlot
   m_TagString: Untagged
@@ -116,7 +147,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09124165, y: 0.08427717, z: 0.24825324}
   m_Center: {x: -0.0011588839, y: -0.003680922, z: -0.11142951}
---- !u!114 &4023283204092274440
+--- !u!114 &1126362377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4207829520564759609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1919c94f113ba47a2a4bde09e12b50, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a3ac2a899185044b491207d6453b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -148,8 +179,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7231848469817017759}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1126362376}
+        m_TargetAssemblyTypeName: ldw.FuseBoxController, Assembly-CSharp
         m_MethodName: FuseSocketed
         m_Mode: 6
         m_Arguments:
@@ -161,12 +192,12 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_MethodName: SetDoorActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -175,8 +206,8 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7231848469817017759}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1126362376}
+        m_TargetAssemblyTypeName: ldw.FuseBoxController, Assembly-CSharp
         m_MethodName: FuseSocketed
         m_Mode: 6
         m_Arguments:
@@ -188,12 +219,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_MethodName: SetDoorActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -226,7 +257,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   AcceptedType: Fuse
---- !u!114 &7231848469817017759
+--- !u!114 &1126362376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,15 +266,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4207829520564759609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68aca3f18e387f141b209616426239a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 28f1214bd486361489ce4dd5a3d35801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SparkleFuseVFX:
   - {fileID: 8089357649658171924}
   SwitchedOnVFX:
-  - {fileID: 9106609576533634148}
-  SwitchedOffVFX:
   - {fileID: 9106609577367323400}
+  SwitchedOffVFX:
+  - {fileID: 9106609576533634148}
 --- !u!1 &5955002881475240107
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +373,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: fusebox_model
       objectReference: {fileID: 0}
+    - target: {fileID: 2440451243228243094, guid: 5bfaf6b7d0928674cbb4e5f3a5e29083,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440451243228243094, guid: 5bfaf6b7d0928674cbb4e5f3a5e29083,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfaf6b7d0928674cbb4e5f3a5e29083, type: 3}
 --- !u!4 &1131029434637049847 stripped
@@ -380,12 +421,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6287582516497843902}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.086387046, y: 0.076959595, z: 0.20435572}
   m_Center: {x: 0.0022930086, y: 0.035205234, z: -0.39592806}
---- !u!114 &8984117062061764832
+--- !u!114 &1849625119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,7 +435,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6287582516497843902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d958e8a19914846aeeb29f09755ba5, type: 3}
+  m_Script: {fileID: 11500000, guid: f7415d28abbba3448a78f690bea89e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -488,35 +529,23 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  DialType: 1
-  RotatingRigidbody: {fileID: 3752561725862262333}
-  LocalRotationAxis: {x: 1, y: 0, z: 0}
-  LocalAxisStart: {x: 0, y: 0, z: -1}
-  RotationAngleMaximum: 170
-  Steps: 1
-  SnapOnRelease: 1
-  SnapAudioClip: {fileID: 0}
-  OnDialAngleChanged:
+  m_Handle: {fileID: 7716553954562363515}
+  m_Value: 0
+  m_LockToValue: 0
+  m_MaxAngle: 180
+  m_MinAngle: 0
+  m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
-  OnDialStepChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7231848469817017759}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Switched
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDialChanged:
+  m_OnLeverDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &7716553954562363515 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2440451243228243094, guid: 5bfaf6b7d0928674cbb4e5f3a5e29083,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388712576980153581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7241259031751187208
 PrefabInstance:
   m_ObjectHideFlags: 0

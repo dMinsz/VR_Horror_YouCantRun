@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 283568084088308192}
   - component: {fileID: 4295157151836453083}
   - component: {fileID: 3846290939699347866}
-  - component: {fileID: 3540773397914074645}
-  - component: {fileID: 8076285491281477752}
+  - component: {fileID: 1936988364}
+  - component: {fileID: 1936988365}
   m_Layer: 0
   m_Name: FusePrefab
   m_TagString: Untagged
@@ -118,7 +118,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7926882226097286838, guid: e823a873e63743c4894c28c0a891f016, type: 3}
---- !u!114 &3540773397914074645
+--- !u!114 &1936988364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2005150387030127932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ffe483d6934704b884767450fd49e5, type: 3}
+  m_Script: {fileID: 11500000, guid: d15b4034c3256ab44b2d411d56f3b6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -235,12 +235,12 @@ MonoBehaviour:
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
+  m_SmoothPositionAmount: 8
+  m_TightenPosition: 0.1
   m_TrackRotation: 1
   m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
+  m_SmoothRotationAmount: 8
+  m_TightenRotation: 0.1
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &8076285491281477752
+--- !u!114 &1936988365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2005150387030127932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62135e6d2aecbcc4ab60415080212f00, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec6cad07f859b344bf69c32e2c150a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SocketType: Fuse
