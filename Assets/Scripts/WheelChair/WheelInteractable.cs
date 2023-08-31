@@ -5,6 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class WheelInteractable : XRGrabInteractable
 {
+    //public float wheelMoveOffset = 10f;
+    public float wheelStopTorque = 25f;
     Rigidbody m_Rigidbody;
 
     float wheelRadius;
@@ -30,6 +32,9 @@ public class WheelInteractable : XRGrabInteractable
         StartCoroutine(CheckForSlope());
     }
 
+    bool isMove = false;
+    float grabTime = 0f;
+
     protected override void OnSelectEntered(SelectEnterEventArgs eventArgs)
     {
         base.OnSelectEntered(eventArgs);
@@ -38,6 +43,7 @@ public class WheelInteractable : XRGrabInteractable
 
         // Force cancel selection with this wheel object.
         interactionManager.CancelInteractableSelection((IXRSelectInteractable)this);
+
 
         SpawnGrabPoint(interactor);
 
@@ -49,6 +55,19 @@ public class WheelInteractable : XRGrabInteractable
             StartCoroutine(SendHapticFeedback(interactor));
         }
     }
+
+    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntering(args);
+
+        grabTime += Time.deltaTime;
+    }
+
+    //protected override void OnSelectExited(SelectExitEventArgs args)
+    //{
+    //    base.OnSelectExited(args);
+    //    grabTime = 0f;
+    //}
 
     /// <summary>
     /// Generates a grab point to mediate physics interaction with the wheel's rigidbody. This "grab
@@ -73,7 +92,11 @@ public class WheelInteractable : XRGrabInteractable
 
         // Force selection between current interactor and new grab point.
         //interactionManager.ForceSelect((XRBaseInteractor)interactor, grabPoint.GetComponent<XRGrabInteractable>());
+
+    
         interactionManager.SelectEnter(interactor, grabPoint.GetComponent<IXRSelectInteractable>());
+
+        //GetComponent<Rigidbody>().AddForce(this.transform.forward * wheelMoveOffset,ForceMode.Impulse);
     }
 
     IEnumerator BrakeAssist(XRBaseInteractor interactor)
@@ -87,7 +110,7 @@ public class WheelInteractable : XRGrabInteractable
                 // If the interactor's forward/backward movement approximates zero, it is considered to be braking.
                 if (interactorVelocity.velocity.z < 0.05f && interactorVelocity.velocity.z > -0.05f)
                 {
-                    m_Rigidbody.AddTorque(-m_Rigidbody.angularVelocity.normalized * 25f);
+                    m_Rigidbody.AddTorque(-m_Rigidbody.angularVelocity.normalized * wheelStopTorque);
 
                     SpawnGrabPoint(interactor);
                 }
