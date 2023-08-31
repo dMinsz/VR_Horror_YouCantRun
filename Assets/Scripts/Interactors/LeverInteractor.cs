@@ -9,7 +9,7 @@ namespace ldw
     /// </summary>
     public class LeverInteractor : XRBaseInteractable
     {
-        const float k_LeverDeadZone = 0.1f; // 중앙에 정확히 위치할 때 활성/비활성화가 즉시 전환되는 것을 방지
+        const float k_LeverDeadZone = 0.1f; // 중앙에 정확히 위치할 때 활성/비활성화가 즉시 전환되는 것을 방지(데드존)
 
         [SerializeField]
         [Tooltip("시각적으로 잡고 조작하는 레버 객체")]
@@ -67,7 +67,7 @@ namespace ldw
         public bool lockToValue { get; set; }
 
         /// <summary>
-        /// 레버의 '켜진' 위치에서의 각도
+        /// 레버의 '켜진' 위치의 각도
         /// </summary>
         public float maxAngle
         {
@@ -76,7 +76,7 @@ namespace ldw
         }
 
         /// <summary>
-        /// 레버의 '꺼진' 위치에서의 각도
+        /// 레버의 '꺼진' 위치의 각도
         /// </summary>
         public float minAngle
         {
@@ -165,26 +165,34 @@ namespace ldw
         // 상호작용자의 시선 방향을 기준으로 레버의 각도를 계산하고, 그에 따라 레버의 값을 업데이트
         void UpdateValue()
         {
+            // 시선 방향 획득
             var lookDirection = GetLookDirection();
+            // 시선 각도를 계산
             var lookAngle = Mathf.Atan2(lookDirection.z, lookDirection.y) * Mathf.Rad2Deg;
 
+            // 최소 각도와 최대 각도사이에서 각도를 제한
             if (m_MinAngle < m_MaxAngle)
                 lookAngle = Mathf.Clamp(lookAngle, m_MinAngle, m_MaxAngle);
             else
                 lookAngle = Mathf.Clamp(lookAngle, m_MaxAngle, m_MinAngle);
 
+            // 최대 각도와 현재 각도 사이의 거리 / 최소 각도와 현재 각도 사이의 거리를 계산
             var maxAngleDistance = Mathf.Abs(m_MaxAngle - lookAngle);
             var minAngleDistance = Mathf.Abs(m_MinAngle - lookAngle);
 
+            // 현재 레버의 값이 true이면 최대 각도 거리에 레버 데드존을 적용, 그렇지 않으면 최소 거리에 적용
             if (m_Value)
                 maxAngleDistance *= (1.0f - k_LeverDeadZone);
             else
                 minAngleDistance *= (1.0f - k_LeverDeadZone);
 
+            // 최대 각도 거리가 최소 각도 거리보다 작으면 새로운 값은 true, 아니면 false
             var newValue = (maxAngleDistance < minAngleDistance);
 
+            // 핸들 각도 설정
             SetHandleAngle(lookAngle);
 
+            // newValue로 레버 값 설정
             SetValue(newValue);
         }
 
