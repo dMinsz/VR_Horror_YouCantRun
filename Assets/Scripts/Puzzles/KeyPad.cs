@@ -2,45 +2,85 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Text;
+using TMPro;
+using System.Linq;
 
 namespace ldw
 {
     public class KeyPad : MonoBehaviour
     {
         [SerializeField]
-        KeyPadButton[] keyButtons;
+        TMP_Text userInputText;
 
         [SerializeField]
         UnityEvent CorrectPassword;
 
-        public string password = "1324";
+        [SerializeField]
+        UnityEvent DisCorrectPassword;
+
+        [SerializeField]
+        [Tooltip("비밀번호")]
+        public string password;
+
         public string userInput = "";
 
         private void Start()
         {
+            // userInputText.text = "";
             PasswordReset();
         }
 
         private void PasswordReset()
         {
             userInput = "";
+            // userInputText.text = userInput;
         }
 
         public void OnClickKeyButton(int keyPadNum)
         {
-            userInput += keyPadNum;
             if(userInput.Length >= 4)
             {
-                if(userInput == password)
-                {
-                    Debug.Log($"{userInput} is Right Password");
-                    CorrectPassword.Invoke();
-                }
-                else
-                {
-                    Debug.Log($"{userInput} is Wrong Password, Password Reset");
-                    PasswordReset();
-                }
+                Debug.Log($"Length Over, current userInput : {userInput}");
+            }
+            else
+            {
+                userInput += keyPadNum;
+                Debug.Log($"{keyPadNum} insert, userInput : {userInput}");
+                userInputText.text = $"{userInput}";
+            }
+        }
+
+        public void EraseButton()
+        {
+            if(userInput.Length > 0)
+            {
+                userInput = userInput.Substring(0, userInput.Length - 1);
+                Debug.Log($"{userInput}");
+                userInputText.text = userInput;
+            }
+            else
+            {
+                Debug.Log("userInput is null");
+            }
+        }
+
+        public void InputButton()
+        {
+            if (userInput == password)
+            {
+                Debug.Log($"{userInput} is Right Password");
+                userInputText.text = "";
+
+                CorrectPassword.Invoke();
+            }
+            else
+            {
+                Debug.Log($"{userInput} is Wrong Password, Password Reset");
+                PasswordReset();
+                userInputText.text = "";
+
+                DisCorrectPassword.Invoke();
             }
         }
     }
