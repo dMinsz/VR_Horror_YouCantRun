@@ -1,13 +1,18 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class WheelInteractable : XRGrabInteractable
 {
-    //public float wheelMoveOffset = 10f;
+
+    [Tooltip("Choose Left Hand Or Right Hand")]
+    public XRNode trackedNode;
+
+
     public float wheelStopTorque = 25f;
-    Rigidbody m_Rigidbody;
+    Rigidbody rb;
 
     float wheelRadius;
 
@@ -22,18 +27,18 @@ public class WheelInteractable : XRGrabInteractable
     public Text label1;
     public Text label2;
 
+    WheelMoveAssist assist;
+
 
     private void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+        assist = GetComponent<WheelMoveAssist>();
+        rb = GetComponent<Rigidbody>();
         wheelRadius = GetComponent<SphereCollider>().radius;
 
         // Slope check is run in coroutine at optimized intervals.
         StartCoroutine(CheckForSlope());
     }
-
-    bool isMove = false;
-    float grabTime = 0f;
 
     protected override void OnSelectEntered(SelectEnterEventArgs eventArgs)
     {
@@ -41,33 +46,25 @@ public class WheelInteractable : XRGrabInteractable
 
         XRBaseInteractor interactor = (XRBaseInteractor)eventArgs.interactorObject;
 
-        // Force cancel selection with this wheel object.
         interactionManager.CancelInteractableSelection((IXRSelectInteractable)this);
 
+        //float gripValue = 0f;
+        //InputDevices.GetDeviceAtXRNode(trackedNode).TryGetFeatureValue(CommonUsages.grip, out gripValue); // 1f 일때 꽉잡은거
 
         SpawnGrabPoint(interactor);
 
+
         StartCoroutine(BrakeAssist(interactor));
+
         StartCoroutine(MonitorDetachDistance(interactor));
 
         if (hapticsEnabled)
         {
             StartCoroutine(SendHapticFeedback(interactor));
         }
+
+
     }
-
-    protected override void OnSelectEntering(SelectEnterEventArgs args)
-    {
-        base.OnSelectEntering(args);
-
-        grabTime += Time.deltaTime;
-    }
-
-    //protected override void OnSelectExited(SelectExitEventArgs args)
-    //{
-    //    base.OnSelectExited(args);
-    //    grabTime = 0f;
-    //}
 
     /// <summary>
     /// Generates a grab point to mediate physics interaction with the wheel's rigidbody. This "grab
@@ -93,10 +90,7 @@ public class WheelInteractable : XRGrabInteractable
         // Force selection between current interactor and new grab point.
         //interactionManager.ForceSelect((XRBaseInteractor)interactor, grabPoint.GetComponent<XRGrabInteractable>());
 
-    
         interactionManager.SelectEnter(interactor, grabPoint.GetComponent<IXRSelectInteractable>());
-
-        //GetComponent<Rigidbody>().AddForce(this.transform.forward * wheelMoveOffset,ForceMode.Impulse);
     }
 
     IEnumerator BrakeAssist(XRBaseInteractor interactor)
@@ -110,11 +104,11 @@ public class WheelInteractable : XRGrabInteractable
                 // If the interactor's forward/backward movement approximates zero, it is considered to be braking.
                 if (interactorVelocity.velocity.z < 0.05f && interactorVelocity.velocity.z > -0.05f)
                 {
-                    m_Rigidbody.AddTorque(-m_Rigidbody.angularVelocity.normalized * wheelStopTorque);
+                    rb.AddTorque(-rb.angularVelocity.normalized * wheelStopTorque);
 
                     SpawnGrabPoint(interactor);
                 }
-
+                
                 yield return new WaitForFixedUpdate();
             }
         }
@@ -145,11 +139,11 @@ public class WheelInteractable : XRGrabInteractable
 
         if (controller != null)
         {
-            Vector3 lastAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
+            Vector3 lastAngularVelocity = new Vector3(transform.InverseTransformDirection(rb.angularVelocity).x, 0f, 0f);
 
             while (grabPoint)
             {
-                Vector3 currentAngularVelocity = new Vector3(transform.InverseTransformDirection(m_Rigidbody.angularVelocity).x, 0f, 0f);
+                Vector3 currentAngularVelocity = new Vector3(transform.InverseTransformDirection(rb.angularVelocity).x, 0f, 0f);
                 Vector3 angularAcceleration = (currentAngularVelocity - lastAngularVelocity) / runInterval;
 
                 // If current velocity and acceleration have perpendicular or opposite directions, the wheel is decelerating.
