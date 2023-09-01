@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     public Slot[] slots;
     
     //인벤토리의 크기
-    public const int numSlots = 9;
+    public const int numSlots = 4;
 
     private void Awake()
     {
