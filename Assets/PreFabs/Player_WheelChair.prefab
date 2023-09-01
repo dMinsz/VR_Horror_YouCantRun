@@ -1870,8 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea13b936aa2b645b4ffa0c06d1772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAssist: 0
-  power: 50
+  power: 25
 --- !u!114 &2823687610153696266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,7 +2024,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   trackedNode: 4
-  wheelStopTorque: 25
+  wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
   label1: {fileID: 0}
@@ -2279,7 +2278,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05, z: 0.3}
+  m_Size: {x: 0.25, y: 0.05, z: 0.3}
   m_Center: {x: -0, y: 0.32, z: 0}
 --- !u!1 &2823687610198091044
 GameObject:
@@ -2579,8 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea13b936aa2b645b4ffa0c06d1772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAssist: 0
-  power: 50
+  power: 25
 --- !u!114 &2823687610297379445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,7 +2732,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   trackedNode: 5
-  wheelStopTorque: 25
+  wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
   label1: {fileID: 0}
@@ -2988,7 +2986,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05, z: 0.3}
+  m_Size: {x: 0.25, y: 0.05, z: 0.3}
   m_Center: {x: -0, y: 0.32, z: 0}
 --- !u!1 &2823687610463252384
 GameObject:
