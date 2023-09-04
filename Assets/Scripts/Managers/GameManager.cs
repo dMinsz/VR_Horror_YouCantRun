@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     private static UIManager uiManager;
     public static UIManager UI { get { return uiManager; } }
 
+    //Sound Manager
+    private static SoundManager soundManager;
+    public static SoundManager Sound { get { return soundManager; } }
+
 
     private GameManager() { }
 
@@ -75,6 +79,10 @@ public class GameManager : MonoBehaviour
         sObj.transform.SetParent(transform);
         sceneManager = sObj.AddComponent<SceneManagerEX>();
 
+        GameObject soundObj = new GameObject();
+        soundObj.name = "SoundManager";
+        soundObj.transform.parent = transform;
+        soundManager = soundObj.AddComponent<SoundManager>();
 
         poolManager.Init();
     }
