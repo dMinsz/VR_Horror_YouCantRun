@@ -32,9 +32,6 @@ public class Mannequin : BaseMonster
     {
         base.Awake();
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = player.transform;
-
         StateInit();
     }
 
