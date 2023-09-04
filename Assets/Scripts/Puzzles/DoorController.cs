@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 퓨즈/레버 활성화/비활성화 및 엘리베이터 문 열림 관리 스크립트 -> 이름 변경 될 수 있음
 public class DoorController : MonoBehaviour
 {
     public bool fuseActive;     // 퓨즈 활성화 여부
@@ -9,6 +10,7 @@ public class DoorController : MonoBehaviour
         
     public bool open;
 
+    // 현재 leftDoor, rightDoor 두 개로 나누어져있는데 문 열림에 따라 수정 필요
     public GameObject leftDoor;
     public GameObject rightDoor;
 
@@ -70,12 +72,14 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
+        // 퓨즈와 레버가 모두 활성화 되어있으면 실행
         if (fuseActive && leverActive)
         {
             StartCoroutine(OpenElevatorRoutine());
         }
     }
 
+    // 코루틴에서 부드러운 움직임 x -> 수정 필요
     IEnumerator OpenElevatorRoutine()
     {
         Debug.Log("OpenDoor");

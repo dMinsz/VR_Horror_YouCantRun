@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 키 패드 Render 변경 스크립트
 public class KeyPadRenderSwitch : MonoBehaviour
 {
     [SerializeField] Material keyPad;

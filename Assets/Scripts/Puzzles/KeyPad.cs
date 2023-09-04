@@ -11,13 +11,13 @@ namespace ldw
     public class KeyPad : MonoBehaviour
     {
         [SerializeField]
-        TMP_Text userInputText;
+        TMP_Text userInputText; // 현재 유저가 입력한 번호 Text
 
         [SerializeField]
-        UnityEvent CorrectPassword;
+        UnityEvent CorrectPassword; // 비밀번호를 맞췄을 때 이벤트
 
         [SerializeField]
-        UnityEvent DisCorrectPassword;
+        UnityEvent DisCorrectPassword;  // 비밀번호가 틀렸을 때 이벤트
 
         [SerializeField]
         [Tooltip("비밀번호")]
