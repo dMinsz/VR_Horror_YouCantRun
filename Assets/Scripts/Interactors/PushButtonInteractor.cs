@@ -12,109 +12,89 @@ namespace ldw
         // 이 정보는 버튼을 누르는 동안 버튼에 대한 인터랙터의 위치와 동작 상태를 추적하는데 사용됨.
         class PressInfo
         {
-            internal IXRHoverInteractor m_Interactor;
-            internal bool m_InPressRegion = false;
-            internal bool m_WrongSide = false;
+            internal IXRHoverInteractor buttonInteractor;   // 버튼과 상호작용하는 Interactor
+            internal bool inButtonPressRegion = false;      // 버튼이 눌리는 영역 안에 있는지 bool값
+            internal bool wrongButtonSide = false;          // 버튼이 아닌곳에 위치하는지 bool값
         }
 
         [Serializable]
         public class ValueChangeEvent : UnityEvent<float> { }
 
         [SerializeField]
-        [Tooltip("The object that is visually pressed down")] // 눌린 버튼을 시각적으로 나타내기 위한 Transform 객체
-        Transform m_Button = null;
+        [Tooltip("눌린 버튼을 시각적으로 나타내기 위한 Transform 객체")]
+        Transform buttonTransform = null;
 
         [SerializeField]
-        [Tooltip("The distance the button can be pressed")] // 버튼이 눌릴 수 있는 최대 거리
-        float m_PressDistance = 0.1f;
+        [Tooltip("버튼을 누를 수 있는 최대 거리")] 
+        float buttonPressDistance = 0.1f;
 
         [SerializeField]
-        [Tooltip("Extra distance for clicking the button down")]
-        float m_PressBuffer = 0.01f;
+        [Tooltip("버튼을 누르기 위한 추가 거리")]
+        float buttonPressBuffer = 0.01f;
 
         [SerializeField]
-        [Tooltip("Offset from the button base to start testing for push")]
-        float m_ButtonOffset = 0.0f;
+        [Tooltip("누르는 버튼의 버튼 베이스로부터의 위치")]
+        float buttonTransformOffset = 0.0f;
 
         [SerializeField]
-        [Tooltip("How big of a surface area is available for pressing the button")]
-        float m_ButtonSize = 0.1f;
+        [Tooltip("버튼을 누를 수 있는 표면적 크기")]
+        float buttonTransformSize = 0.1f;
 
         [SerializeField]
-        [Tooltip("Treat this button like an on/off toggle")] // 버튼을 Toggle로 사용할 지 여부를 나타냄
-        bool m_ToggleButton = false;
+        [Tooltip("버튼을 Toggle로 사용할 지 여부를 나타냄")]
+        bool isToggleButton = false;
 
         [SerializeField]
-        [Tooltip("Events to trigger when the button is pressed")] // 버튼을 누를 때 호출되는 UnityEvent
-        UnityEvent m_OnPress;
+        [Tooltip("버튼을 누를 때 호출되는 UnityEvent")]
+        UnityEvent OnPressEvent;
 
         [SerializeField]
-        [Tooltip("Events to trigger when the button is released")] // 버튼을 놓을 때 호출되는 UnityEvent
-        UnityEvent m_OnRelease;
+        [Tooltip("버튼을 놓을 때 호출되는 UnityEvent")]
+        UnityEvent OnReleaseEvent;
 
         [SerializeField]
-        [Tooltip("Events to trigger when the button pressed value is updated. Only called when the button is pressed")]
-        ValueChangeEvent m_OnValueChange;
+        [Tooltip("버튼의 값이 변경되면 호출되는 이벤트")]
+        ValueChangeEvent OnValueChangedEvent;
 
-        bool m_Pressed = false;
-        bool m_Toggled = false;
-        float m_Value = 0f;
-        Vector3 m_BaseButtonPosition = Vector3.zero;
+        bool isPressed = false; // 버튼이 현재 눌려있는지
+        bool isToggled = false; // 버튼이 현재 Toggle 상태인지
+        float buttonValue = 0f;     // 버튼의 값(눌린 정도)
+        Vector3 baseButtonPosition = Vector3.zero;    // 버튼의 베이스 위치
 
-        Dictionary<IXRHoverInteractor, PressInfo> m_HoveringInteractors = new Dictionary<IXRHoverInteractor, PressInfo>();
+        // 상호작용하는 Interactor 의 PressInfo 정보를 저장하는 Dictionary
+        Dictionary<IXRHoverInteractor, PressInfo> hoverInteractors = new Dictionary<IXRHoverInteractor, PressInfo>();
 
-        /// <summary>
-        /// The object that is visually pressed down
-        /// </summary>
         public Transform button
         {
-            get => m_Button;
-            set => m_Button = value;
+            get => buttonTransform;
+            set => buttonTransform = value;
         }
 
-        /// <summary>
-        /// The distance the button can be pressed
-        /// </summary>
         public float pressDistance
         {
-            get => m_PressDistance;
-            set => m_PressDistance = value;
+            get => buttonPressDistance;
+            set => buttonPressDistance = value;
         }
 
-        /// <summary>
-        /// The distance (in percentage from 0 to 1) the button is currently being held down
-        /// </summary>
-        public float value => m_Value;
+        public float value => buttonValue;
 
-        /// <summary>
-        /// Events to trigger when the button is pressed
-        /// </summary>
-        public UnityEvent onPress => m_OnPress;
+        public UnityEvent onPress => OnPressEvent;
 
-        /// <summary>
-        /// Events to trigger when the button is released
-        /// </summary>
-        public UnityEvent onRelease => m_OnRelease;
+        public UnityEvent onRelease => OnReleaseEvent;
 
-        /// <summary>
-        /// Events to trigger when the button distance value is changed. Only called when the button is pressed
-        /// </summary>
-        public ValueChangeEvent onValueChange => m_OnValueChange;
+        public ValueChangeEvent onValueChange => OnValueChangedEvent;
 
-        /// <summary>
-        /// Whether or not a toggle button is in the locked down position
-        /// </summary>
         public bool toggleValue
         {
-            get => m_ToggleButton && m_Toggled;
+            get => isToggleButton && isToggled;
             set
             {
-                if (!m_ToggleButton)
+                if (!isToggleButton)
                     return;
 
-                m_Toggled = value;
-                if (m_Toggled)
-                    SetButtonHeight(-m_PressDistance);
+                isToggled = value;
+                if (isToggled)
+                    SetButtonHeight(-buttonPressDistance);
                 else
                     SetButtonHeight(0.0f);
             }
@@ -130,16 +110,16 @@ namespace ldw
 
         void Start()
         {
-            if (m_Button != null)
-                m_BaseButtonPosition = m_Button.position;
+            if (buttonTransform != null)
+                baseButtonPosition = buttonTransform.position;
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
 
-            if (m_Toggled)
-                SetButtonHeight(-m_PressDistance);
+            if (isToggled)
+                SetButtonHeight(-buttonPressDistance);
             else
                 SetButtonHeight(0.0f);
 
@@ -156,17 +136,17 @@ namespace ldw
 
         void StartHover(HoverEnterEventArgs args)
         {
-            m_HoveringInteractors.Add(args.interactorObject, new PressInfo { m_Interactor = args.interactorObject });
+            hoverInteractors.Add(args.interactorObject, new PressInfo { buttonInteractor = args.interactorObject });
         }
 
         void EndHover(HoverExitEventArgs args)
         {
-            m_HoveringInteractors.Remove(args.interactorObject);
+            hoverInteractors.Remove(args.interactorObject);
 
-            if (m_HoveringInteractors.Count == 0)
+            if (hoverInteractors.Count == 0)
             {
-                if (m_ToggleButton && m_Toggled)
-                    SetButtonHeight(-m_PressDistance);
+                if (isToggleButton && isToggled)
+                    SetButtonHeight(-buttonPressDistance);
                 else
                     SetButtonHeight(0.0f);
             }
@@ -179,7 +159,7 @@ namespace ldw
 
             if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
             {
-                if (m_HoveringInteractors.Count > 0)
+                if (hoverInteractors.Count > 0)
                 {
                     UpdatePress();
                 }
@@ -189,52 +169,58 @@ namespace ldw
         // Interactor의 위치와 Button의 위치를 기준으로 버튼이 눌리는 정도를 계산하고, 버튼의 상태와 값을 업데이트
         void UpdatePress()
         {
-            var minimumHeight = 0.0f;
+            var minimumHeight = 0.0f;   // 버튼이 눌린 정도. 초기값은 0f
 
-            if (m_ToggleButton && m_Toggled)
-                minimumHeight = -m_PressDistance;
+            if (isToggleButton && isToggled)
+                minimumHeight = -buttonPressDistance;
 
-            // Go through each interactor
-            foreach (var pressInfo in m_HoveringInteractors.Values)
+            // Interactor 정보 순회
+            foreach (var pressInfo in hoverInteractors.Values)
             {
-                var interactorTransform = pressInfo.m_Interactor.GetAttachTransform(this);
-                var localOffset = transform.InverseTransformVector(interactorTransform.position - m_BaseButtonPosition);
+                // 상호작용자의 Transform
+                var interactorTransform = pressInfo.buttonInteractor.GetAttachTransform(this);
+                // 버튼과 상호작용자의 상대 위치
+                var localOffset = transform.InverseTransformVector(interactorTransform.position - baseButtonPosition);
 
-                var withinButtonRegion = (Mathf.Abs(localOffset.x) < m_ButtonSize && Mathf.Abs(localOffset.z) < m_ButtonSize);
+                // Interactor가 버튼 눌림 영역에 있는지 계산
+                var withinButtonRegion = (Mathf.Abs(localOffset.x) < buttonTransformSize && Mathf.Abs(localOffset.z) < buttonTransformSize);
                 if (withinButtonRegion)
                 {
-                    if (!pressInfo.m_InPressRegion)
+                    if (!pressInfo.inButtonPressRegion)
                     {
-                        pressInfo.m_WrongSide = (localOffset.y < m_ButtonOffset);
+                        pressInfo.wrongButtonSide = (localOffset.y < buttonTransformOffset);
                     }
-
-                    if (!pressInfo.m_WrongSide)
-                        minimumHeight = Mathf.Min(minimumHeight, localOffset.y - m_ButtonOffset);
+                    
+                    // 올바른 위치에서 버튼을 누른 경우, minimumHeight 업데이트
+                    if (!pressInfo.wrongButtonSide)
+                        minimumHeight = Mathf.Min(minimumHeight, localOffset.y - buttonTransformOffset);
                 }
 
-                pressInfo.m_InPressRegion = withinButtonRegion;
+                // 영역 안에 있으면 inButtonPressRegion 값을 true로
+                pressInfo.inButtonPressRegion = withinButtonRegion;
             }
 
-            minimumHeight = Mathf.Max(minimumHeight, -(m_PressDistance + m_PressBuffer));
+            minimumHeight = Mathf.Max(minimumHeight, -(buttonPressDistance + buttonPressBuffer));
 
-            // If button height goes below certain amount, enter press mode
-            var pressed = m_ToggleButton ? (minimumHeight <= -(m_PressDistance + m_PressBuffer)) : (minimumHeight < -m_PressDistance);
+            var pressed = isToggleButton ? (minimumHeight <= -(buttonPressDistance + buttonPressBuffer)) : (minimumHeight < -buttonPressDistance);
 
-            var currentDistance = Mathf.Max(0f, -minimumHeight - m_PressBuffer);
-            m_Value = currentDistance / m_PressDistance;
+            // currentDistance : 현재 버튼이 얼마나 눌렸는지
+            var currentDistance = Mathf.Max(0f, -minimumHeight - buttonPressBuffer);
+            // buttonValue : 버튼의 눌린 정도
+            buttonValue = currentDistance / buttonPressDistance;
 
-            if (m_ToggleButton)
+            if (isToggleButton)
             {
                 if (pressed)
                 {
-                    if (!m_Pressed)
+                    if (!isPressed)
                     {
-                        m_Toggled = !m_Toggled;
+                        isToggled = !isToggled;
 
-                        if (m_Toggled)
-                            m_OnPress.Invoke();
+                        if (isToggled)
+                            OnPressEvent.Invoke();
                         else
-                            m_OnRelease.Invoke();
+                            OnReleaseEvent.Invoke();
                     }
                 }
             }
@@ -242,32 +228,32 @@ namespace ldw
             {
                 if (pressed)
                 {
-                    if (!m_Pressed)
-                        m_OnPress.Invoke();
+                    if (!isPressed)
+                        OnPressEvent.Invoke();
                 }
                 else
                 {
-                    if (m_Pressed)
-                        m_OnRelease.Invoke();
+                    if (isPressed)
+                        OnReleaseEvent.Invoke();
                 }
             }
-            m_Pressed = pressed;
+            isPressed = pressed;
 
             // Call value change event
-            if (m_Pressed)
-                m_OnValueChange.Invoke(m_Value);
+            if (isPressed)
+                OnValueChangedEvent.Invoke(buttonValue);
 
             SetButtonHeight(minimumHeight);
         }
 
         void SetButtonHeight(float height)
         {
-            if (m_Button == null)
+            if (buttonTransform == null)
                 return;
 
-            Vector3 newPosition = m_Button.localPosition;
+            Vector3 newPosition = buttonTransform.localPosition;
             newPosition.y = height;
-            m_Button.localPosition = newPosition;
+            buttonTransform.localPosition = newPosition;
         }
 
         // 버튼 눌림 영역을 시각화
@@ -275,16 +261,16 @@ namespace ldw
         {
             var pressStartPoint = Vector3.zero;
 
-            if (m_Button != null)
+            if (buttonTransform != null)
             {
-                pressStartPoint = m_Button.localPosition;
+                pressStartPoint = buttonTransform.localPosition;
             }
 
-            pressStartPoint.y += m_ButtonOffset - (m_PressDistance * 0.5f);
+            pressStartPoint.y += buttonTransformOffset - (buttonPressDistance * 0.5f);
 
             Gizmos.color = Color.green;
             Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(pressStartPoint, new Vector3(m_ButtonSize, m_PressDistance, m_ButtonSize));
+            Gizmos.DrawWireCube(pressStartPoint, new Vector3(buttonTransformSize, buttonPressDistance, buttonTransformSize));
         }
 
         // 스크립트가 수정될 때 버튼의 높이를 업데이트하여 Scene View 에서 변경 사항을 실시간으로 확인할 수 있도록 함
