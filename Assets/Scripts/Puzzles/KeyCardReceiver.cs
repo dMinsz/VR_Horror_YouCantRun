@@ -9,21 +9,11 @@ public class KeyCardReceiver : MonoBehaviour
     public UnityEvent OnKeyCardCollision;  // KeyCard 의 Collider가 닿을 경우 실행되는 이벤트
     public bool DestroyedOnTriggered;      // 실행 후 오브젝트를 파괴할지 선택
 
-    [SerializeField]
-    Material activateColor;
-    Renderer render;
-
     // public AudioSource audioSource;
 
     private void Awake()
     {
         // audioSource = GetComponent<AudioSource>();
-        render = GetComponent<Renderer>();
-    }
-
-    public void ActivateColor()
-    {
-        render.material = activateColor;
     }
 
     public void OnTriggerEnter(Collider other)  // Trigger Collider를 추가해 충돌 판단
