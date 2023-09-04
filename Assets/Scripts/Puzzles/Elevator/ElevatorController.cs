@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 퓨즈/레버 활성화/비활성화 및 엘리베이터 문 열림 관리 스크립트 -> 이름 변경 될 수 있음
-public class DoorController : MonoBehaviour
+public class ElevatorController : MonoBehaviour
 {
     public bool fuseActive;     // 퓨즈 활성화 여부
     public bool leverActive;    // 레버 활성화 여부

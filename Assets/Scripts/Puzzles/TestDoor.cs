@@ -6,7 +6,7 @@ public class TestDoor : MonoBehaviour
 {
     public bool isActivated;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     private void Awake()
     {

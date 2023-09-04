@@ -3,64 +3,63 @@ using UnityEngine;
 namespace ldw
 {
     /// <summary>
-    /// Joins a rigidbody and transform together in a way that optimizes for transform and rigidbody-based motion automatically when appropriate.
-    /// Exerts an increasing force when the rigidbody is separate from the anchor position, but does not oscillate like a spring.
+    /// 물체 간의 움직임을 제어하고 물리시뮬레이션을 조절하는데 사용됨.
     /// </summary>
     public class TransformJoint : MonoBehaviour, ISerializationCallbackReceiver
     {
-        const float k_MinMass = 0.01f;
-        const float k_MaxForceDistance = 0.01f;
+        const float k_MinMass = 0.01f;          // 최소 질량
+        const float k_MaxForceDistance = 0.01f; // 최대 힘 거리
 
         [SerializeField]
-        [Tooltip("A reference to another transform this joint connects to.")]
+        [Tooltip("연결된 다른 Transform을 참조하는 변수. 이 변수를 통해 다른 물체의 Transform과 Joint를 연결할 수 있음")]
         Transform m_ConnectedBody;
 
         [SerializeField]
-        [Tooltip("The Position of the anchor around which the joints motion is constrained.")]
+        [Tooltip("Joint의 움직임이 제약되는 기준 앵커의 위치")]
         Vector3 m_Anchor;
 
         [SerializeField]
-        [Tooltip("The Rotation of the anchor around which the joints motion is constrained")]
+        [Tooltip("Joint의 움직임이 제약되는 기준 앵커의 회전")]
         Vector3 m_AnchorAngle;
 
         [SerializeField]
-        [Tooltip("Should the connectedAnchor be calculated automatically?")]
+        [Tooltip("연결된 앵커를 자동으로 계산해야 하는지 여부")]
         bool m_AutoConfigureConnectedAnchor;
 
         [SerializeField]
-        [Tooltip("Position of the anchor relative to the connected transform.")]
+        [Tooltip("연결된 Transform을 기준으로 한 앵커의 상대 위치")]
         Vector3 m_ConnectedAnchor;
 
         [SerializeField]
-        [Tooltip("The Rotation of the anchor relative to the connected transform.")]
+        [Tooltip("연결된 Transform을 기준으로 한 앵커의 상대 회전")]
         Vector3 m_ConnectedAnchorAngle;
 
         [SerializeField]
-        [Tooltip("Enable collision between bodies connected with the joint.")]
+        [Tooltip("Joint로 연결된 물체 간의 충돌을 활성화할지 여부")]
         bool m_EnableCollision;
 
         [SerializeField]
-        [Tooltip("Baseline force applied when an obstacle is between the joint and the connected transform.")]
+        [Tooltip("Joint와 연결된 Transform사이에 장애물이 있을 경우 적용되는 기준 힘")]
         float m_BaseForce = 0.25f;
 
         [SerializeField]
-        [Tooltip("Additional force applied based on the distance between joint and connected transform")]
+        [Tooltip("Joint와 연결된 Transform사이의 거리를 기준으로 추가 적용되는 힘")]
         float m_SpringForce = 1f;
 
         [SerializeField]
-        [Tooltip("The distance this joint must be from the anchor before teleporting.")]
+        [Tooltip("Joint가 앵커로부터 일정 거리 이상 벗어나면 텔레포트 되는 거리")]
         float m_BreakDistance = 1.5f;
 
         [SerializeField]
-        [Tooltip("The angular distance this joint must be from the anchor before teleporting.")]
+        [Tooltip("Joint가 앵커로부터 일정 거리 이상 벗어나면 텔레포트 되는 각도")]
         float m_BreakAngle = 120f;
 
         [SerializeField]
-        [Tooltip("Should the angle be matched?")]
+        [Tooltip("회전 각도를 일치시킬지 여부")]
         bool m_MatchRotation = true;
 
         [SerializeField]
-        [Tooltip("Should the mass of the rigidbody be temporarily adjusted to stabilize very strong motion?")]
+        [Tooltip("Rigidbody 의 질량을 임시로 조절해야 하는지 여부 (매우 강한 움직임을 안정화)")]
         bool m_AdjustMass = true;
 
 
