@@ -250,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849625119, guid: 9c00311f772d8de4692fc5684ad2d3f6, type: 3}
       propertyPath: m_LockToValue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1849625119, guid: 9c00311f772d8de4692fc5684ad2d3f6, type: 3}
       propertyPath: LeverStart.m_PersistentCalls.m_Calls.Array.size
@@ -435,6 +435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
         type: 3}
+      propertyPath: isToggleButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
       propertyPath: buttonTransform
       value: 
       objectReference: {fileID: 9174915791401855507}
@@ -455,9 +460,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
         type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
       propertyPath: m_OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2863937011647822647}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2863937011647822647}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 953250432397944338, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760998372575448145, guid: 70baedcc623f4d340ad75f19ec49d5af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70baedcc623f4d340ad75f19ec49d5af, type: 3}
 --- !u!4 &2773749646084793978 stripped

@@ -111,39 +111,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.50852615, y: 2.9999998, z: 0.0000009536744}
   m_Center: {x: 0.7457401, y: 1.5, z: 0.06500005}
---- !u!1 &1878673931233380642
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1880778900583061276}
-  m_Layer: 0
-  m_Name: DoorMeshCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1880778900583061276
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878673931233380642}
-  m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1880561748346916230}
-  - {fileID: 1875409358104074426}
-  m_Father: {fileID: 1875541844567195532}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1878845313117821542
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,12 +137,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878845313117821542}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.55995363, y: -1.3877786e-17, z: 0.09124755}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.5599537, y: 0, z: 0.09124753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1880778900583061276}
+  m_Father: {fileID: 1875541844567195532}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1904971749902196202
@@ -271,12 +238,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878883352513876634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.000000021855698, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.49472046, y: 0.019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1880778900583061276}
+  m_Father: {fileID: 1875541844567195532}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1900850083818600066
@@ -336,12 +303,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878883352513876634}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a29d66fab829c409ea774cd0b3a3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
+  rb: {fileID: 0}
 --- !u!54 &2184497440184228560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -530,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875541844567195532}
   m_Layer: 0
-  m_Name: TestDoorMesh
+  m_Name: TestDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +516,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1880778900583061276}
+  - {fileID: 1880561748346916230}
+  - {fileID: 1875409358104074426}
   m_Father: {fileID: 1875308596730701278}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -653,6 +622,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockKeyPad
       objectReference: {fileID: 0}
+    - target: {fileID: 1858390639561141611, guid: b19a803060281884bbbf523c39b3ebf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602031536945639038, guid: b19a803060281884bbbf523c39b3ebf1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4602031536945639038, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: CorrectPassword.m_PersistentCalls.m_Calls.Array.size
@@ -687,6 +666,11 @@ PrefabInstance:
         type: 3}
       propertyPath: CorrectPassword.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085680935304962576, guid: b19a803060281884bbbf523c39b3ebf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7962412351009491737, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
@@ -731,27 +715,27 @@ PrefabInstance:
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2184497440184228560}
+      objectReference: {fileID: 1945213440096596529}
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_isKinematic
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Rigidbody, UnityEngine
+      value: TestDoor, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
       propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7977515221791428115, guid: b19a803060281884bbbf523c39b3ebf1,
         type: 3}
