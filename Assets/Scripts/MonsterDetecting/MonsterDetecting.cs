@@ -27,18 +27,15 @@ public class MonsterDetecting : MonoBehaviour
         {
             if (Physics.Linecast(transform.position, cam.transform.position, out var hit, obstacleMask)) // 이 오브젝트에서 카메라 방향으로, distToTarget 까지 RayCast 쏘기 
             {
-                Debug.Log("몬스터 감지불가");
                 if (mannequin.CurState != Mannequin_State.Dormant)
                     mannequin.MannequinBecameInvisible();
                 return;
             }
 
-            Debug.Log("몬스터 감지");
             if (mannequin.CurState != Mannequin_State.Dormant)
                 mannequin.MannequinBecameVisible();
         } else
         {
-            Debug.Log("몬스터 감지불가");
             if (mannequin.CurState != Mannequin_State.Dormant)
                 mannequin.MannequinBecameInvisible();
 
