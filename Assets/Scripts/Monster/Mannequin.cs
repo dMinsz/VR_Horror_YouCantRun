@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
 /// <summary>
@@ -14,12 +15,20 @@ public class Mannequin : BaseMonster
 
     private MonsterStateBase<Mannequin>[] states;
 
+    [SerializeField] private GameObject[] mannequinParts;
+
+    [SerializeField] private Quaternion[] mannequinPartsQuaternion;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float angle = 360f;
     [SerializeField] private float senseRange;
     [SerializeField] private float chaseRange;
     [SerializeField] private float attackRange;
     [SerializeField] LayerMask targetMask;
+
+    public GameObject[] MannequinParts { get { return  mannequinParts; } }
+
+    public Quaternion[] MannequinPartsQuaternion { get { return mannequinPartsQuaternion; } }
 
     public float MoveSpeed { get { return moveSpeed;  } }
     public float Angle { get { return angle; } }
@@ -28,14 +37,26 @@ public class Mannequin : BaseMonster
     public float AttackRange { get { return attackRange; } }
     public LayerMask TargetMask { get { return targetMask; } }
 
+    public Coroutine mannequinMoveCoroutine;
+    public Coroutine mannequinAnimationCoroutine;
+    public Coroutine mannequinStopCoroutine;
+
     public override void Awake()
     {
         base.Awake();
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = player.transform;
-
         StateInit();
+        PartsRotationInit();
+    }
+
+    private void PartsRotationInit()
+    {
+        mannequinPartsQuaternion = new Quaternion[mannequinParts.Length];
+
+        for (int i = 0; i < mannequinParts.Length; i++)
+        { 
+            mannequinPartsQuaternion[i] = mannequinParts[i].transform.rotation;
+        }
     }
 
     private void StateInit()
@@ -48,14 +69,14 @@ public class Mannequin : BaseMonster
         curState = Mannequin_State.Dormant;
         SetCurrentStateText();
     }
-    private void Start()
-    {
-    }
 
     private void Update()
     {
+        // 테스트용 State Text
         currentText.transform.parent.LookAt(playerPos);
-        states[(int)curState].Update();   
+
+        states[(int)curState].Update();
+        states[(int)curState].Transition();
     }
 
     private void LateUpdate()
@@ -85,36 +106,24 @@ public class Mannequin : BaseMonster
     public void MannequinBecameInvisible()
     {
         // Dormant or Chase
-        if (PlayerInSensetiveRange().Length > 0)
+        if (PlayerInColliderRange(ChaseRange).Length > 0)
         {
-            // Chase
-            ChangeState(Mannequin_State.Chase);
-
+            // Chase , 안에 있음
+            if(curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant) 
+                ChangeState(Mannequin_State.Chase);
         } else
         {
             // Dormant
             ChangeState(Mannequin_State.Dormant);
         }
-
     }
 
     /// <summary>
     /// 아래 함수와 사용되는 각종 Sensitive 관련 변수들 따로 스크립트로 분리할 것
     /// </summary>
-    /// 
-    public Collider[] PlayerInSensetiveRange()
+    public Collider[] PlayerInColliderRange(float range)
     {
-        return Physics.OverlapSphere(transform.position, SenseRange, TargetMask);
-    }
-
-    public Collider[] PlayerInChaseSensetiveRange()
-    {
-        return Physics.OverlapSphere(transform.position, ChaseRange, TargetMask);
-    }
-
-    public Collider[] PlayerInAttackRange()
-    {
-        return Physics.OverlapSphere(transform.position, AttackRange, TargetMask);
+        return Physics.OverlapSphere(transform.position, range, TargetMask);
     }
 
     private void OnDrawGizmosSelected()
@@ -122,26 +131,17 @@ public class Mannequin : BaseMonster
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, SenseRange);
 
-        Vector3 rightDir = AngleToDir(transform.eulerAngles.y + Angle * 0.5f); // 대상이 바라보고 있는 각도 + 앵글의 1/2
-        Vector3 leftDir = AngleToDir(transform.eulerAngles.y - Angle * 0.5f);  // 대상이 바라보고 있는 각도 - 앵글의 1/2
-        Debug.DrawRay(transform.position, rightDir * SenseRange, Color.green);
-        Debug.DrawRay(transform.position, leftDir * SenseRange, Color.green);
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, AttackRange);
-
-        Vector3 rightDir2 = AngleToDir(transform.eulerAngles.y + Angle * 0.5f); // 대상이 바라보고 있는 각도 + 앵글의 1/2
-        Vector3 leftDir2 = AngleToDir(transform.eulerAngles.y - Angle * 0.5f);  // 대상이 바라보고 있는 각도 - 앵글의 1/2
-        Debug.DrawRay(transform.position, rightDir2 * SenseRange, Color.red);
-        Debug.DrawRay(transform.position, leftDir2 * SenseRange, Color.red);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, ChaseRange);
 
-        Vector3 rightDir3 = AngleToDir(transform.eulerAngles.y + Angle * 0.5f); // 대상이 바라보고 있는 각도 + 앵글의 1/2
-        Vector3 leftDir3 = AngleToDir(transform.eulerAngles.y - Angle * 0.5f);  // 대상이 바라보고 있는 각도 - 앵글의 1/2
-        Debug.DrawRay(transform.position, rightDir3 * SenseRange, Color.yellow);
-        Debug.DrawRay(transform.position, leftDir3 * SenseRange, Color.yellow);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, SenseRange - 5);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, AttackRange + 3);
     }
 
     private Vector3 AngleToDir(float angle)

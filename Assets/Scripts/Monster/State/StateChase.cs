@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
+enum ManneqionPose { None,Chase, Surprise, Size }
 public class StateChase : MonsterStateBase<Mannequin>
 {
+    bool mannequinMove;
+    [SerializeField] ManneqionPose pose;
 
     public StateChase(Mannequin owner) : base(owner)
     {
@@ -12,10 +17,14 @@ public class StateChase : MonsterStateBase<Mannequin>
     public override void Enter()
     {
         owner.Agent.speed = owner.MoveSpeed;
+        mannequinMove = true;
+        owner.mannequinMoveCoroutine = owner.StartCoroutine(MannequinMove());
     }
 
     public override void Exit()
     {
+        pose = ManneqionPose.None;
+        mannequinMove = false;
     }
 
     public override void LateUpdate()
@@ -24,22 +33,63 @@ public class StateChase : MonsterStateBase<Mannequin>
 
     public override void Setup()
     {
+
     }
 
     public override void Transition()
     {
+        // 마네킹 머리 LookAt
+        owner.MannequinParts[0].transform.LookAt(owner.playerPos.position);
+
+        // 마네킹 Pose
+        if (owner.PlayerInColliderRange(owner.AttackRange + 3).Length > 0)
+        {
+            if (pose == ManneqionPose.Surprise)
+                return;
+            MannequinSurprisePose();
+        }
+        else if (owner.PlayerInColliderRange(owner.SenseRange - 5).Length > 0)
+        {
+            if (pose == ManneqionPose.Chase)
+                return;
+            MannequinChasePose();
+        }
+    }
+
+    public void MannequinChasePose()
+    {
+        Debug.Log("Chase Pose 함수");
+        pose = ManneqionPose.Chase;
+        owner.Animator.SetTrigger($"Chase_{Random.Range(1,6)}");
+    }
+
+    public void MannequinSurprisePose()
+    {
+        Debug.Log("Surprise Pose 함수");
+        pose = ManneqionPose.Surprise;
+        owner.Animator.SetTrigger("Surprise");
     }
 
     public override void Update()
     {
-        owner.Agent.destination = owner.PlayerPos.position;
-        if (Vector3.Distance(owner.PlayerPos.position, owner.transform.position) > owner.ChaseRange)        // 플레이어가 ChaseRange에서 벗어나면 Return(Patrol로 해도 될듯..)으로 상태 변경
+        if (owner.PlayerInColliderRange(owner.ChaseRange).Length <= 0)
         {
             owner.ChangeState(Mannequin_State.Dormant);
         }
-        else if (Vector3.Distance(owner.PlayerPos.position, owner.transform.position) < owner.AttackRange)  // 플레이어가 공격범위에 들어오면 Attack으로 상태 변경
+        else if (owner.PlayerInColliderRange(owner.AttackRange).Length > 0)  // 플레이어가 공격범위에 들어오면 Attack으로 상태 변경
         {
             owner.ChangeState(Mannequin_State.Attack);
         }
+    }
+
+    public IEnumerator MannequinMove()
+    {
+        while (mannequinMove)
+        {
+            yield return new WaitForEndOfFrame();
+            owner.Agent.destination = owner.playerPos.position;
+        }
+        yield return null;
+
     }
 }
