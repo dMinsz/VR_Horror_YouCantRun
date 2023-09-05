@@ -2,14 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class JumpScareBase : MonoBehaviour
+public class JumpScareBase : MonoBehaviour
 {
-    [SerializeField] GameObject eventStartZone;
-    [SerializeField] GameObject focusDirection;
-    [SerializeField] GameObject objectSpawnZone;
-    [SerializeField] float focusTime;
-    [SerializeField] float shakeCamPower;
+    [SerializeField] protected EventStartZone eventStartZone;
+    [SerializeField] protected FocusDirection focusDirection;
+    [SerializeField] protected Transform objectSpawnZone;
+    [SerializeField] protected GameObject regDollObejct;
+    [SerializeField] protected float focusTime;
+    [SerializeField] protected float shakeCamPower;
 
-    public abstract void SpawnObejct();
-    public abstract void ShakeCam();
+    public EventStartZone EventStartZone { get { return eventStartZone; } }
+    public FocusDirection FocusDirection { get {  return focusDirection; } }
+    public float ShakeCamPower { get {  return shakeCamPower; }  }
+    public float FocusTime { get { return focusTime; } }
+
+    public void SpawnObejct()
+    {
+        DisableFocusAndEventZoneDetecting();
+        GameObject spawnMonster = Instantiate<GameObject>(regDollObejct, objectSpawnZone.position ,Quaternion.identity);
+        if (spawnMonster != null)
+        {
+            Debug.Log("스폰완료");
+        } else
+        {
+            Debug.Log("스폰실패");
+        }
+
+    }
+
+    public void ShakeCam()
+    {
+
+    }
+
+    public void DisableFocusAndEventZoneDetecting()
+    {
+        eventStartZone.IsRunning = false;
+        focusDirection.IsRunning = false;
+    }
 }
