@@ -7,6 +7,9 @@ public class ElevatorController : MonoBehaviour
 {
     public bool fuseActive;     // 퓨즈 활성화 여부
     public bool leverActive;    // 레버 활성화 여부
+
+    public bool fuse21Active;   // 퓨즈 2-1 활성화 여부
+    public bool fuse22Active;   // 퓨즈 2-2 활성화 여부
         
     public bool open;
 
@@ -68,6 +71,20 @@ public class ElevatorController : MonoBehaviour
             EnableLever();
         else
             DisableLever();
+    }
+
+    public void DoubleFuseActive1(bool active)
+    {
+        fuse21Active = active;
+        if (fuse21Active && fuse22Active) fuseActive = true;
+        else fuseActive = false;
+    }
+
+    public void DoubleFuseActive2(bool active)
+    {
+        fuse22Active = active;
+        if (fuse21Active && fuse22Active) fuseActive = true;
+        else fuseActive = false;
     }
 
     public void OpenDoor()
