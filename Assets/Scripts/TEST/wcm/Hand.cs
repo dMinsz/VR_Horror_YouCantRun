@@ -12,23 +12,25 @@ public enum HandType
 
 public class Hand : MonoBehaviour
 {
-    //private float speed=1f;
+    public HandType handType;    
+    public float thumbMoveSpeed = 0.1f;
 
-    public HandType handType;
     private Animator anim;
     private InputDevice inputDevice;
 
-    private float gripValue;
-    private float triggerValue;
+    private float indexValue;
+    private float thumbValue;
+    private float threeFingersValue;
 
-    private float triggerCurrent;
-    private float gripCurrent;
+    //private float triggerCurrent;
+    //private float gripCurrent;
 
     void Start()
     {   
         anim = GetComponent<Animator>();
         inputDevice = GetInputDevice();
-    }   
+    }
+
     private void Update()
     {
         AnimateHand();
@@ -55,21 +57,26 @@ public class Hand : MonoBehaviour
 
     private void AnimateHand()  
     {
-        inputDevice.TryGetFeatureValue(CommonUsages.trigger, out triggerValue);
-        inputDevice.TryGetFeatureValue(CommonUsages.grip, out gripValue);
+        inputDevice.TryGetFeatureValue(CommonUsages.trigger, out indexValue);
+        inputDevice.TryGetFeatureValue(CommonUsages.grip, out threeFingersValue);
 
-        /*if (gripCurrent != gripValue)
+        inputDevice.TryGetFeatureValue(CommonUsages.primaryTouch, out bool primaryTouched);
+        inputDevice.TryGetFeatureValue(CommonUsages.secondaryTouch, out bool secondaryTouched);
+
+        if (primaryTouched || secondaryTouched)
         {
-            gripCurrent = Mathf.Lerp(gripCurrent, gripValue, speed);
-            anim.SetFloat("Grip", gripCurrent);
+            thumbValue += thumbMoveSpeed;
         }
-        if (triggerCurrent != triggerValue)
+        else
         {
-            triggerCurrent = Mathf.Lerp(triggerCurrent, triggerValue, speed);
-            anim.SetFloat("Trigger", triggerCurrent);
-        }*/
-        anim.SetFloat("Grip", gripValue);
-        anim.SetFloat("Trigger", triggerValue);
+            thumbValue -= thumbMoveSpeed;
+        }
+
+        thumbValue = Mathf.Clamp(thumbValue, 0, 1);
+
+        anim.SetFloat("Index", indexValue);
+        anim.SetFloat("ThreeFingers", threeFingersValue);
+        anim.SetFloat("Thumb", thumbValue);
     }
             
    /* public void SetGrip(float v)
