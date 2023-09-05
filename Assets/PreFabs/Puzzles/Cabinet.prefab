@@ -248,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4061351619599899791
 Transform:
   m_ObjectHideFlags: 0
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 2097652159576153764}
   - component: {fileID: 6482328578578339675}
   - component: {fileID: 4401838201090007169}
-  - component: {fileID: 2688597892315890766}
+  - component: {fileID: 1305055291911253494}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!138 &2688597892315890766
+--- !u!138 &1305055291911253494
 FixedJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

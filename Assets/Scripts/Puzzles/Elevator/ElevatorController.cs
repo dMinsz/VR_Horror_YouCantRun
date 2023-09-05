@@ -77,6 +77,10 @@ public class ElevatorController : MonoBehaviour
         {
             StartCoroutine(OpenElevatorRoutine());
         }
+        else
+        {
+            Debug.Log("Not Active");
+        }
     }
 
     // 코루틴에서 부드러운 움직임 x -> 수정 필요

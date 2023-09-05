@@ -16,7 +16,7 @@ public class TestDoor : MonoBehaviour
     private void Start()
     {
         isActivated = false;
-        rb.isKinematic = true; // ¿·±Ë
+        // rb.isKinematic = true; // ¿·±Ë
     }
 
     public void Test()

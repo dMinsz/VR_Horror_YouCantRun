@@ -137,13 +137,13 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_Button: {fileID: 6407890840569944304}
-  m_PressDistance: 0.03
-  m_PressBuffer: 0.01
-  m_ButtonOffset: 0.14
-  m_ButtonSize: 0.1
-  m_ToggleButton: 0
-  m_OnPress:
+  buttonTransform: {fileID: 6407890840569944304}
+  buttonPressDistance: 0.01
+  buttonPressBuffer: 0.01
+  buttonTransformOffset: 0.04
+  buttonTransformSize: 0.15
+  isToggleButton: 0
+  OnPressEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -158,10 +158,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_OnRelease:
+  OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_OnValueChange:
+  OnValueChangedEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &916033334
@@ -421,6 +421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Interaction Affordance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774509235512974894, guid: eb9104ef66b7305468adb3697fdeed5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: eb9104ef66b7305468adb3697fdeed5e,
         type: 3}
