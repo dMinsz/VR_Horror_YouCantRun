@@ -28,7 +28,7 @@ public class SecondsAndThirdFloor : BaseScene
         {
             //test
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            player = GameManager.Resource.Instantiate(playerPrefab, StartPos[0].position, StartPos[0].rotation);
+            player = GameManager.Pool.Get(true, playerPrefab, StartPos[0].position, StartPos[0].rotation);
         }
     }
 
@@ -40,19 +40,18 @@ public class SecondsAndThirdFloor : BaseScene
         {
 
             GameManager.Resource.Destroy(player);
+            GameManager.Pool.ResetDD(); // 임시방편
 
             playerPrefab= GameManager.Resource.Load<GameObject>("Player");
-            player = GameManager.Resource.Instantiate(playerPrefab, StartPos[1].position, StartPos[1].rotation);
+            player = GameManager.Pool.Get(true, playerPrefab, StartPos[1].position, StartPos[1].rotation);
 
-            //player.transform.position = StartPos[1].position;
-            //player.transform.rotation = StartPos[1].rotation;
 
             CanDestroyObject.SetActive(false);
         }
         else //third floor
         {
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            player = GameManager.Resource.Instantiate(playerPrefab, StartPos[0].position, StartPos[0].rotation);
+            player = GameManager.Pool.Get(true, playerPrefab, StartPos[0].position, StartPos[0].rotation);
         }
 
 

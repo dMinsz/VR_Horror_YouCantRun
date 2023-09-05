@@ -13,14 +13,14 @@ public class FirstFloorScene : BaseScene
         if (isDebug) 
         {
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            player= GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+            player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
         }
     }
 
     protected override IEnumerator LoadingRoutine()
     {
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-        player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+        player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
 
         progress = 1f;
         yield return null;
@@ -29,7 +29,7 @@ public class FirstFloorScene : BaseScene
 
     public override void Clear()
     {
-        GameManager.Resource.Destroy(player);
+        //GameManager.Resource.Destroy(player);
     }
 
 

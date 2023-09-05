@@ -566,7 +566,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  trackedNode: 5
   wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
@@ -2690,7 +2689,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  trackedNode: 4
   wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
