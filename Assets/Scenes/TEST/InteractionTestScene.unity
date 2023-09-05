@@ -493,95 +493,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &511375753
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2276260495295761231, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.083
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.805
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540516, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2914477342902540519, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_Name
-      value: Player_WheelChair_Fortest
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531407118459621000, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346188133767433933, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_UseForceGrab
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346188133767433933, guid: c7514243f4455e246b1d2f822d91d6a5,
-        type: 3}
-      propertyPath: m_MaxRaycastDistance
-      value: 0.1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c7514243f4455e246b1d2f822d91d6a5, type: 3}
 --- !u!1001 &513223707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3167,7 +3078,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1608069923 stripped
 Transform:
@@ -3382,8 +3293,14 @@ PrefabInstance:
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 3181628918355416625, guid: 9d6befd89cb2efa46a6a9f3a771eb75c,
+        type: 3}
     - target: {fileID: 9146015503685400394, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_UseForceGrab

@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 4928183692982831494}
   - component: {fileID: -4530552703047224158}
   m_Layer: 0
-  m_Name: BasicHand_02
+  m_Name: BasicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

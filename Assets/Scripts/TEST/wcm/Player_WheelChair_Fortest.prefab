@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngularVelocity: 25
   useCustomCenterOfMass: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0
 --- !u!1 &1356132343967999204
 GameObject:
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngularVelocity: 100
   useCustomCenterOfMass: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0
 --- !u!54 &1356132344028453341
 Rigidbody:
@@ -1658,6 +1660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngularVelocity: 100
   useCustomCenterOfMass: 1
+  centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 1
 --- !u!1 &1356132344662906358
 GameObject:
@@ -2152,6 +2155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngularVelocity: 25
   useCustomCenterOfMass: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0
 --- !u!1 &1356132345487189579
 GameObject:
@@ -2706,6 +2710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngularVelocity: 100
   useCustomCenterOfMass: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0
 --- !u!54 &1356132345964941222
 Rigidbody:
@@ -5237,7 +5242,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 5
+  m_MaxRaycastDistance: 0.1
   m_RayOriginTransform: {fileID: 3915842317008958013}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 12
@@ -5264,7 +5269,7 @@ MonoBehaviour:
   m_TimeToAutoDeselect: 1
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 1
-  m_UseForceGrab: 0
+  m_UseForceGrab: 1
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -5286,7 +5291,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4831329822696212371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
