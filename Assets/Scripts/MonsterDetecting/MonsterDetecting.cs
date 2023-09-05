@@ -15,6 +15,7 @@ public class MonsterDetecting : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
         mannequin = GetComponentInParent<Mannequin>();
         collider = GetComponentInParent<Collider>();
     }
