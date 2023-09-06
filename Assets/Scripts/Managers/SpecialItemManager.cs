@@ -17,9 +17,9 @@ public class SpecialItemManager : MonoBehaviour
         itemList = new string[maxSlots];
 
 
-        itemPrfabs.Add("Fuse1", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse1"));
-        itemPrfabs.Add("Fuse2", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse2"));
-        itemPrfabs.Add("Fuse3", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse3"));
+        itemPrfabs.Add("Fuse3F", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse3F"));
+        itemPrfabs.Add("Fuse2F_1", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse2F_1"));
+        itemPrfabs.Add("Fuse2F_3", GameManager.Resource.Load<GameObject>("SpecialItems/Fuse2F_2"));
 
         itemPrfabs.Add("KeyCard1", GameManager.Resource.Load<GameObject>("SpecialItems/KeyCard1"));
     }

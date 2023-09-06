@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static SecondsAndThirdFloor;
 
 public class UnderGroundToUp : MonoBehaviour
 {
@@ -13,6 +12,9 @@ public class UnderGroundToUp : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player") )
             {
+
+                GameManager.Gimmick.UnderTo1F = true;
+
                 GameManager.Scene.LoadScene("1F");
             }
    

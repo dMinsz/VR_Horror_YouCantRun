@@ -8,6 +8,9 @@ public class FirstFloorScene : BaseScene
     public Transform StartPos;
     GameObject playerPrefab;
     GameObject player;
+
+    public GameObject destroyedObjects;
+    public GameObject obstructions; // 다시 지하로 못가게 막는용
     protected override void Awake()
     {
         if (isDebug) 
@@ -20,10 +23,22 @@ public class FirstFloorScene : BaseScene
 
     protected override IEnumerator LoadingRoutine()
     {
+
+
+
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
         player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
         player.GetComponent<Player>().SetupItems();
+
+
+        if (GameManager.Gimmick.UnderTo1F)
+        {
+            destroyedObjects.SetActive(false);
+            obstructions.SetActive(true);
+        }
+
+
 
         progress = 1f;
         yield return null;
@@ -32,7 +47,7 @@ public class FirstFloorScene : BaseScene
 
     public override void Clear()
     {
-        //GameManager.Resource.Destroy(player);
+        GameManager.Resource.Destroy(player);
     }
 
 

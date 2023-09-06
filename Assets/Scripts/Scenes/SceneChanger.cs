@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static SecondsAndThirdFloor;
 
 public class SceneChanger : MonoBehaviour
 {
-    public GameObject CanDestroyObject;
-    public SecondsAndThirdFloor nowScene;
+    public enum floor
+    {
+        Under,
+        First,
+        Seconds,
+        Third,
+        None,
+    }
 
-    public bool isChange = false;
+    public floor nowFloor;
+
+
+    bool isChange = false;
 
 
 
@@ -16,19 +22,24 @@ public class SceneChanger : MonoBehaviour
     {
         if (!isChange)
         {
-            if (other.gameObject.CompareTag("Player") && nowScene.nowfloor == floor.Third)
+            if (other.gameObject.CompareTag("Player"))
             {
-                nowScene.nowfloor = floor.Seconds;
-
-                //GameManager.Resource.Destroy(nowScene.player);
-
-                nowScene.LoadAsync();
+                switch (nowFloor) 
+                {
+                    case floor.Under:
+                        GameManager.Scene.LoadScene("1F");
+                        break;
+                    case floor.First:
+                        break;
+                    case floor.Seconds:
+                        GameManager.Scene.LoadScene("1F");
+                        break;
+                    case floor.Third:
+                        GameManager.Scene.LoadScene("2F");
+                        break;
+                }
             }
-            else if (other.gameObject.CompareTag("Player") && nowScene.nowfloor == floor.Seconds) 
-            {
-                GameManager.Scene.LoadScene("1F");
-            }
-
+         
             isChange = true;
         }
     }

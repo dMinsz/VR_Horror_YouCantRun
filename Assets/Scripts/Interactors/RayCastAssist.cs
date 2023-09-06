@@ -17,6 +17,7 @@ public class RayCastAssist : MonoBehaviour
     {
         lineRenderer.enabled = true;
         lineVisual = this.gameObject.AddComponent<XRInteractorLineVisual>();
+        lineVisual.lineLength = 5f;
     }
 
     public void RendererOff() 

@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     private static SpecialItemManager specialItemManager;
     public static SpecialItemManager Items { get { return specialItemManager; } }
 
+    //gimmick Manager
+
+    private static GimmickManager gimmickManager;
+    public static GimmickManager Gimmick { get { return gimmickManager; } }
+
+
     private GameManager() { }
 
 
@@ -95,6 +101,11 @@ public class GameManager : MonoBehaviour
         invenObj.transform.parent = transform;
         specialItemManager = invenObj.AddComponent<SpecialItemManager>();
 
+
+        GameObject gmObj = new GameObject();
+        gmObj.name = "GimmickManager";
+        gmObj.transform.parent = transform;
+        gimmickManager = gmObj.AddComponent<GimmickManager>();
 
         poolManager.Init();
     }
