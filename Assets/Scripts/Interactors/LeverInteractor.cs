@@ -25,13 +25,13 @@ namespace ldw
 
         [SerializeField]
         [Tooltip("레버의 '켜진' 위치에서의 각도")]
-        [Range(0f, 180.0f)]
-        float m_MaxAngle = 180.0f;
+        [Range(-90.0f, 90.0f)]
+        float m_MaxAngle = 90.0f;
 
         [SerializeField]
         [Tooltip("레버의 '꺼진' 위치에서의 각도")]
-        [Range(0f, 180.0f)]
-        float m_MinAngle = 0.0f;
+        [Range(-90.0f, 90.0f)]
+        float m_MinAngle = -90.0f;
 
         [SerializeField]
         [Tooltip("레버가 활성화될 때 트리거할 이벤트들")]
@@ -123,7 +123,6 @@ namespace ldw
         void StartGrab(SelectEnterEventArgs args)
         {
             m_Interactor = args.interactorObject;
-            Debug.Log($"Interactor : {m_Interactor}");
         }
 
         // 선택이 해제될 때 호출, 레버를 놓았을 때 실행
@@ -132,7 +131,6 @@ namespace ldw
         {
             SetValue(m_Value, true);
             m_Interactor = null;
-            Debug.Log($"m_Value : {m_Value} Interactor : {m_Interactor}");
         }
 
         // Interaction 업데이트 단계 중 Dynamic 단계에서 호출
@@ -168,7 +166,7 @@ namespace ldw
             // 시선 방향 획득
             var lookDirection = GetLookDirection();
             // 시선 각도를 계산
-            var lookAngle = Mathf.Atan2(lookDirection.z, lookDirection.y) * Mathf.Rad2Deg;
+            var lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.z) * Mathf.Rad2Deg;
 
             // 최소 각도와 최대 각도사이에서 각도를 제한
             if (m_MinAngle < m_MaxAngle)
