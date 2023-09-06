@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class RayCastAssist : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] XRInteractorLineVisual lineVisual;
+
+    private void Awake()
     {
-        
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RendererOn() 
     {
-        
+        lineRenderer.enabled = true;
+        lineVisual = this.gameObject.AddComponent<XRInteractorLineVisual>();
     }
+
+    public void RendererOff() 
+    {
+        lineRenderer.enabled = false;
+
+        if (lineVisual != null)
+        {
+            Destroy(lineVisual);
+        }
+    }
+
+
 }
