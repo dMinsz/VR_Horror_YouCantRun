@@ -7285,7 +7285,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1245778118789407253}
   - {fileID: 5581313741368109548}
   - {fileID: 5850787329945795663}
   - {fileID: 6010856775262409803}
@@ -9005,21 +9004,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3571981887674123010}
   m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1245778118789407253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6809198348800458450}
-  m_LocalRotation: {x: 0.14410529, y: 0.91486996, z: -0.058683988, w: -0.37256244}
-  m_LocalPosition: {x: -4.902976, y: 2.1811051, z: 5.2362003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1245778119623262771
 Transform:
@@ -15751,7 +15735,7 @@ Transform:
   - {fileID: 3613861181567490464}
   - {fileID: 3732432253571806674}
   m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3407341483031558747
 Transform:
@@ -16099,7 +16083,7 @@ Transform:
   - {fileID: 4812055620845485184}
   - {fileID: 1067788168430308931}
   m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3585555917274247223
 MeshFilter:
@@ -22849,7 +22833,7 @@ Transform:
   - {fileID: 3832752243100901288}
   - {fileID: 5347464495293307214}
   m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5593671523388884158
 Transform:
@@ -23547,7 +23531,7 @@ Transform:
   - {fileID: 225783514045409918}
   - {fileID: 5503007574333069153}
   m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5853282121040347920
 Transform:
@@ -24289,7 +24273,7 @@ Transform:
   - {fileID: 3046389716938370486}
   - {fileID: 7166668219092288991}
   m_Father: {fileID: 543450653339716975}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6012485120438070372
 MeshRenderer:
@@ -26722,22 +26706,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1245778119623262771}
-  m_Layer: 0
-  m_Name: Cinema4D_Editor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &6809198348800458450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1245778118789407253}
   m_Layer: 0
   m_Name: Cinema4D_Editor
   m_TagString: Untagged

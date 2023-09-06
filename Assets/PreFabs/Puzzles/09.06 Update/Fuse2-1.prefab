@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1995906230352484317}
   - component: {fileID: 3373802085249666699}
   - component: {fileID: 3373802085249666698}
+  - component: {fileID: 5114778646474956962}
   m_Layer: 0
   m_Name: Fuse2-1
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshCollider:
   m_GameObject: {fileID: 3819508473685189499}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -236,6 +237,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   DisableSocketOnSocketed: 0
+--- !u!136 &5114778646474956962
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819508473685189499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.033
+  m_Height: 0.28
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6974120862290469635
 GameObject:
   m_ObjectHideFlags: 0

@@ -137,6 +137,7 @@ namespace ldw
         void StartHover(HoverEnterEventArgs args)
         {
             hoverInteractors.Add(args.interactorObject, new PressInfo { buttonInteractor = args.interactorObject });
+            Debug.Log("Hoverd");
         }
 
         void EndHover(HoverExitEventArgs args)
