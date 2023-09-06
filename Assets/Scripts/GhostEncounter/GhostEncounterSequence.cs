@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GhostEncounterSequence : MonoBehaviour
 {
@@ -57,10 +59,9 @@ public class GhostEncounterSequence : MonoBehaviour
         SetDoor(true);
     }
 
-    public void GhostEncounterJumpScare()
+    public void GhostSetJumpScarePose()
     {
-        Debug.Log("점프스케어");
-        SwitchLight(true);
+        owner.Ghost.JumpScarePose();
     }
 
     public IEnumerator EncounterCoroutine()
@@ -83,21 +84,36 @@ public class GhostEncounterSequence : MonoBehaviour
             {
                 //SwitchGhost(false);
                 SwitchLight(false);
-                yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
+                yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
                 //SwitchGhost(true);
                 SwitchLight(true);
-                yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
+                yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
             }
             yield return new WaitForSeconds(Random.Range(0.6f,1.2f));
         }
 
-        SwitchLight(false);
-        GhostEncounterJumpScare();
-        yield return new WaitForSeconds(2f);
-        GhostEncounterEnds();
+        owner.JumpScareCoroutine = StartCoroutine(JumpScareCoroutine());
         yield return null;
     }  
-    
+
+    public IEnumerator JumpScareCoroutine()
+    {
+        SwitchLight(false);
+        SwitchGhost(false);
+        yield return new WaitForSeconds(1f);
+        SwitchLight(true);
+        SwitchGhost(true);
+        SpawnGhost(true);
+        GhostSetJumpScarePose();
+        yield return new WaitForSeconds(2f);
+        SwitchLight(false);
+        SwitchGhost(false);
+        GhostEncounterEnds();
+        yield return new WaitForSeconds(0.1f);
+        SwitchLight(true);
+        yield return null;
+    }
+
     public void SwitchLight(bool state)
     {
         for (int i = 0; i < owner.BlinkingLights.Length; i++)
@@ -121,9 +137,20 @@ public class GhostEncounterSequence : MonoBehaviour
         owner.GhostObject.gameObject.SetActive(state);
     }
 
-    public void SpawnGhost()
+    public void SpawnGhost(bool isJumpScare = false)
     {
-        owner.GhostObject.transform.position = ghostSpawnZone[Random.Range(0, ghostSpawnZone.Length)].position;
+        Vector3 spawnTransform = new Vector3();
+        if (isJumpScare)
+        {
+            spawnTransform = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z) + new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z) * 1.7f;
+        } else
+        {
+            spawnTransform = ghostSpawnZone[Random.Range(0, ghostSpawnZone.Length)].position;
+        }
+
+        owner.GhostObject.transform.position = spawnTransform;
+
+
     }
 
     // true : 열기 , false : 닫기 
@@ -135,8 +162,10 @@ public class GhostEncounterSequence : MonoBehaviour
         }
         else
         {
-            // 문 닫고 열 수 없게
+            // 문 닫고
             owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            // 문 열수 없게
+
         }
     }
 }
