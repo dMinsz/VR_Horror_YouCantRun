@@ -87,7 +87,7 @@ public class ElevatorController : MonoBehaviour
         else fuseActive = false;
     }
 
-    public void OpenDoor()
+    public void OpenDoor()  
     {
         // 퓨즈와 레버가 모두 활성화 되어있으면 실행
         if (fuseActive && leverActive)
