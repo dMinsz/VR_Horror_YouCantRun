@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -13,10 +8,11 @@ public class Inventory : MonoBehaviour
     public Slot[] slots;
     
     //인벤토리의 크기
-    public const int numSlots = 4;
+    public int numSlots;
 
     private void Awake()
     {
+        numSlots = GameManager.Items.maxSlots;
         itemList = new string[numSlots];
         slots = GetComponentsInChildren<Slot>();
     }
@@ -44,10 +40,14 @@ public class Inventory : MonoBehaviour
     public void AddItem(int slotnum, string itemName)
     {
         itemList[slotnum] = itemName;
+
+        GameManager.Items.Add(slotnum, itemName);
     }
 
     public void RemoveItem(int slotnum)
     {
         itemList[slotnum] = null;
+
+        GameManager.Items.remove(slotnum);
     }
 }

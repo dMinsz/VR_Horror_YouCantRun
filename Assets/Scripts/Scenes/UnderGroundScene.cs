@@ -12,14 +12,16 @@ public class UnderGroundScene : BaseScene
         if (isDebug)
         {
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
+            //player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
+            player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
         }
     }
 
     protected override IEnumerator LoadingRoutine()
     {
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-        player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
+        //player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
+        player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
         progress = 1f;
         yield return null;

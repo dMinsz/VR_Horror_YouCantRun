@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -40,7 +37,7 @@ public class Slot : MonoBehaviour
         //아이템 추가 이벤트
         AddItemEvent?.Invoke(slotNum, itemName);
 
-        objName.transform.SetParent(this.transform);
+
 
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
@@ -50,7 +47,7 @@ public class Slot : MonoBehaviour
     {
         IXRSelectInteractable obj = socket.GetOldestInteractableSelected();
 
-        obj.transform.SetParent(null);
+        
         itemName = "";
         //삭제 이벤트발생
         RemoveItemEvent?.Invoke(slotNum);

@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     public static SoundManager Sound { get { return soundManager; } }
 
 
+    //Inventory
+
+    private static SpecialItemManager specialItemManager;
+    public static SpecialItemManager Items { get { return specialItemManager; } }
+
     private GameManager() { }
 
 
@@ -83,6 +88,13 @@ public class GameManager : MonoBehaviour
         soundObj.name = "SoundManager";
         soundObj.transform.parent = transform;
         soundManager = soundObj.AddComponent<SoundManager>();
+
+
+        GameObject invenObj = new GameObject();
+        invenObj.name = "SpecialItemManager";
+        invenObj.transform.parent = transform;
+        specialItemManager = invenObj.AddComponent<SpecialItemManager>();
+
 
         poolManager.Init();
     }
