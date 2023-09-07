@@ -22,6 +22,7 @@ public abstract class BaseMonster : MonoBehaviour
     public virtual void Awake()
     {
         monsterName = gameObject.name;
+        player = Camera.main.gameObject;
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
