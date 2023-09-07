@@ -92,7 +92,9 @@ public class ElevatorController : MonoBehaviour
         // 퓨즈와 레버가 모두 활성화 되어있으면 실행
         if (fuseActive && leverActive)
         {
-            StartCoroutine(OpenElevatorRoutine());
+            // StartCoroutine(OpenElevatorRoutine());
+            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.back, 1f);
+            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.forward, 1f);
         }
         else
         {

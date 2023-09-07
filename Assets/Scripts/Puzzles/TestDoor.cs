@@ -8,6 +8,8 @@ public class TestDoor : MonoBehaviour
 
     public Rigidbody rb;
 
+    public float openForce;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,8 +23,7 @@ public class TestDoor : MonoBehaviour
 
     public void Test()
     {
-        rb.isKinematic = false; // 잠금 해제
-        isActivated = true;
-        Debug.Log($"Door Open");
+        gameObject.SetActive(false);
+        // rb.AddForce(transform.forward * openForce, ForceMode.Impulse);
     }
 }
