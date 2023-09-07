@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  floor: 3
+  floor: 2
 --- !u!4 &146199739
 Transform:
   m_ObjectHideFlags: 0
