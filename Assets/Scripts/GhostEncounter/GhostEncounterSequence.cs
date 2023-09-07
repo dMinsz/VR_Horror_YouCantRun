@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class GhostEncounterSequence : MonoBehaviour
 {
-    [SerializeField] GhostEncounterBase owner;
+    [SerializeField] GhostEncounterAction owner;
     [SerializeField] Transform[] ghostSpawnZone;
     //[SerializeField] int ghostTotalShowCount;
     private Light[] lights;
@@ -16,7 +16,7 @@ public class GhostEncounterSequence : MonoBehaviour
     private void Awake()
     {
         isStarted = false;
-        owner = GetComponent<GhostEncounterBase>();
+        owner = GetComponent<GhostEncounterAction>();
         LightArrayInit();
     }
 
@@ -101,7 +101,7 @@ public class GhostEncounterSequence : MonoBehaviour
         SwitchLight(false);
         SwitchGhost(false);
         yield return new WaitForSeconds(1f);
-        SwitchLight(true);
+        //SwitchLight(true);
         SwitchGhost(true);
         SpawnGhost(true);
         GhostSetJumpScarePose();

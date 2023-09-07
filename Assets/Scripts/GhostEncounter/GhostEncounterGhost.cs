@@ -6,6 +6,7 @@ public class GhostEncounterGhost : MonoBehaviour
 {
     [SerializeField] GameObject[] ghostHead;
     [SerializeField] GameObject ghostChest;
+    [SerializeField] Light jumpScareLight;
 
     private void LateUpdate()
     {
@@ -15,6 +16,7 @@ public class GhostEncounterGhost : MonoBehaviour
 
     public void JumpScarePose()
     {
+        jumpScareLight.enabled = true;
         ghostChest.transform.localRotation = Quaternion.Euler(ghostChest.transform.rotation.x, -65f, ghostChest.transform.rotation.z);
     }
 

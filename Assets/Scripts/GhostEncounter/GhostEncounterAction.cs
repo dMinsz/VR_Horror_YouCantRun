@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostEncounterBase : MonoBehaviour
+public class GhostEncounterAction : MonoBehaviour
 {
     [SerializeField] private GhostEncounterSequence sequence;
-    [SerializeField] private GhostEncounterEventZone eventZone;
+    [SerializeField] private EventStartZone eventZone;
     [SerializeField] private GameObject ghostObject;
     private GhostEncounterGhost ghost;
     [SerializeField] private GameObject[] blinkingLights;
@@ -18,7 +18,7 @@ public class GhostEncounterBase : MonoBehaviour
     private Coroutine jumpScareCoroutine;
 
     public GhostEncounterSequence Sequence {  get { return sequence; } }
-    public GhostEncounterEventZone EventZone { get { return eventZone; } }
+    public EventStartZone EventZone { get { return eventZone; } }
     public GameObject GhostObject { get {  return ghostObject; } }
     public GhostEncounterGhost Ghost { get { return ghost; } set { ghost = value; } }
     public GameObject[] BlinkingLights { get { return blinkingLights; } }
@@ -34,7 +34,7 @@ public class GhostEncounterBase : MonoBehaviour
         isStarted = false;
         defaultEncounterTime = encounterTime;
         sequence = GetComponentInChildren<GhostEncounterSequence>();
-        eventZone = GetComponentInChildren<GhostEncounterEventZone>();
+        eventZone = GetComponentInChildren<EventStartZone>();
         ghost = ghostObject.GetComponent<GhostEncounterGhost>();
     }
 
