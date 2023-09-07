@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum HandType
 {
@@ -22,10 +23,7 @@ public class Hand : MonoBehaviour
     private float thumbValue;
     private float threeFingersValue;
 
-    //private float triggerCurrent;
-    //private float gripCurrent;
-
-    void Start()
+    private void Start()
     {   
         anim = GetComponent<Animator>();
         inputDevice = GetInputDevice();
@@ -78,25 +76,4 @@ public class Hand : MonoBehaviour
         anim.SetFloat("ThreeFingers", threeFingersValue);
         anim.SetFloat("Thumb", thumbValue);
     }
-            
-   /* public void SetGrip(float v)
-    {
-        gripTarget = v;
-    }
-    public void SetTrigger(float v)
-    {
-        triggerTarget = v;
-    }
-
-    private void GrabMotion()
-    {
-        isGrab = true;
-        anim.SetFloat("Grip", 1);
-    }
-    private void OnSelect()
-    {
-
-        Debug.Log(1);
-        GrabMotion();
-    }*/
 }
