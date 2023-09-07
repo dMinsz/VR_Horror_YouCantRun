@@ -520,7 +520,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6405168990773561994}
-  m_LocalRotation: {x: -0.000000059604645, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -633,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   rb: {fileID: 0}
+  openForce: 0
 --- !u!54 &6676564438923227678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.89, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 3.7124696, y: 0.909, z: 0.45999986}
   m_UseSpring: 0
   m_Spring:
     spring: 10

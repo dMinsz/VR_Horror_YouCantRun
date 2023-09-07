@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4303200594463914547}
   m_LocalRotation: {x: 0.000000029802322, y: 0.000000029802322, z: 0.9997376, w: 0.022909388}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -0.108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,8 +191,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09124165, y: 0.08427717, z: 0.24825324}
-  m_Center: {x: -0.0011588839, y: -0.003680922, z: -0.11142951}
+  m_Size: {x: 0.13782659, y: 0.08427717, z: 0.3474445}
+  m_Center: {x: -0.004096858, y: -0.003680922, z: -0.11449286}
 --- !u!114 &7574036106428413841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ElevatorController, Assembly-CSharp
         m_MethodName: SetFuseActive
         m_Mode: 6
         m_Arguments:
@@ -265,7 +265,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ElevatorController, Assembly-CSharp
         m_MethodName: SetFuseActive
         m_Mode: 6
         m_Arguments:
@@ -872,7 +872,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ElevatorController, Assembly-CSharp
         m_MethodName: SetLeverActive
         m_Mode: 6
         m_Arguments:
@@ -887,7 +887,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ElevatorController, Assembly-CSharp
         m_MethodName: SetLeverActive
         m_Mode: 6
         m_Arguments:
