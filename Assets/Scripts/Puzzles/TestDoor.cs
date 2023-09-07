@@ -1,29 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TestDoor : MonoBehaviour
 {
-    public bool isActivated;
-
-    public Rigidbody rb;
-
-    public float openForce;
+    private Rigidbody rb;
+    private HingeJoint joint;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        joint = GetComponent<HingeJoint>();
     }
 
     private void Start()
     {
-        isActivated = false;
-        // rb.isKinematic = true; // 잠김
+        rb.isKinematic = false;
+        StartCoroutine(StopAngle());
+    }
+
+    IEnumerator StopAngle()
+    {
+        while (true)
+        {
+            if (joint.angle == 120 || joint.angle == -120)
+            {
+                rb.isKinematic = true;
+
+                break;
+            }
+            yield return null;
+        }
     }
 
     public void Test()
     {
+        // 카드 키 상호작용
         gameObject.SetActive(false);
-        // rb.AddForce(transform.forward * openForce, ForceMode.Impulse);
     }
 }
