@@ -35,6 +35,6 @@ public class SecondFloorScene : BaseScene
     public override void Clear()
     {
 
-        GameManager.Resource.Destroy(playerPrefab);
+        GameManager.Resource.Destroy(player);
     }
 }

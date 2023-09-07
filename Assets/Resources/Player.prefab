@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea13b936aa2b645b4ffa0c06d1772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 100
+  power: 200
 --- !u!114 &2823687610153696266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2290b4a8c2c3a2468a2083428d2e768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngularVelocity: 100
+  maxAngularVelocity: 40
   useCustomCenterOfMass: 0
   centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0
@@ -2657,7 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea13b936aa2b645b4ffa0c06d1772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 100
+  power: 200
 --- !u!114 &2823687610297379445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,7 +2827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2290b4a8c2c3a2468a2083428d2e768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngularVelocity: 100
+  maxAngularVelocity: 40
   useCustomCenterOfMass: 0
   centerOfMass: {x: 0, y: 0, z: 0}
   visualizeCenterOfMass: 0

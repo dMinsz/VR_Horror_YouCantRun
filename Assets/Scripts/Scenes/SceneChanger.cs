@@ -27,6 +27,7 @@ public class SceneChanger : MonoBehaviour
                 switch (nowFloor) 
                 {
                     case floor.Under:
+                        GameManager.Gimmick.UnderTo1F = true;
                         GameManager.Scene.LoadScene("1F");
                         break;
                     case floor.First:

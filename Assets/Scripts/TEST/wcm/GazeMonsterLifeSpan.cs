@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class GazeMonsterLifeSpan : MonoBehaviour
 {
     private float lifeTime;
-    private bool isWatched = false;
+    //private bool isWatched = false;
 
     public UnityEvent OnDeaded;
 
