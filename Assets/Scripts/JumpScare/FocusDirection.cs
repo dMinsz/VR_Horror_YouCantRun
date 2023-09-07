@@ -7,7 +7,7 @@ public class FocusDirection : MonoBehaviour
     [SerializeField] JumpScareBase owner;
     [SerializeField] LayerMask obstacleMask;
     Camera cam;
-    Collider collider;
+    Collider col;
     Plane[] cameraFrustum;
     float nowFocusTime;
 
@@ -20,7 +20,7 @@ public class FocusDirection : MonoBehaviour
         cam = Camera.main;
         isRunning = false;
         owner = GetComponentInParent<JumpScareBase>();
-        collider = GetComponentInParent<Collider>();
+        col = GetComponentInParent<Collider>();
     }
 
     public void PlayerIn()
@@ -43,7 +43,7 @@ public class FocusDirection : MonoBehaviour
             return;
 
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (GeometryUtility.TestPlanesAABB(cameraFrustum, collider.bounds))
+        if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
         {
             //if (Physics.Linecast(transform.position, cam.transform.position, out var hit, obstacleMask)) // 이 오브젝트에서 카메라 방향으로, distToTarget 까지 RayCast 쏘기 
             if (Physics.Linecast(transform.position, cam.transform.position, out var hit, obstacleMask)) // 이 오브젝트에서 카메라 방향으로, distToTarget 까지 RayCast 쏘기 

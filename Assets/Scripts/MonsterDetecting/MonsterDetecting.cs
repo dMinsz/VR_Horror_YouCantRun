@@ -10,23 +10,23 @@ public class MonsterDetecting : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] float plusY;
-    Collider collider;
+    Collider coll;
     Plane[] cameraFrustum;
 
     private void Awake()
     {
         cam = Camera.main;
         mannequin = GetComponentInParent<Mannequin>();
-        collider = GetComponentInParent<Collider>();
+        coll = GetComponentInParent<Collider>();
     }
 
     void LateUpdate()
     {
-        // Ä«¸Þ¶ó ½Ã¾ß ³»¿¡ ³ªÀÇ Collider°¡ °¨ÁöµÈ´Ù¸é
+        // Ä«ï¿½Þ¶ï¿½ ï¿½Ã¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Colliderï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´Ù¸ï¿½
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (GeometryUtility.TestPlanesAABB(cameraFrustum, collider.bounds))
+        if (GeometryUtility.TestPlanesAABB(cameraFrustum, GetComponent<Collider>().bounds))
         {
-            if (Physics.Linecast(transform.position, cam.transform.position, out var hit, obstacleMask)) // ÀÌ ¿ÀºêÁ§Æ®¿¡¼­ Ä«¸Þ¶ó ¹æÇâÀ¸·Î, distToTarget ±îÁö RayCast ½î±â 
+            if (Physics.Linecast(transform.position, cam.transform.position, out var hit, obstacleMask)) // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, distToTarget ï¿½ï¿½ï¿½ï¿½ RayCast ï¿½ï¿½ï¿½ 
             {
                 if (mannequin.CurState != Mannequin_State.Dormant)
                     mannequin.MannequinBecameInvisible();
