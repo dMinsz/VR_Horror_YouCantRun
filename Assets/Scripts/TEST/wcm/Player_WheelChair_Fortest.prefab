@@ -566,7 +566,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  trackedNode: 5
   wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
@@ -2690,7 +2689,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  trackedNode: 4
   wheelStopTorque: 15
   hapticsEnabled: 1
   deselectionThreshold: 0.25
@@ -3875,7 +3873,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 5123146464133033967, guid: 1f0e5e9d99a399848bfe5ec1af0ec948,
+  m_ModelPrefab: {fileID: 4285720830117197204, guid: 9d6befd89cb2efa46a6a9f3a771eb75c,
     type: 3}
   m_ModelParent: {fileID: 4586119219034595643}
   m_Model: {fileID: 0}
@@ -4443,7 +4441,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 2473149446564484995, guid: 733d962a288f3fb4ba4a90e7ec6d22ce,
+  m_ModelPrefab: {fileID: 3212077446131299942, guid: 733d962a288f3fb4ba4a90e7ec6d22ce,
     type: 3}
   m_ModelParent: {fileID: 4586119219697410522}
   m_Model: {fileID: 0}

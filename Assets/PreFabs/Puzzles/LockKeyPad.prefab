@@ -1230,7 +1230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858390639561141611}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.9433916, y: 1.0835955, z: 0.49999997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2970,7 +2970,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   DestroyedOnTriggered: 0
-  activateColor: {fileID: 0}
 --- !u!1 &8986991050071170394
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,8 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class WheelInteractable : XRGrabInteractable
 {
 
-    [Tooltip("Choose Left Hand Or Right Hand")]
-    public XRNode trackedNode;
+    //[Tooltip("Choose Left Hand Or Right Hand")]
+    //public XRNode trackedNode;
 
 
     public float wheelStopTorque = 25f;
@@ -29,6 +29,46 @@ public class WheelInteractable : XRGrabInteractable
 
     WheelMoveAssist assist;
 
+
+    #region Make Attactch Point
+
+    //protected override void Awake()
+    //{
+    //    base.Awake();
+    //    CreateAttachTransform();
+    //}
+    //protected override void OnSelectEntering(SelectEnterEventArgs args)
+    //{
+    //    base.OnSelectEntering(args);
+    //    MatchAttachPoint(args.interactorObject);
+    //}
+
+    //protected void MatchAttachPoint(IXRInteractor interactor)
+    //{
+    //    if (IsFirstSelecting(interactor))
+    //    {
+    //        bool isDirect = interactor is XRDirectInteractor;
+    //        attachTransform.position = isDirect ? interactor.GetAttachTransform(this).position : transform.position;
+    //        attachTransform.rotation = isDirect ? interactor.GetAttachTransform(this).rotation : transform.rotation;
+    //    }
+    //}
+
+    //private bool IsFirstSelecting(IXRInteractor interactor)
+    //{
+    //    return interactor == firstInteractorSelecting;
+    //}
+
+    //private void CreateAttachTransform()
+    //{
+    //    if (attachTransform == null)
+    //    {
+    //        GameObject createdAttachTransform = new GameObject();
+    //        createdAttachTransform.transform.parent = this.transform;
+    //        attachTransform = createdAttachTransform.transform;
+    //    }
+    //}
+
+    #endregion
 
     private void Start()
     {
@@ -108,7 +148,7 @@ public class WheelInteractable : XRGrabInteractable
 
                     SpawnGrabPoint(interactor);
                 }
-                
+
                 yield return new WaitForFixedUpdate();
             }
         }

@@ -7,6 +7,9 @@ public class ElevatorController : MonoBehaviour
 {
     public bool fuseActive;     // 퓨즈 활성화 여부
     public bool leverActive;    // 레버 활성화 여부
+
+    public bool fuse21Active;   // 퓨즈 2-1 활성화 여부
+    public bool fuse22Active;   // 퓨즈 2-2 활성화 여부
         
     public bool open;
 
@@ -70,12 +73,30 @@ public class ElevatorController : MonoBehaviour
             DisableLever();
     }
 
-    public void OpenDoor()
+    public void DoubleFuseActive1(bool active)
+    {
+        fuse21Active = active;
+        if (fuse21Active && fuse22Active) fuseActive = true;
+        else fuseActive = false;
+    }
+
+    public void DoubleFuseActive2(bool active)
+    {
+        fuse22Active = active;
+        if (fuse21Active && fuse22Active) fuseActive = true;
+        else fuseActive = false;
+    }
+
+    public void OpenDoor()  
     {
         // 퓨즈와 레버가 모두 활성화 되어있으면 실행
         if (fuseActive && leverActive)
         {
             StartCoroutine(OpenElevatorRoutine());
+        }
+        else
+        {
+            Debug.Log("Not Active");
         }
     }
 
@@ -84,14 +105,14 @@ public class ElevatorController : MonoBehaviour
     {
         Debug.Log("OpenDoor");
         open = true;
-        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.back, 1f);
-        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.forward, 1f);
+        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left, 1f);
+        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right, 1f);
 
         yield return new WaitForSeconds(5f);
 
         Debug.Log("CloseDoor");
-        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.forward, 1f);
-        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.back, 1f);
+        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.right, 1f);
+        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.left, 1f);
         open = false;
 
         yield return null;

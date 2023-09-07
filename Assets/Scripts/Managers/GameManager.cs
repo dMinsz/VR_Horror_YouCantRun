@@ -29,6 +29,17 @@ public class GameManager : MonoBehaviour
     public static SoundManager Sound { get { return soundManager; } }
 
 
+    //Inventory
+
+    private static SpecialItemManager specialItemManager;
+    public static SpecialItemManager Items { get { return specialItemManager; } }
+
+    //gimmick Manager
+
+    private static GimmickManager gimmickManager;
+    public static GimmickManager Gimmick { get { return gimmickManager; } }
+
+
     private GameManager() { }
 
 
@@ -83,6 +94,18 @@ public class GameManager : MonoBehaviour
         soundObj.name = "SoundManager";
         soundObj.transform.parent = transform;
         soundManager = soundObj.AddComponent<SoundManager>();
+
+
+        GameObject invenObj = new GameObject();
+        invenObj.name = "SpecialItemManager";
+        invenObj.transform.parent = transform;
+        specialItemManager = invenObj.AddComponent<SpecialItemManager>();
+
+
+        GameObject gmObj = new GameObject();
+        gmObj.name = "GimmickManager";
+        gmObj.transform.parent = transform;
+        gimmickManager = gmObj.AddComponent<GimmickManager>();
 
         poolManager.Init();
     }
