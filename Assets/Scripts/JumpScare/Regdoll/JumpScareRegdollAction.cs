@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpScareBase : MonoBehaviour
+public class JumpScareRegdollAction : MonoBehaviour
 {
     [SerializeField] protected EventStartZone eventStartZone;
-    [SerializeField] protected FocusDirection focusDirection;
+    [SerializeField] protected JumpScareEventStartCondition focusDirection;
     [SerializeField] protected Transform objectSpawnZone;
     [SerializeField] protected GameObject regDollObejct;
     [SerializeField] protected float focusTime;
     [SerializeField] protected float shakeCamPower;
 
     public EventStartZone EventStartZone { get { return eventStartZone; } }
-    public FocusDirection FocusDirection { get {  return focusDirection; } }
+    public JumpScareEventStartCondition FocusDirection { get {  return focusDirection; } }
     public float ShakeCamPower { get {  return shakeCamPower; }  }
     public float FocusTime { get { return focusTime; } }
 

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FocusDirection : MonoBehaviour
+public class JumpScareEventStartCondition : MonoBehaviour
 {
-    [SerializeField] JumpScareBase owner;
+    [SerializeField] JumpScareRegdollAction owner;
     [SerializeField] LayerMask obstacleMask;
     Camera cam;
     Collider col;
@@ -19,7 +19,7 @@ public class FocusDirection : MonoBehaviour
     {
         cam = Camera.main;
         isRunning = false;
-        owner = GetComponentInParent<JumpScareBase>();
+        owner = GetComponentInParent<JumpScareRegdollAction>();
         col = GetComponentInParent<Collider>();
     }
 
