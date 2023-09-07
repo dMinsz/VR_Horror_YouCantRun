@@ -6,10 +6,13 @@ public class TestDoor : MonoBehaviour
     private Rigidbody rb;
     private HingeJoint joint;
 
+    private Collider coll;
+    public float MaxAngle = 120f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         joint = GetComponent<HingeJoint>();
+        coll = GetComponent<Collider>();
     }
 
     private void Start()
@@ -22,8 +25,9 @@ public class TestDoor : MonoBehaviour
     {
         while (true)
         {
-            if (joint.angle == 120 || joint.angle == -120)
+            if (joint.angle >= MaxAngle || joint.angle <= -MaxAngle)
             {
+                coll.enabled = false;
                 rb.isKinematic = true;
 
                 break;
