@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class MiniDrawer : MonoBehaviour
 {
-    Animation ani;
+    public string openAniamtionName;
+    public string closeAniamtionName;
+
+    private Animation ani;
+
     public Collider coll;
+    public bool isOpen;
+
     private void Awake()
     {
         ani = GetComponent<Animation>();
     }
 
-
-    public void OpenAnimPlay() 
+    private void Start()
     {
-        coll.enabled = false;
-        ani.Play();
+        isOpen = false;
+    }
 
+    public void DrawerAnimPlay() 
+    {
+        if(!isOpen)
+        {
+            coll.enabled = false;
+            ani.Play(openAniamtionName);
+            isOpen = true;
+        }
+        else
+        {
+            ani.Play(closeAniamtionName);
+            coll.enabled = true;
+            isOpen = false;
+        }
     }
 }
