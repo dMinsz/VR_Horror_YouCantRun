@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+//using UnityEngine.EventSystems;
 
 
 public class UIManager : MonoBehaviour
 {
-    private EventSystem eventSystem;
+    //private EventSystem eventSystem;
 
     public Canvas mainCanvas;
 
@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         //Make Event System for UI to Start Time
-        eventSystem = GameManager.Resource.Instantiate<EventSystem>("UI/EventSystem");
-        eventSystem.transform.parent = transform;
+        //eventSystem = GameManager.Resource.Instantiate<EventSystem>("UI/EventSystem");
+        //eventSystem.transform.parent = transform;
 
         mainCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");
         mainCanvas.gameObject.name = "MainCanvas";
