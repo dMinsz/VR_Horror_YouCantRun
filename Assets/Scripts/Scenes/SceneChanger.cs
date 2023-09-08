@@ -8,6 +8,7 @@ public class SceneChanger : MonoBehaviour
         First,
         Seconds,
         Third,
+        End,
         None,
     }
 
@@ -37,6 +38,9 @@ public class SceneChanger : MonoBehaviour
                         break;
                     case floor.Third:
                         GameManager.Scene.LoadScene("2F");
+                        break;
+                    case floor.End:
+                        GameManager.Scene.LoadScene("StartScene");
                         break;
                 }
             }
