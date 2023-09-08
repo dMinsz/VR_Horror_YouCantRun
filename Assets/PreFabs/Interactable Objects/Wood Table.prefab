@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320741266705396755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.337791, y: 8.234217, z: -8.190884}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 1652436698246468670}
   - component: {fileID: 7056008536129958125}
   - component: {fileID: 8938591071028053021}
-  - component: {fileID: 3839195648341501174}
+  - component: {fileID: 8679648097852279208}
   m_Layer: 0
   m_Name: Closet1
   m_TagString: Untagged
@@ -489,7 +489,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3839195648341501174
+--- !u!114 &8679648097852279208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1370198779971010619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699d0e011b0f4a84f964788817993588, type: 3}
+  m_Script: {fileID: 11500000, guid: fe75daedb4318324a88ba550f81657a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 4008105141752725450}
   - component: {fileID: 5577506335029315860}
   - component: {fileID: 4435980987035845984}
-  - component: {fileID: 431025741126403938}
+  - component: {fileID: 8058842738955185207}
   m_Layer: 0
   m_Name: Closet2
   m_TagString: Untagged
@@ -901,7 +901,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &431025741126403938
+--- !u!114 &8058842738955185207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2540663804947543153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699d0e011b0f4a84f964788817993588, type: 3}
+  m_Script: {fileID: 11500000, guid: fe75daedb4318324a88ba550f81657a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 5290184859794614168}
   - component: {fileID: 7169191478493808279}
   - component: {fileID: 8615019441553031687}
-  - component: {fileID: 4150842982723595561}
+  - component: {fileID: 8973977136828587618}
   m_Layer: 0
   m_Name: Closet3
   m_TagString: Untagged
@@ -1234,7 +1234,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4150842982723595561
+--- !u!114 &8973977136828587618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7016274263381922267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699d0e011b0f4a84f964788817993588, type: 3}
+  m_Script: {fileID: 11500000, guid: fe75daedb4318324a88ba550f81657a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
