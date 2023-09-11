@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlledAudio: {fileID: 0}
+  stateChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &4415347454654849495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -569,7 +572,6 @@ GameObject:
   - component: {fileID: 4415347454652955062}
   - component: {fileID: 4415347454645195408}
   - component: {fileID: 4415347454657138546}
-  - component: {fileID: 4415347454507632022}
   m_Layer: 0
   m_Name: Knob - Station Tuner
   m_TagString: Untagged
@@ -668,108 +670,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02306695, y: 0.025722636, z: 0.0058206203}
   m_Center: {x: -0.0000003125378, y: 0.001327305, z: -0.000000014901161}
---- !u!114 &4415347454507632022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415347454654883700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 1
-  m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_FocusMode: 1
-  m_CustomReticle: {fileID: 0}
-  m_AllowGazeInteraction: 0
-  m_AllowGazeSelect: 0
-  m_OverrideGazeTimeToSelect: 0
-  m_GazeTimeToSelect: 0.5
-  m_OverrideTimeToAutoDeselectGaze: 0
-  m_TimeToAutoDeselectGaze: 3
-  m_AllowGazeAssistance: 0
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstFocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastFocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_StartingInteractionStrengthFilters: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4415347454654883702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,8 +945,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4415347454654883708}
-  m_LocalRotation: {x: -0, y: -0.9999622, z: -0, w: 0.008696605}
-  m_LocalPosition: {x: 0.7817, y: 0.51, z: -1.376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1058,7 +958,7 @@ Transform:
   - {fileID: 4415347454655249218}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 540.997, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4415347454658854546
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1167,19 +1067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6855a169da5bcf4ca1d69924f16545b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeRotationSpeed: 25
-  tunerRotationSpeed: 25
-  radioStations:
-  - minFrequency: -200
-    maxFrequency: 200
-    clip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
-  - minFrequency: -200
-    maxFrequency: 200
-    clip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
-  - minFrequency: -200
-    maxFrequency: 200
-    clip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
   whiteNoise: {fileID: 8300000, guid: 258ec0352c1e835408b182b35f359e47, type: 3}
+  guideNoise: {fileID: 8300000, guid: 39f47a5988aabfd418d4815b69cca7a8, type: 3}
 --- !u!1 &4415347454654883710
 GameObject:
   m_ObjectHideFlags: 0

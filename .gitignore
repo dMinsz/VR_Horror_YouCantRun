@@ -73,3 +73,4 @@ crashlytics-build.properties
 
 # Import Data Ignore
 /[Aa]ssets/[Ii]mports
+/Assets/PreFabs
