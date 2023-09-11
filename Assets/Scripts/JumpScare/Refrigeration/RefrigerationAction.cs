@@ -45,7 +45,7 @@ public class RefrigerationAction : MonoBehaviour
             Rigidbody doorRb = doors[index].GetComponent<Rigidbody>();
             doorRb.AddForce((Vector3.forward * -1) * 500f);
             //doors[index].transform.localRotation = Quaternion.Euler(0, 0, Random.Range(-100,-120));
-            yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             //tables[index].transform.Translate(new Vector3(0, -1f, 0) * 5 * Time.deltaTime);
             tableMoveCoroutine = StartCoroutine(MoveTable(tables[index],new Vector3(0,Random.Range(-0.5f,-1.2f),0)));
             doors.Remove(doors[index]);
