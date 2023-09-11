@@ -29,7 +29,7 @@ public class StateAttack : MonsterStateBase<Mannequin>
 
     public override void Setup()
     {
-        audioClip = Resources.Load<AudioClip>("Sounds/JumpScare_1");
+        audioClip = GameManager.Resource.Load<AudioClip>("Sounds/JumpScare_1");
     }
 
     public override void Transition()
@@ -45,6 +45,6 @@ public class StateAttack : MonsterStateBase<Mannequin>
     IEnumerator RegenMonster()
     {
         yield return new WaitForSeconds(audioClip.length);
-        owner.gameObject.SetActive(false);
+        owner.MonsterDestroyAndRespawn();
     }
 }

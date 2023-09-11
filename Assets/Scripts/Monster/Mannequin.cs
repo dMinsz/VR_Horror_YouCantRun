@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
 /// <summary>
@@ -99,7 +100,8 @@ public class Mannequin : BaseMonster
 
     public void MannequinBecameVisible()
     {
-        ChangeState(Mannequin_State.Stop);
+        if(curState != Mannequin_State.Attack)
+            ChangeState(Mannequin_State.Stop);
     }
 
     public void MannequinBecameInvisible()
@@ -115,15 +117,21 @@ public class Mannequin : BaseMonster
             // Chase , 안에 있음
             if (curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant)
                 ChangeState(Mannequin_State.Chase);
-
             return;
         } else 
         {
             // Dormant
             ChangeState(Mannequin_State.Dormant);
-
             return;
         }
+    }
+
+    public void MonsterDestroyAndRespawn()
+    {
+        //리스폰 부분
+        GameManager.Monster.SpawnMonster("Monster/Monster_Mannequin");
+        //현재 몬스터는 삭제
+        Destroy(this.gameObject);
     }
 
     /// <summary>
