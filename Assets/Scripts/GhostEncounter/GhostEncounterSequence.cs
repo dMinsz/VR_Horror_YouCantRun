@@ -68,6 +68,7 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         while (isStarted)
         {
+            PlayLampSwitchingSound();
             SwitchGhost(false);
             SwitchLight(false);
             // 몬스터 안보이게
@@ -83,6 +84,7 @@ public class GhostEncounterSequence : MonoBehaviour
             for(int i = 0; i < Random.Range(1,6); i++)
             {
                 //SwitchGhost(false);
+                PlayLampSwitchingSound();
                 SwitchLight(false);
                 yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
                 //SwitchGhost(true);
@@ -98,6 +100,7 @@ public class GhostEncounterSequence : MonoBehaviour
 
     public IEnumerator JumpScareCoroutine()
     {
+        PlayLampSwitchingSound();
         SwitchLight(false);
         SwitchGhost(false);
         yield return new WaitForSeconds(1f);
@@ -110,6 +113,7 @@ public class GhostEncounterSequence : MonoBehaviour
         SwitchGhost(false);
         GhostEncounterEnds();
         yield return new WaitForSeconds(0.1f);
+        PlayLampSwitchingSound();
         SwitchLight(true);
         yield return null;
     }
@@ -153,6 +157,11 @@ public class GhostEncounterSequence : MonoBehaviour
 
     }
 
+    public void PlayLampSwitchingSound()
+    {
+        GameManager.Sound.PlaySound($"Lamp_{Random.Range(1,8)}",Audio.SFX,transform.position);
+    }
+
     // true : 열기 , false : 닫기 
     public void SetDoor(bool state)
     {
@@ -160,7 +169,7 @@ public class GhostEncounterSequence : MonoBehaviour
         {
             // 문 열 수 있게
         }
-        else
+        else 
         {
             // 문 닫고
             owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);

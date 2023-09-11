@@ -17,10 +17,14 @@ public class JumpScareEventStartCondition : MonoBehaviour
 
     private void Awake()
     {
-        cam = Camera.main;
         isRunning = false;
         owner = GetComponentInParent<JumpScareRegdollAction>();
         col = GetComponentInParent<Collider>();
+    }
+
+    private void Start()
+    {
+        cam = Camera.main;
     }
 
     public void PlayerIn()

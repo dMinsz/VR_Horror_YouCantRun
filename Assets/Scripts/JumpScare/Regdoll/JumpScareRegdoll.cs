@@ -5,7 +5,6 @@ using UnityEngine;
 public class JumpScareRegdoll : MonoBehaviour
 {
     Coroutine destroyCoroutine;
-
     private void Start()
     {
         //SetBones(true);
@@ -43,5 +42,6 @@ public class JumpScareRegdoll : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
 
 }
