@@ -6,6 +6,7 @@ public class FirstFloorScene : BaseScene
 {
     public bool isDebug = true;
     public Transform StartPos;
+    public Transform[] MovePoints;
     GameObject playerPrefab;
     GameObject player;
 
@@ -15,9 +16,16 @@ public class FirstFloorScene : BaseScene
     {
         if (isDebug) 
         {
-            playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            //player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
+            //playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+            destroyedObjects.SetActive(false);
+            obstructions.SetActive(true);
+
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+            player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
         }
     }
 
@@ -26,17 +34,29 @@ public class FirstFloorScene : BaseScene
 
 
 
-        playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-        player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
-
-        player.GetComponent<Player>().SetupItems();
-
 
         if (GameManager.Gimmick.UnderTo1F)
         {
             destroyedObjects.SetActive(false);
             obstructions.SetActive(true);
+
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
+            player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+            player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
+
+
         }
+        else 
+        {
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+
+        }
+
 
 
 
