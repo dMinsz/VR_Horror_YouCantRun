@@ -11,7 +11,7 @@ public abstract class BaseMonster : MonoBehaviour
     protected NavMeshAgent agent;
     // 테스트용 SerializeField
     [SerializeField] protected GameObject player;
-    [SerializeField] protected TMP_Text currentText;
+    //[SerializeField] protected TMP_Text currentText;
 
     public Animator Animator { get { return animator; } }
     public NavMeshAgent Agent { get { return agent; } }
