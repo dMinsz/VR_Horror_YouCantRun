@@ -1,32 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EventStartZone : MonoBehaviour
 {
-    [SerializeField] JumpScareBase owner;
     private bool isRunning;
     public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
 
-    private void Awake()
+    public UnityEvent OnTriggerd;
+    public UnityEvent OnTriggerExited;
+
+    public void Awake()
     {
-        owner = GetComponentInParent<JumpScareBase>();
+        //Debug.Log("EventStartZone Awake");
         isRunning = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    protected void OnTriggerStay(Collider other)
     {
+       // Debug.Log("Player in?");
         if (!isRunning)
             return;
-        if(other.gameObject.CompareTag("Player"))
-         owner.FocusDirection.PlayerIn();
+        //Debug.Log("Player in!");
+        if (other.gameObject.CompareTag("Player"))
+            OnTriggerd?.Invoke();
     }
 
-    private void OnTriggerExit(Collider other)
+    protected void OnTriggerExit(Collider other)
     {
         if (!isRunning)
             return;
+
         if (other.gameObject.CompareTag("Player"))
-            owner.FocusDirection.PlayerOut();
+            OnTriggerExited?.Invoke();
     }
 }

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RefrigerationDoor
+  - RefrigerationTable
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
+  - Monster
   - 
   - 
   - 

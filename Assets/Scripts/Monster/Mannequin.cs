@@ -38,6 +38,7 @@ public class Mannequin : BaseMonster
     public LayerMask TargetMask { get { return targetMask; } }
 
     public Coroutine mannequinMoveCoroutine;
+    public Coroutine mannequinSoundPlayCoroutine;
     public Coroutine mannequinAnimationCoroutine;
     public Coroutine mannequinStopCoroutine;
 

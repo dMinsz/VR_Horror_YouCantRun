@@ -19,6 +19,7 @@ public class StateChase : MonsterStateBase<Mannequin>
         owner.Agent.speed = owner.MoveSpeed;
         mannequinMove = true;
         owner.mannequinMoveCoroutine = owner.StartCoroutine(MannequinMove());
+        owner.mannequinSoundPlayCoroutine = owner.StartCoroutine(PlayMoveSound());
     }
 
     public override void Exit()
@@ -91,5 +92,16 @@ public class StateChase : MonsterStateBase<Mannequin>
         }
         yield return null;
 
+    }
+
+    public IEnumerator PlayMoveSound()
+    {
+
+        while (mannequinMove)
+        {
+            yield return new WaitForSeconds(Random.Range(0.3f,0.6f));
+            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(1, 8)}", Audio.SFX, owner.transform.position, 0.7f, 0.9f);
+            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(7, 15)}", Audio.SFX, owner.transform.position, 0.2f, 0.9f);
+        }
     }
 }
