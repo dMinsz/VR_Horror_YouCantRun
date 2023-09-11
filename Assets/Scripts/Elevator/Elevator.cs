@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] TMP_Text floorText; // 보여지는 층 수
+    [SerializeField] public TMP_Text floorText; // 보여지는 층 수
 
     public float shakeDuration = 0.5f;   // 진동 시간
     public float shakeMagnitude = 0.2f;  // 진동 세기
 
     [SerializeField]
-    private Transform cameraTransform;   // Interaction Setup -> Camera Offset Transform 직렬화
+    //private Transform cameraTransform;   // Interaction Setup -> Camera Offset Transform 직렬화
     private Vector3 originPos;
 
     public GameObject leftDoor;
@@ -20,7 +20,7 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {
-        originPos = cameraTransform.localPosition;
+        //originPos = cameraTransform.localPosition;
 
         StartElevatorMovement(curFloor); // Test
     }
@@ -30,31 +30,31 @@ public class Elevator : MonoBehaviour
     {
         floorText.text = $"{curFloor}";
 
-        StartCoroutine(ShakeCoroutine(curFloor));
+        //StartCoroutine(ShakeCoroutine(curFloor));
     }
 
-    IEnumerator ShakeCoroutine(int curFloor)
-    {
-        float elapsed = 0f;
+    //IEnumerator ShakeCoroutine(int curFloor)
+    //{
+    //    float elapsed = 0f;
 
-        while (elapsed < shakeDuration)
-        {
-            Vector3 shakeOffset = Random.insideUnitSphere * shakeMagnitude;
-            cameraTransform.localPosition = originPos + shakeOffset;
+    //    while (elapsed < shakeDuration)
+    //    {
+    //        Vector3 shakeOffset = Random.insideUnitSphere * shakeMagnitude;
+    //        cameraTransform.localPosition = originPos + shakeOffset;
 
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
+    //        elapsed += Time.deltaTime;
+    //        yield return null;
+    //    }
 
-        cameraTransform.localPosition = originPos;
-        ChangeFloorText(curFloor);
+    //    cameraTransform.localPosition = originPos;
+    //    ChangeFloorText(curFloor);
 
-        // 1초 뒤 문 열림
-        yield return new WaitForSeconds(1f);
+    //    // 1초 뒤 문 열림
+    //    yield return new WaitForSeconds(1f);
 
-        leftDoor.SetActive(false);
-        rightDoor.SetActive(false);
-    }
+    //    leftDoor.SetActive(false);
+    //    rightDoor.SetActive(false);
+    //}
 
     private void ChangeFloorText(int floor)
     {
@@ -74,4 +74,5 @@ public class Elevator : MonoBehaviour
         }
         
     }
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnderGroundScene : BaseScene
 {
     public bool isDebug = true;
+
     public Transform StartPos;
     GameObject player;
     GameObject playerPrefab;
@@ -19,6 +20,7 @@ public class UnderGroundScene : BaseScene
 
     protected override IEnumerator LoadingRoutine()
     {
+
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
         //player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
         player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
