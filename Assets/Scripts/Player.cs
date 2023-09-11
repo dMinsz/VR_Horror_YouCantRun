@@ -31,4 +31,9 @@ public class Player : MonoBehaviour
     {
         phisics.SetActive(true);
     }
+
+    public void MakeDonMove() 
+    {
+        phisics.SetActive(false);
+    }
 }

@@ -41,6 +41,9 @@ public class SceneChanger : MonoBehaviour
             {
                 isChange = true;
 
+                other.gameObject.transform.root.GetComponent<NavMeshAgent>().enabled = true;
+                other.gameObject.transform.root.GetComponent<Player>().MakeDonMove();
+
                 mainRoutine = StartCoroutine(SceneChange(other));
 
             }
@@ -54,10 +57,7 @@ public class SceneChanger : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                //isChange = true;
-
-                //coll.enabled = false;
-
+                //other.gameObject.transform.root.GetComponent<NavMeshAgent>().enabled = false;
                 mainRoutine = StartCoroutine(CloseDoor());
 
             }
@@ -85,6 +85,9 @@ public class SceneChanger : MonoBehaviour
 
                 if (!evCon.open)
                 {
+
+                    other.gameObject.transform.root.GetComponent<Player>().MakeMoveable();
+
                     yield return new WaitForSeconds(1f); // EV Move Wait
 
                     switch (nowFloor)
@@ -178,7 +181,7 @@ public class SceneChanger : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         canChange = true;
-        //coll.enabled = true;
+        
     }
 
 
