@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class RefrigerationAction : MonoBehaviour
 {
@@ -26,7 +25,7 @@ public class RefrigerationAction : MonoBehaviour
         if (isStarted)
             return;
         isStarted = true;
-        int encounter = Random.Range(25, 36);
+        int encounter = Random.Range(15, 25);
         jumpScareCoroutine = StartCoroutine(JumpScareFrige(encounter));
 
     }
@@ -44,8 +43,9 @@ public class RefrigerationAction : MonoBehaviour
             index = Random.Range(0, doors.Count);
             Rigidbody doorRb = doors[index].GetComponent<Rigidbody>();
             doorRb.AddForce((Vector3.forward * -1) * 500f);
+            GameManager.Sound.PlaySound($"Metal_Door_Open_{Random.Range(1,4)}", Audio.SFX, doors[index].transform.position,1.5f);
             //doors[index].transform.localRotation = Quaternion.Euler(0, 0, Random.Range(-100,-120));
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
             //tables[index].transform.Translate(new Vector3(0, -1f, 0) * 5 * Time.deltaTime);
             tableMoveCoroutine = StartCoroutine(MoveTable(tables[index],new Vector3(0,Random.Range(-0.5f,-1.2f),0)));
             doors.Remove(doors[index]);
@@ -57,10 +57,9 @@ public class RefrigerationAction : MonoBehaviour
 
     public IEnumerator MoveTable(GameObject tableObj,Vector3 pos)
     {
-        Debug.Log($"tableObj.Y {tableObj.transform.localPosition.y} pos.Y {pos.y}");
+        GameManager.Sound.PlaySound($"Metal_Table_Slide_{Random.Range(1, 4)}", Audio.SFX, tableObj.transform.position, 1.5f);
         while (tableObj.transform.localPosition.y > pos.y) {
             yield return new WaitForEndOfFrame();
-            Debug.Log("무브테이블");
             tableObj.transform.Translate(new Vector3(0f, -0.05f, 0f) * 100f * Time.deltaTime);
         }
     }
