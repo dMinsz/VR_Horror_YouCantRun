@@ -176,8 +176,10 @@ public class GhostEncounterSequence : MonoBehaviour
         else 
         {
             // 문 닫고
-            owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
             // 문 열수 없게
+
+
 
         }
     }
