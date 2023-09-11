@@ -8,21 +8,19 @@ public class MonsterManager : MonoBehaviour
 
     public void InitSpawnArray()
     {
-        GameObject[] spawnPointObjects = GameObject.FindObjectsOfType<GameObject>();
+        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("MonsterSpawnPoint");
+        Debug.Log($"스폰포인트 수 {spawnPointObjects.Length}");
         spawnPoints = new Vector3[spawnPointObjects.Length];
-        foreach(GameObject spawnPointObject in spawnPointObjects)
+        for(int i = 0; i < spawnPointObjects.Length; i++)
         {
-            if (spawnPointObject != null)
-            {
-                spawnPoints[spawnPointObject.GetInstanceID()] = spawnPointObject.transform.position;
-            }
+            spawnPoints[i] = spawnPointObjects[i].transform.position;
         }
     }
 
     public void SpawnMonster(string path)
     {
         InitSpawnArray();
-        GameObject monster = GameManager.Resource.Load<GameObject>(path);
-        GameManager.Instantiate(monster, spawnPoints[Random.Range(0,spawnPoints.Length+1)],Quaternion.identity);
+        GameObject monster = GameManager.Resource.Load<GameObject>(path);        
+        GameManager.Instantiate(monster, spawnPoints[Random.Range(0,spawnPoints.Length)],Quaternion.identity);
     }
 }
