@@ -895,11 +895,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorText: {fileID: 8485299404698144653}
-  shakeDuration: 10
+  shakeDuration: 3
   shakeMagnitude: 0.01
   cameraTransform: {fileID: 0}
   leftDoor: {fileID: 551057131026313243}
   rightDoor: {fileID: 7038881354752781504}
+  curFloor: 3
 --- !u!1 &8485299404446218467
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] TMP_Text floorText;
+    [SerializeField] TMP_Text floorText; // 보여지는 층 수
 
-    public float shakeDuration = 0.5f;
-    public float shakeMagnitude = 0.2f;
+    public float shakeDuration = 0.5f;   // 진동 시간
+    public float shakeMagnitude = 0.2f;  // 진동 세기
 
     [SerializeField]
-    private Transform cameraTransform;
+    private Transform cameraTransform;   // Interaction Setup -> Camera Offset Transform 직렬화
     private Vector3 originPos;
 
     public GameObject leftDoor;
     public GameObject rightDoor;
 
+    public int curFloor;    // 현재 층
+
     private void Start()
     {
         originPos = cameraTransform.localPosition;
 
-        StartElevatorMovement();
+        StartElevatorMovement(curFloor); // Test
     }
 
-    public void StartElevatorMovement()
+    // 현재 층에 맞는 코루틴 실행
+    public void StartElevatorMovement(int curFloor)
     {
-        StartCoroutine(ShakeCoroutine());
+        floorText.text = $"{curFloor}";
+
+        StartCoroutine(ShakeCoroutine(curFloor));
     }
 
-    IEnumerator ShakeCoroutine()
+    IEnumerator ShakeCoroutine(int curFloor)
     {
         float elapsed = 0f;
 
@@ -42,16 +47,31 @@ public class Elevator : MonoBehaviour
         }
 
         cameraTransform.localPosition = originPos;
-        ChangeFloorText(2);
+        ChangeFloorText(curFloor);
 
+        // 1초 뒤 문 열림
         yield return new WaitForSeconds(1f);
 
         leftDoor.SetActive(false);
         rightDoor.SetActive(false);
     }
 
-    public void ChangeFloorText(int floor)
+    private void ChangeFloorText(int floor)
     {
-        floorText.text = $"{floor}";
+        switch (floor)
+        {
+            case -1:     // 지하에서 탔을 때. -1 -> 1
+                floorText.text = "1";
+                break;
+            case 1:     // 1층에서 탔을 때 (타지 않음)
+                break;
+            case 2:     // 2층에서 탔을 때. 2 -> 1
+                floorText.text = "1";
+                break;
+            case 3:     // 3층에서 탔을 때. 3 -> 2
+                floorText.text = "2";
+                break;
+        }
+        
     }
 }
