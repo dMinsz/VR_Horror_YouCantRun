@@ -13,16 +13,16 @@ public class EventStartZone : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Log("EventStartZone Awake");
+        //Debug.Log("EventStartZone Awake");
         isRunning = true;
     }
 
     protected void OnTriggerStay(Collider other)
     {
-        Debug.Log("Player in?");
+       // Debug.Log("Player in?");
         if (!isRunning)
             return;
-        Debug.Log("Player in!");
+        //Debug.Log("Player in!");
         if (other.gameObject.CompareTag("Player"))
             OnTriggerd?.Invoke();
     }
