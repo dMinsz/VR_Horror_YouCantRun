@@ -46,6 +46,6 @@ public class DrainWater : MonoBehaviour
         }
 
         // 목표 크기로 최종 설정
-        transform.localScale = targetScale;
+        //transform.localScale = targetScale;
     }
 }

@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb977b126bc1b4f15813dcf9da9bb600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Mesh: {fileID: 0}
   m_Points:
   - {x: -0.019988399, y: 0.00000019324943, z: -0.017194496}
   - {x: -0.25441015, y: 0.00000037066638, z: 0.14952835}
@@ -2177,6 +2178,7 @@ MonoBehaviour:
   - {x: -0.7985164, y: 0, z: -0.60197306, w: -1}
   - {x: -0.7985164, y: 0, z: -0.60197306, w: -1}
   m_Colors: []
+  <userCollisions>k__BackingField: 0
   m_UnwrapParameters:
     m_HardAngle: 88
     m_PackMargin: 20
@@ -2190,6 +2192,10 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+  m_SelectedCacheDirty: 1
+  m_SelectedSharedVerticesCount: 0
+  m_SelectedCoincidentVertexCount: 0
+  m_SelectedCoincidentVertices: 
 --- !u!4 &1106922484
 Transform:
   m_ObjectHideFlags: 0
