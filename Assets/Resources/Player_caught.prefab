@@ -1801,7 +1801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4658627577981291257
 Transform:
   m_ObjectHideFlags: 0
@@ -6923,6 +6923,7 @@ MonoBehaviour:
   originPlayer: {fileID: 5422401980217798143}
   goals:
   - {fileID: 0}
+  phisics: {fileID: 4658627577981291014}
 --- !u!114 &7566251454751203307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6940,7 +6941,10 @@ MonoBehaviour:
   - {fileID: 7719382739908417936}
   - {fileID: 1290452968710520320}
   - {fileID: 5596311701979940134}
-  phisics: {fileID: 0}
+  phisics:
+  - {fileID: 4658627578480569250}
+  - {fileID: 4658627579278769629}
+  rigidbodies: []
 --- !u!1 &8728820121515828125
 GameObject:
   m_ObjectHideFlags: 0
@@ -7182,7 +7186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachs: []
-  phisics: {fileID: 4658627577981291014}
+  phisics:
+  - {fileID: 0}
+  rigidbodies: []
 --- !u!1 &8826580939667130002
 GameObject:
   m_ObjectHideFlags: 0

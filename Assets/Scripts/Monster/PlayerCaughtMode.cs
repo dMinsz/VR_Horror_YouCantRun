@@ -13,6 +13,8 @@ public class PlayerCaughtMode : MonoBehaviour
     private int destPoint = 0;
     Coroutine mainRoutine;
 
+    public GameObject phisics;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -22,6 +24,9 @@ public class PlayerCaughtMode : MonoBehaviour
 
     private void Start()
     {
+
+        phisics.SetActive(false);
+
         mainRoutine = StartCoroutine(Move());
     }
 
@@ -59,8 +64,8 @@ public class PlayerCaughtMode : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-
-        originPlayer.OnPhisics();
+        phisics.SetActive(true);
+        
         originPlayer.transform.SetParent(null);
 
         this.gameObject.SetActive(false);
