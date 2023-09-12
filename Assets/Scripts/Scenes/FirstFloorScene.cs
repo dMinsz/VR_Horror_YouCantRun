@@ -23,6 +23,8 @@ public class FirstFloorScene : BaseScene
 
             //Caught Test
 
+            GameManager.Gimmick.UnderTo1F = true;
+
             destroyedObjects.SetActive(false);
             obstructions.SetActive(true);
 
