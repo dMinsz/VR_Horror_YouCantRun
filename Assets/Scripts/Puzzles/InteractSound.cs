@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ldw
 {
-    public class RandomSound : MonoBehaviour
+    public class InteractSound : MonoBehaviour
     {
         public AudioSource audioSource;
 
@@ -17,14 +17,15 @@ namespace ldw
             audioSource = GetComponent<AudioSource>();
         }
 
-        // 이벤트로 실행시킬 함수
+        // 랜덤 이벤트로 실행시킬 함수
         public void PlayRandomSound()
         {
             int rand = Random.Range(0, sounds.Length);
             PlaySE(sounds[rand]);
         }
 
-        private void PlaySE(AudioClip _clip)
+        // 재생하는 함수
+        public void PlaySE(AudioClip _clip)
         {
             audioSource.clip = _clip;
             audioSource.Play();
