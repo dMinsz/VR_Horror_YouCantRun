@@ -26,14 +26,19 @@ public abstract class BaseMonster : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    public void Init()
+    {
+        player = Camera.main.gameObject;
+    }
+
     private void Start()
     {
-        StartCoroutine(FindPlayerCoroutine());
+        //StartCoroutine(FindPlayerCoroutine());
     }
 
     IEnumerator FindPlayerCoroutine()
     {
-        yield return new WaitUntil(() => { return Camera.main.gameObject; });
+        yield return new WaitUntil(() => { return Camera.main.gameObject != null; });
 
         player = Camera.main.gameObject;
 
