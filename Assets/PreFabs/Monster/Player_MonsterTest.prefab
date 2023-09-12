@@ -1061,6 +1061,7 @@ MonoBehaviour:
   - {fileID: 912476185619568711}
   - {fileID: 8530268292731437015}
   - {fileID: 3036290527201723633}
+  phisics: {fileID: 0}
 --- !u!1 &2823687609097002869
 GameObject:
   m_ObjectHideFlags: 0
