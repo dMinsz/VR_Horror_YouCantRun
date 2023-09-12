@@ -6,7 +6,7 @@ public class JumpScareRegdollEventZone : EventStartZone
 {
     [SerializeField] JumpScareRegdollAction owner;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         owner = GetComponentInParent<JumpScareRegdollAction>();
