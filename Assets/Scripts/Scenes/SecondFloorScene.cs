@@ -11,7 +11,8 @@ public class SecondFloorScene : BaseScene
 
     public Transform StartPos;
 
-
+    public SceneChanger sceneChanger;
+   
     protected override void Awake()
     {
         if (isDebug)
@@ -26,6 +27,8 @@ public class SecondFloorScene : BaseScene
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
         player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
+        sceneChanger.OpenDoor();
+        //StartCoroutine(sceneChanger.OpenDoor());
 
         progress = 1f;
         yield return null;

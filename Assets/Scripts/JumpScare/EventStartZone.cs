@@ -11,7 +11,7 @@ public class EventStartZone : MonoBehaviour
     public UnityEvent OnTriggerd;
     public UnityEvent OnTriggerExited;
 
-    public void Awake()
+    protected virtual void Awake()
     {
         //Debug.Log("EventStartZone Awake");
         isRunning = true;

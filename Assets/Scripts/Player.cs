@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] List<GameObject> attachs = new List<GameObject>();
     private List<Vector3> invetoryAttachs = new List<Vector3>();
 
-
+    public GameObject phisics;
     public void SetupItems()
     {
         for (int i = 0; i < GameManager.Items.itemList.Length; i++)
@@ -25,5 +25,15 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    public void MakeMoveable() 
+    {
+        phisics.SetActive(true);
+    }
+
+    public void MakeDonMove() 
+    {
+        phisics.SetActive(false);
     }
 }
