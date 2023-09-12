@@ -60,7 +60,7 @@ public class PlayerCaughtMode : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        originPlayer.MakeMoveable();
+        originPlayer.OnPhisics();
         originPlayer.transform.SetParent(null);
 
         this.gameObject.SetActive(false);
