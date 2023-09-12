@@ -21,14 +21,17 @@ public class MonsterDetecting : MonoBehaviour
 
     private void Start()
     {
-        cam = Camera.main;
+        StartCoroutine(FindMainCamera());
     }
 
     void LateUpdate()
     {
         // ī�޶� �þ� ���� ���� Collider�� �����ȴٸ�
         if (cam == null)
-            cam = Camera.main;
+        {
+            Debug.Log("cam is Null");
+            return;
+        }
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
 
         if (GeometryUtility.TestPlanesAABB(cameraFrustum, GetComponent<Collider>().bounds))
@@ -46,7 +49,17 @@ public class MonsterDetecting : MonoBehaviour
         {
             if (mannequin.CurState != Mannequin_State.Dormant)
                 mannequin.MannequinBecameInvisible();
-
         }
-    }    
+    }   
+
+    IEnumerator FindMainCamera()
+    {
+        yield return new WaitUntil(() => { return Camera.main != null; });
+
+        cam = Camera.main;
+        Debug.Log($"{gameObject.name}: MainCam ã��");
+
+        yield break;
+    }
+
 }
