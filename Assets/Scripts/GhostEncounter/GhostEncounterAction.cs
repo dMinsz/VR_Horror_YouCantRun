@@ -41,7 +41,7 @@ public class GhostEncounterAction : MonoBehaviour
 
     private void Start()
     {
-        AddFlashLightToBlinkingLights();
+        StartCoroutine(FindPlayerCoroutine());
     }
 
     public void StartSequence()
@@ -67,5 +67,14 @@ public class GhostEncounterAction : MonoBehaviour
         List<GameObject> gameObjects = blinkingLights.ToList<GameObject>();
         gameObjects.Add(Camera.main.gameObject);
         blinkingLights = gameObjects.ToArray();
+    }
+
+    IEnumerator FindPlayerCoroutine()
+    {
+        yield return new WaitUntil(() => { return Camera.main.gameObject; });
+
+        AddFlashLightToBlinkingLights();
+
+        yield return null;
     }
 }

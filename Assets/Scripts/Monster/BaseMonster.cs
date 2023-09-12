@@ -28,8 +28,16 @@ public abstract class BaseMonster : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(FindPlayerCoroutine());
+    }
+
+    IEnumerator FindPlayerCoroutine()
+    {
+        yield return new WaitUntil(() => { return Camera.main.gameObject; });
+
         player = Camera.main.gameObject;
 
+        yield return null;
     }
 }
 
