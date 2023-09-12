@@ -5,9 +5,12 @@ using UnityEngine;
 public class FirstFloorScene : BaseScene
 {
     public bool isDebug = true;
+    public SceneChanger sceneChanger;
     public Transform StartPos;
+    public Transform[] MovePoints;
     GameObject playerPrefab;
     GameObject player;
+
 
     public GameObject destroyedObjects;
     public GameObject obstructions; // 다시 지하로 못가게 막는용
@@ -15,28 +18,55 @@ public class FirstFloorScene : BaseScene
     {
         if (isDebug) 
         {
+            //playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            //Caught Test
+
+            //destroyedObjects.SetActive(false);
+            //obstructions.SetActive(true);
+
+            //playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
+            //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            //player.GetComponent<Player>().SetupItems();
+            //player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
+
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-            //player = GameManager.Pool.Get(true, playerPrefab, StartPos.position, StartPos.rotation);
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+            sceneChanger.OpenDoor();
         }
     }
 
     protected override IEnumerator LoadingRoutine()
     {
 
-
-
-        playerPrefab = GameManager.Resource.Load<GameObject>("Player");
-        player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
-
-        player.GetComponent<Player>().SetupItems();
-
+        sceneChanger.OpenDoor();
 
         if (GameManager.Gimmick.UnderTo1F)
         {
             destroyedObjects.SetActive(false);
             obstructions.SetActive(true);
+
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
+            player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+            player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
+
+
         }
+        else 
+        {
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            player.GetComponent<Player>().SetupItems();
+
+        }
+
 
 
 

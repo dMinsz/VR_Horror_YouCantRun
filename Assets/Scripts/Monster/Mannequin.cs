@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
 /// <summary>
@@ -15,10 +16,9 @@ public class Mannequin : BaseMonster
 
     private MonsterStateBase<Mannequin>[] states;
 
+    [SerializeField] Light horrorLight;
     [SerializeField] private GameObject[] mannequinParts;
-
     [SerializeField] private Quaternion[] mannequinPartsQuaternion;
-
     [SerializeField] private float moveSpeed;
     [SerializeField] private float angle = 360f;
     [SerializeField] private float senseRange;
@@ -26,10 +26,9 @@ public class Mannequin : BaseMonster
     [SerializeField] private float attackRange;
     [SerializeField] LayerMask targetMask;
 
+    public Light HorrorLight { get { return horrorLight; } }
     public GameObject[] MannequinParts { get { return  mannequinParts; } }
-
     public Quaternion[] MannequinPartsQuaternion { get { return mannequinPartsQuaternion; } }
-
     public float MoveSpeed { get { return moveSpeed;  } }
     public float Angle { get { return angle; } }
     public float SenseRange { get { return senseRange; } }
@@ -38,6 +37,7 @@ public class Mannequin : BaseMonster
     public LayerMask TargetMask { get { return targetMask; } }
 
     public Coroutine mannequinMoveCoroutine;
+    public Coroutine mannequinSoundPlayCoroutine;
     public Coroutine mannequinAnimationCoroutine;
     public Coroutine mannequinStopCoroutine;
 
@@ -67,13 +67,13 @@ public class Mannequin : BaseMonster
         states[(int)Mannequin_State.Stop] = new StateStop(this);
         states[(int)Mannequin_State.Attack] = new StateAttack(this);
         curState = Mannequin_State.Dormant;
-        SetCurrentStateText();
+        //SetCurrentStateText();
     }
 
     private void Update()
     {
         // 테스트용 State Text
-        currentText.transform.parent.LookAt(playerPos);
+        //currentText.transform.parent.LookAt(playerPos);
 
         states[(int)curState].Update();
         states[(int)curState].Transition();
@@ -88,34 +88,50 @@ public class Mannequin : BaseMonster
     {
         states[(int)curState].Exit();
         curState = state;
-        SetCurrentStateText();
+        //SetCurrentStateText();
         states[(int)curState].Setup();
         states[(int)curState].Enter();
     }
 
     public void SetCurrentStateText()
     {
-        currentText.text = curState.ToString();
+        //currentText.text = curState.ToString();
     }
 
     public void MannequinBecameVisible()
     {
-        ChangeState(Mannequin_State.Stop);
+        if(curState != Mannequin_State.Attack)
+            ChangeState(Mannequin_State.Stop);
     }
 
     public void MannequinBecameInvisible()
     {
         // Dormant or Chase
-        if (PlayerInColliderRange(ChaseRange).Length > 0)
+        if (PlayerInColliderRange(AttackRange).Length > 0)
+        {
+            if(curState != Mannequin_State.Attack)
+                ChangeState(Mannequin_State.Attack);
+            return;
+        } else if (PlayerInColliderRange(ChaseRange).Length > 0)
         {
             // Chase , 안에 있음
-            if(curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant) 
+            if (curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant)
                 ChangeState(Mannequin_State.Chase);
-        } else
+            return;
+        } else 
         {
             // Dormant
             ChangeState(Mannequin_State.Dormant);
+            return;
         }
+    }
+
+    public void MonsterDestroyAndRespawn()
+    {
+        //리스폰 부분
+        GameManager.Monster.SpawnMonster("Monster/Monster_Mannequin");
+        //현재 몬스터는 삭제
+        Destroy(this.gameObject);
     }
 
     /// <summary>

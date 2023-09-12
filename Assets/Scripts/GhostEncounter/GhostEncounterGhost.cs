@@ -6,6 +6,7 @@ public class GhostEncounterGhost : MonoBehaviour
 {
     [SerializeField] GameObject[] ghostHead;
     [SerializeField] GameObject ghostChest;
+    [SerializeField] Light jumpScareLight;
 
     private void LateUpdate()
     {
@@ -13,8 +14,15 @@ public class GhostEncounterGhost : MonoBehaviour
         GhostHeadLookAtPlayer();
     }
 
+    public void OnEnable()
+    {
+        //GameManager.Sound.PlaySound();
+    }
+
     public void JumpScarePose()
     {
+        GameManager.Sound.PlaySound("JumpScare_1",Audio.UISFX,new Vector3(),0.3f);
+        jumpScareLight.enabled = true;
         ghostChest.transform.localRotation = Quaternion.Euler(ghostChest.transform.rotation.x, -65f, ghostChest.transform.rotation.z);
     }
 

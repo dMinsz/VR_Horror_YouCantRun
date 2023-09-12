@@ -100,16 +100,21 @@ public class SoundManager : MonoBehaviour
         StopCoroutine(ClearRoutine());
 
         if (audioClip == null)
+        {
+            Debug.Log("클립없음");
             return;
+        }
 
         if (type == Audio.BGM)
         {
+            Debug.Log("This is BGM");
             bgmObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/BGM");
             bgmObj.transform.parent = transform;
             bgmSource = bgmObj.GetComponent<AudioSource>();
             if (bgmSource.isPlaying)
                 bgmSource.Stop();
-
+            bgmSource.transform.position = pos;
+            bgmSource.transform.parent = transform;
             bgmSource.volume = volume;
             bgmSource.pitch = pitch;
             bgmSource.clip = audioClip;
@@ -119,6 +124,7 @@ public class SoundManager : MonoBehaviour
         }
         else if (type == Audio.SFX)
         {
+            Debug.Log("This is SFX");
             if (loop)
             {
                 loopSFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX");
@@ -154,6 +160,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("This is UISFX");
             if (loop)
             {
                 loopUISFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX");
@@ -171,6 +178,7 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("This is UISFX and NOT LOOP");
                 GameObject addObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX", true);
 
                 addObj.transform.parent = transform;
@@ -184,17 +192,32 @@ public class SoundManager : MonoBehaviour
                 addObj.name = addSource.clip.name;
                 sfxSources.Add(addSource);
 
-                StartCoroutine(SFXPlayRoutine(addObj, audioClip));
+                StartCoroutine(UISFXPlayRoutine(addObj, audioClip));
             }
         }
     }
 
     IEnumerator SFXPlayRoutine(GameObject addObj, AudioClip audioClip)
     {
-        addSource.PlayOneShot(audioClip);
-        yield return new WaitWhile(() => { return addSource.isPlaying; });
+        AudioSource audioSource = addObj.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioClip);
+        yield return new WaitWhile(() => { return audioSource.isPlaying; });
         if (addObj != null)
+        {
             GameManager.Resource.Destroy(addObj);
+        }
+        yield break;
+    }
+
+    IEnumerator UISFXPlayRoutine(GameObject addObj, AudioClip audioClip)
+    {
+        AudioSource audioSource = addObj.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioClip);
+        yield return new WaitWhile(() => { return audioSource.isPlaying; });
+        if (addObj != null)
+        {
+            GameManager.Resource.Destroy(addObj);
+        }
         yield break;
     }
 
@@ -206,8 +229,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip GetOrAddAudioClip(string path, Audio type = Audio.SFX)
     {
-        if (path.Contains("Audios/") == false)
-            path = $"Audios/{path}";
+        if (path.Contains("Sounds/") == false)
+            path = $"Sounds/{path}";
 
         AudioClip audioClip = null;
 

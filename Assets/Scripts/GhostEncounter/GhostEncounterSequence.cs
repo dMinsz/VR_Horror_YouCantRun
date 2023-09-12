@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class GhostEncounterSequence : MonoBehaviour
 {
-    [SerializeField] GhostEncounterBase owner;
+    [SerializeField] GhostEncounterAction owner;
     [SerializeField] Transform[] ghostSpawnZone;
     //[SerializeField] int ghostTotalShowCount;
     private Light[] lights;
@@ -16,8 +16,7 @@ public class GhostEncounterSequence : MonoBehaviour
     private void Awake()
     {
         isStarted = false;
-        owner = GetComponent<GhostEncounterBase>();
-        LightArrayInit();
+        owner = GetComponent<GhostEncounterAction>();
     }
 
     private void Update()
@@ -41,6 +40,8 @@ public class GhostEncounterSequence : MonoBehaviour
 
     public void GhostEncounterStart()
     {
+        LightArrayInit();
+
         Debug.Log("유령출몰 시작함수 진입");
         if (isStarted)
             return;
@@ -68,6 +69,7 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         while (isStarted)
         {
+            PlayLampSwitchingSound();
             SwitchGhost(false);
             SwitchLight(false);
             // 몬스터 안보이게
@@ -83,6 +85,7 @@ public class GhostEncounterSequence : MonoBehaviour
             for(int i = 0; i < Random.Range(1,6); i++)
             {
                 //SwitchGhost(false);
+                PlayLampSwitchingSound();
                 SwitchLight(false);
                 yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
                 //SwitchGhost(true);
@@ -98,10 +101,11 @@ public class GhostEncounterSequence : MonoBehaviour
 
     public IEnumerator JumpScareCoroutine()
     {
+        PlayLampSwitchingSound();
         SwitchLight(false);
         SwitchGhost(false);
         yield return new WaitForSeconds(1f);
-        SwitchLight(true);
+        //SwitchLight(true);
         SwitchGhost(true);
         SpawnGhost(true);
         GhostSetJumpScarePose();
@@ -110,6 +114,7 @@ public class GhostEncounterSequence : MonoBehaviour
         SwitchGhost(false);
         GhostEncounterEnds();
         yield return new WaitForSeconds(0.1f);
+        PlayLampSwitchingSound();
         SwitchLight(true);
         yield return null;
     }
@@ -118,21 +123,24 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         for (int i = 0; i < owner.BlinkingLights.Length; i++)
         {
-            MeshRenderer meshRenderer = owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>(); // Material 의 EMISSION  Enable/Disable을 위한 lightObject의 MeshRenderer 컴포넌트
-            Material[] material = meshRenderer.materials;                                                // 위의 메시렌더러의 머테리얼
+            if (owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>())
+            {
+                MeshRenderer meshRenderer = owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>(); // Material 의 EMISSION  Enable/Disable을 위한 lightObject의 MeshRenderer 컴포넌트
+                Material[] material = meshRenderer.materials;                                                // 위의 메시렌더러의 머테리얼
+                if (state)                                                                                   // State에 따른 EMISSION Switch
+                {
+                    material[1].EnableKeyword("_EMISSION");
+                }
+                else
+                {
+                    material[1].DisableKeyword("_EMISSION");
+                }
+            }
             lights[i].enabled = state;                                                                   // 조명 스위치
-            if (state)                                                                                   // State에 따른 EMISSION Switch
-            {
-                material[1].EnableKeyword("_EMISSION");
-            }
-            else
-            {
-                material[1].DisableKeyword("_EMISSION");
-            }
         }
     }
 
-    public void SwitchGhost(bool state)
+        public void SwitchGhost(bool state)
     {
         owner.GhostObject.gameObject.SetActive(state);
     }
@@ -153,6 +161,11 @@ public class GhostEncounterSequence : MonoBehaviour
 
     }
 
+    public void PlayLampSwitchingSound()
+    {
+        GameManager.Sound.PlaySound($"Lamp_{Random.Range(1,8)}",Audio.SFX,transform.position);
+    }
+
     // true : 열기 , false : 닫기 
     public void SetDoor(bool state)
     {
@@ -160,11 +173,13 @@ public class GhostEncounterSequence : MonoBehaviour
         {
             // 문 열 수 있게
         }
-        else
+        else 
         {
             // 문 닫고
-            owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
             // 문 열수 없게
+
+
 
         }
     }

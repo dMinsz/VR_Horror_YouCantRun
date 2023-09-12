@@ -103,7 +103,7 @@ namespace ldw
                     if (Steps > 0)
                     {
                         int posStep = Mathf.RoundToInt((targetPoint - m_StartPoint).magnitude / m_StepLength);
-                        if (posStep != m_CurrentStep)
+                        /*if (posStep != m_CurrentStep)
                         {
                             SFXPlayer.Instance.PlaySFX(SnapAudioClip, transform.position, new SFXPlayer.PlayParameters()
                             {
@@ -112,7 +112,7 @@ namespace ldw
                                 Volume = 1.0f
                             }, 0.0f);
                             OnDragStep.Invoke(posStep);
-                        }
+                        }*/
 
                         m_CurrentStep = posStep;
                     }
@@ -142,6 +142,7 @@ namespace ldw
             }
         }
 
+        [Obsolete]
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
@@ -163,7 +164,7 @@ namespace ldw
 
                 transform.position = m_StartPoint + transform.TransformDirection(LocalAxis) * dist;
 
-                if (step != m_CurrentStep)
+                /*if (step != m_CurrentStep)
                 {
                     SFXPlayer.Instance.PlaySFX(SnapAudioClip, transform.position, new SFXPlayer.PlayParameters()
                     {
@@ -172,7 +173,7 @@ namespace ldw
                         Volume = 1.0f
                     }, 0.0f);
                     OnDragStep.Invoke(step);
-                }
+                }*/
             }
         }
 
