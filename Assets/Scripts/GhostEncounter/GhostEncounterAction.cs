@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GhostEncounterAction : MonoBehaviour
@@ -38,6 +39,11 @@ public class GhostEncounterAction : MonoBehaviour
         ghost = ghostObject.GetComponent<GhostEncounterGhost>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(FindMainCamera());
+    }
+
     public void StartSequence()
     {
         if (isStarted)
@@ -54,5 +60,22 @@ public class GhostEncounterAction : MonoBehaviour
         sequence.IsStarted = false;
         eventZone.IsRunning = false;
         // Destroy.this();
+    }
+
+    public void AddFlashLightToBlinkingLights()
+    {
+        List<GameObject> gameObjects = blinkingLights.ToList<GameObject>();
+        gameObjects.Add(Camera.main.gameObject);
+        blinkingLights = gameObjects.ToArray();
+    }
+
+    IEnumerator FindMainCamera()
+    {
+        yield return new WaitUntil(() => { return Camera.main != null; });
+
+        AddFlashLightToBlinkingLights();
+        Debug.Log($"{gameObject.name} : MainCam Ã£À½");
+
+        yield break;
     }
 }

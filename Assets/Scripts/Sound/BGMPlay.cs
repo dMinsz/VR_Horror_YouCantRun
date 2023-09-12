@@ -8,6 +8,6 @@ public class BGMPlay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Sound.PlaySound(clip,Audio.BGM,transform.position);
+        GameManager.Sound.PlaySound(clip,Audio.BGM,transform.position,2f);
     }
 }

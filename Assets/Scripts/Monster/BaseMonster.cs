@@ -11,7 +11,7 @@ public abstract class BaseMonster : MonoBehaviour
     protected NavMeshAgent agent;
     // 테스트용 SerializeField
     [SerializeField] protected GameObject player;
-    [SerializeField] protected TMP_Text currentText;
+    //[SerializeField] protected TMP_Text currentText;
 
     public Animator Animator { get { return animator; } }
     public NavMeshAgent Agent { get { return agent; } }
@@ -28,8 +28,17 @@ public abstract class BaseMonster : MonoBehaviour
 
     private void Start()
     {
-        player = Camera.main.gameObject;
+        StartCoroutine(FindMainCamera());
+    }
 
+    IEnumerator FindMainCamera()
+    {
+        yield return new WaitUntil(() => { return Camera.main != null; });
+
+        player = Camera.main.gameObject;
+        Debug.Log($"{gameObject.name} : MainCam 찾음");
+
+        yield break;
     }
 }
 

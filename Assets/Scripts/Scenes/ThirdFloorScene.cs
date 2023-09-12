@@ -9,8 +9,7 @@ public class ThirdFloorScene : BaseScene
     public GameObject playerPrefab;
     public GameObject player;
 
-    public Transform StartPos; 
-
+    public Transform StartPos;
 
     protected override void Awake()
     {
@@ -27,7 +26,7 @@ public class ThirdFloorScene : BaseScene
     {
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
         player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
-       
+
 
         progress = 1f;
         yield return null;

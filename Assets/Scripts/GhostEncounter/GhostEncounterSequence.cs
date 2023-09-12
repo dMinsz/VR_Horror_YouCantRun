@@ -17,7 +17,6 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         isStarted = false;
         owner = GetComponent<GhostEncounterAction>();
-        LightArrayInit();
     }
 
     private void Update()
@@ -41,6 +40,8 @@ public class GhostEncounterSequence : MonoBehaviour
 
     public void GhostEncounterStart()
     {
+        LightArrayInit();
+
         Debug.Log("유령출몰 시작함수 진입");
         if (isStarted)
             return;
@@ -122,21 +123,24 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         for (int i = 0; i < owner.BlinkingLights.Length; i++)
         {
-            MeshRenderer meshRenderer = owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>(); // Material 의 EMISSION  Enable/Disable을 위한 lightObject의 MeshRenderer 컴포넌트
-            Material[] material = meshRenderer.materials;                                                // 위의 메시렌더러의 머테리얼
+            if (owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>())
+            {
+                MeshRenderer meshRenderer = owner.BlinkingLights[i].gameObject.GetComponent<MeshRenderer>(); // Material 의 EMISSION  Enable/Disable을 위한 lightObject의 MeshRenderer 컴포넌트
+                Material[] material = meshRenderer.materials;                                                // 위의 메시렌더러의 머테리얼
+                if (state)                                                                                   // State에 따른 EMISSION Switch
+                {
+                    material[1].EnableKeyword("_EMISSION");
+                }
+                else
+                {
+                    material[1].DisableKeyword("_EMISSION");
+                }
+            }
             lights[i].enabled = state;                                                                   // 조명 스위치
-            if (state)                                                                                   // State에 따른 EMISSION Switch
-            {
-                material[1].EnableKeyword("_EMISSION");
-            }
-            else
-            {
-                material[1].DisableKeyword("_EMISSION");
-            }
         }
     }
 
-    public void SwitchGhost(bool state)
+        public void SwitchGhost(bool state)
     {
         owner.GhostObject.gameObject.SetActive(state);
     }
@@ -172,8 +176,10 @@ public class GhostEncounterSequence : MonoBehaviour
         else 
         {
             // 문 닫고
-            owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //owner.Door.transform.localRotation = Quaternion.Euler(0, 0, 0);
             // 문 열수 없게
+
+
 
         }
     }

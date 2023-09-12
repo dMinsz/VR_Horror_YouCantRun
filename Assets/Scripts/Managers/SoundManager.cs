@@ -99,8 +99,6 @@ public class SoundManager : MonoBehaviour
         StopCoroutine(FadeInRoutine());
         StopCoroutine(ClearRoutine());
 
-        Debug.Log($"들어온거 {type}");
-
         if (audioClip == null)
         {
             Debug.Log("클립없음");
@@ -194,17 +192,32 @@ public class SoundManager : MonoBehaviour
                 addObj.name = addSource.clip.name;
                 sfxSources.Add(addSource);
 
-                StartCoroutine(SFXPlayRoutine(addObj, audioClip));
+                StartCoroutine(UISFXPlayRoutine(addObj, audioClip));
             }
         }
     }
 
     IEnumerator SFXPlayRoutine(GameObject addObj, AudioClip audioClip)
     {
-        addSource.PlayOneShot(audioClip);
-        yield return new WaitWhile(() => { return addSource.isPlaying; });
+        AudioSource audioSource = addObj.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioClip);
+        yield return new WaitWhile(() => { return audioSource.isPlaying; });
         if (addObj != null)
+        {
             GameManager.Resource.Destroy(addObj);
+        }
+        yield break;
+    }
+
+    IEnumerator UISFXPlayRoutine(GameObject addObj, AudioClip audioClip)
+    {
+        AudioSource audioSource = addObj.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioClip);
+        yield return new WaitWhile(() => { return audioSource.isPlaying; });
+        if (addObj != null)
+        {
+            GameManager.Resource.Destroy(addObj);
+        }
         yield break;
     }
 
