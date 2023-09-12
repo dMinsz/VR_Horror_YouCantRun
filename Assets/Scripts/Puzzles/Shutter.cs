@@ -24,7 +24,7 @@ public class Shutter : MonoBehaviour
     {
         while (true) 
         {
-            this.transform.position = Vector3.Lerp(transform.position, endPoint.position, 0.05f);
+            this.transform.position = Vector3.Lerp(transform.position, endPoint.position, 0.01f);
 
             if (Vector3.Distance(transform.position, endPoint.position) <= 0.01f)
             {

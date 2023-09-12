@@ -38,6 +38,8 @@ public class FirstFloorScene : BaseScene
             //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
             //player.GetComponent<Player>().SetupItems();
+
+
             sceneChanger.OpenDoor();
         }
     }
