@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 65334305400010152}
   - component: {fileID: 2439004435589365366}
   - component: {fileID: 6651166490929477919}
-  - component: {fileID: 5233847425715656392}
   m_Layer: 0
   m_Name: Handle2
   m_TagString: Untagged
@@ -523,21 +522,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!138 &5233847425715656392
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3805470748777580741}
-  m_ConnectedBody: {fileID: 6676564438923227678}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6251141057270229875
 GameObject:
   m_ObjectHideFlags: 0
