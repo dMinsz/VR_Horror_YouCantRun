@@ -35,6 +35,12 @@ public class ElevatorController : MonoBehaviour
         {
             OpenDoor();
         }
+
+        if (isDebug)
+        {
+            fuseActive = true;
+            leverActive = true;
+        }
     }
 
     public void EnableFuse()
@@ -145,14 +151,14 @@ public class ElevatorController : MonoBehaviour
 
     public void CloseDoor()
     {
-        leftDoor.GetComponent<Collider>().enabled = true;
-        rightDoor.GetComponent<Collider>().enabled = true;
-
         leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin, 0.05f);
         rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin, 0.05f);
 
         if (Vector3.Distance(leftDoor.transform.position, leftOrigin) <= 0.01f)
         {
+            leftDoor.GetComponent<Collider>().enabled = true;
+            rightDoor.GetComponent<Collider>().enabled = true;
+
             open = false;
             leverActive = false;
         }

@@ -13,6 +13,8 @@ public class PlayerCaughtMode : MonoBehaviour
     private int destPoint = 0;
     Coroutine mainRoutine;
 
+    public GameObject phisics;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -22,9 +24,35 @@ public class PlayerCaughtMode : MonoBehaviour
 
     private void Start()
     {
+
+        phisics.SetActive(false);
+
         mainRoutine = StartCoroutine(Move());
     }
 
+    public void SetUpPoints(Transform[] points)
+    {
+        goals = points;
+    }
+
+    /// <summary>
+    ///  Change Speed Base Speed = 2.0f , slow = 1.0f(Recomanded)
+    /// </summary>
+    /// <param name="speed">Change Speed Value</param>
+    public void changeSpeed(float speed = 1.0f) 
+    {
+        agent.speed = speed;
+    }
+
+    public void StopMove()
+    {
+        agent.isStopped = true;
+    }
+
+    public void ReStartMove() 
+    {
+        agent.isStopped = false;
+    }
 
     void GotoNextPoint()
     {
@@ -36,12 +64,6 @@ public class PlayerCaughtMode : MonoBehaviour
         agent.destination = goals[destPoint].position;
 
         destPoint = destPoint + 1;
-    }
-
-
-    public void SetUpPoints(Transform[] points) 
-    {
-        goals = points;
     }
 
     IEnumerator Move()
@@ -59,8 +81,8 @@ public class PlayerCaughtMode : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-
-        originPlayer.MakeMoveable();
+        phisics.SetActive(true);
+        
         originPlayer.transform.SetParent(null);
 
         this.gameObject.SetActive(false);
