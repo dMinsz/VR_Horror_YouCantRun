@@ -5,9 +5,13 @@ using UnityEngine;
 public class BGMPlay : MonoBehaviour
 {
     [SerializeField] AudioClip clip;
+    [SerializeField] float volume;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Sound.PlaySound(clip,Audio.BGM,transform.position,2f);
+        float bgmVolume = 0;
+        bgmVolume = volume != 0 ? volume : 2;
+        GameManager.Sound.PlaySound(clip,Audio.BGM,transform.position, bgmVolume);
     }
 }

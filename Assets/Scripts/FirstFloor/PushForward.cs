@@ -14,6 +14,7 @@ public class PushForward : MonoBehaviour
 
     private void OnEnable()
     {
-        body.AddForce(transform.forward * pushPower,ForceMode.Impulse);    
+        body.AddForce(transform.forward * pushPower,ForceMode.Impulse);
+        GameManager.Sound.PlaySound("JumpScare_1", Audio.UISFX);
     }
 }
