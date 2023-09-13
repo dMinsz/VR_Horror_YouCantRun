@@ -23,19 +23,23 @@ public class FirstFloorScene : BaseScene
 
             //Caught Test
 
-            //destroyedObjects.SetActive(false);
-            //obstructions.SetActive(true);
+            GameManager.Gimmick.UnderTo1F = true;
 
-            //playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
-            //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+            destroyedObjects.SetActive(false);
+            obstructions.SetActive(true);
 
-            //player.GetComponent<Player>().SetupItems();
-            //player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
-
-            playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            playerPrefab = GameManager.Resource.Load<GameObject>("Player_caught");
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
             player.GetComponent<Player>().SetupItems();
+            player.GetComponent<PlayerCaughtMode>().SetUpPoints(MovePoints);
+
+            //playerPrefab = GameManager.Resource.Load<GameObject>("Player");
+            //player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            //player.GetComponent<Player>().SetupItems();
+
+
             sceneChanger.OpenDoor();
         }
     }

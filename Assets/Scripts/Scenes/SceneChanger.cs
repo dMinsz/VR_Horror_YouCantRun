@@ -41,8 +41,9 @@ public class SceneChanger : MonoBehaviour
             {
                 isChange = true;
 
-                other.gameObject.transform.root.GetComponent<NavMeshAgent>().enabled = true;
-                other.gameObject.transform.root.GetComponent<Player>().MakeDonMove();
+                Player player = other.gameObject.transform.root.GetComponent<Player>();
+
+                player.OffPhisics();
 
                 mainRoutine = StartCoroutine(SceneChange(other));
 
@@ -57,6 +58,7 @@ public class SceneChanger : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                //other.gameObject.transform.root.GetComponent<Player>().nav.enabled = false;
                 //other.gameObject.transform.root.GetComponent<NavMeshAgent>().enabled = false;
                 mainRoutine = StartCoroutine(CloseDoor());
 
@@ -67,13 +69,19 @@ public class SceneChanger : MonoBehaviour
     IEnumerator SceneChange(Collider other)
     {
         //Move to End Point
-        var PlayerNav = other.gameObject.transform.root.GetComponent<NavMeshAgent>();
+        var Player = other.gameObject.transform.root.GetComponent<Player>();
 
-        PlayerNav.destination = EndPoint.position;
 
         while (true)
         {
-            if (PlayerNav.remainingDistance < 0.5f)
+            var distance = Vector3.Distance(Player.transform.position, EndPoint.position);
+
+            if (distance > 0.5f)
+            {
+                Player.MoveTo(EndPoint.position);
+            }
+
+            if (distance <= 0.5f)
             {
 
                 other.gameObject.transform.root.rotation = EndPoint.rotation;
@@ -85,8 +93,6 @@ public class SceneChanger : MonoBehaviour
 
                 if (!evCon.open)
                 {
-
-                    other.gameObject.transform.root.GetComponent<Player>().MakeMoveable();
 
                     yield return new WaitForSeconds(1f); // EV Move Wait
 
@@ -132,6 +138,7 @@ public class SceneChanger : MonoBehaviour
 
                 yield return new WaitForFixedUpdate();
             }
+        
 
             yield return new WaitForFixedUpdate();
         }
@@ -181,7 +188,7 @@ public class SceneChanger : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         canChange = true;
-        
+
     }
 
 

@@ -551,6 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7165569983283478628}
   - component: {fileID: 1031380194858064495}
+  - component: {fileID: 3994309659858174746}
   m_Layer: 0
   m_Name: Masks
   m_TagString: Untagged
@@ -629,6 +630,102 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.002150394, y: 0.27587268, z: 0.1111681}
     m_Extent: {x: 0.07627083, y: 0.12437925, z: 0.1266678}
   m_DirtyAABB: 0
+--- !u!82 &3994309659858174746
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852682003275121847}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5fccf42c7fe55b2428b7ee4819f353a5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.013
+  m_Pitch: 0.21
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 2
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1910815513629230639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4658627577981291257
 Transform:
   m_ObjectHideFlags: 0
@@ -1835,7 +1932,7 @@ GameObject:
   - component: {fileID: 4658627578007028345}
   m_Layer: 0
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2322,7 +2419,7 @@ GameObject:
   - component: {fileID: 4658627578480569252}
   m_Layer: 2
   m_Name: WheelR
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2863,7 +2960,7 @@ GameObject:
   - component: {fileID: 1904090422931650419}
   m_Layer: 0
   m_Name: CasterR
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3703,7 +3800,7 @@ GameObject:
   - component: {fileID: 5980656913176429662}
   m_Layer: 0
   m_Name: CasterL
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4128,7 +4225,7 @@ GameObject:
   - component: {fileID: 4658627579278769656}
   m_Layer: 2
   m_Name: WheelL
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4972,6 +5069,7 @@ GameObject:
   - component: {fileID: 9199218575107976951}
   - component: {fileID: 1234042700926862221}
   - component: {fileID: 1234042700926862218}
+  - component: {fileID: 7970502439070123088}
   m_Layer: 0
   m_Name: Zombie_Doctor3
   m_TagString: Untagged
@@ -5038,6 +5136,25 @@ MonoBehaviour:
   - m_Rig: {fileID: 8728820121515828122}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &7970502439070123088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328155648417504484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e219a0ce8d0614985608954d4c7d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 5fccf42c7fe55b2428b7ee4819f353a5, type: 3}
+  - {fileID: 8300000, guid: 6f8de8cdf7a5e344c84376e0512d8170, type: 3}
+  - {fileID: 8300000, guid: 903719ca809f49345addf9d5ecdae64f, type: 3}
+  - {fileID: 8300000, guid: ffcf922212aec584691a0a906ec363f6, type: 3}
+  sfx: {fileID: 3994309659858174746}
+  index: 0
 --- !u!1 &5380548891913305213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +6979,8 @@ GameObject:
   - component: {fileID: 8728820120650798141}
   - component: {fileID: 8728820120650798138}
   - component: {fileID: 7566251454751203307}
+  - component: {fileID: 7757864082289991987}
+  - component: {fileID: 94641667641034888}
   m_Layer: 0
   m_Name: Player_caught
   m_TagString: Player
@@ -6923,6 +7042,7 @@ MonoBehaviour:
   originPlayer: {fileID: 5422401980217798143}
   goals:
   - {fileID: 0}
+  phisics: {fileID: 4658627577981291014}
 --- !u!114 &7566251454751203307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6940,7 +7060,39 @@ MonoBehaviour:
   - {fileID: 7719382739908417936}
   - {fileID: 1290452968710520320}
   - {fileID: 5596311701979940134}
-  phisics: {fileID: 0}
+  phisics:
+  - {fileID: 4658627578480569250}
+  - {fileID: 4658627579278769629}
+  rigidbodies: []
+--- !u!65 &7757864082289991987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728820120650798143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.66, z: 0}
+--- !u!54 &94641667641034888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728820120650798143}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8728820121515828125
 GameObject:
   m_ObjectHideFlags: 0
@@ -7182,7 +7334,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachs: []
-  phisics: {fileID: 4658627577981291014}
+  phisics:
+  - {fileID: 0}
+  rigidbodies: []
 --- !u!1 &8826580939667130002
 GameObject:
   m_ObjectHideFlags: 0

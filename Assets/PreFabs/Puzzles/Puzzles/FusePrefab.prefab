@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1829127677974153340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5000001, z: 0.5000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3374551466108934387}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -259,10 +259,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec6cad07f859b344bf69c32e2c150a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SocketType: Fuse
+  SocketType: Fuse3F
   SocketedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8560504954735215728}
+        m_TargetAssemblyTypeName: ldw.InteractSound, Assembly-CSharp
+        m_MethodName: PlaySE
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 731b3828d08cf8b449f399efcd0ee867,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DisableSocketOnSocketed: 0
 --- !u!65 &3974457575947262946
 BoxCollider:
