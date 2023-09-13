@@ -19,7 +19,6 @@ public class JumpScareSoundPlay : MonoBehaviour
         if (!isHitCollision && collision.gameObject.name.Contains("Ceiling"))
         {
             isHitCollision = true;
-            Debug.Log("CollisionEnter");
             collision.collider.isTrigger = true;
         }
     }

@@ -10,7 +10,6 @@ public class JumpScareRegdollEventZone : EventStartZone
     {
         base.Awake();
         owner = GetComponentInParent<JumpScareRegdollAction>();
-        Debug.Log("JumpScareRegdollEventZone Awake");
     }
 
     private void PlayerComeInEventZone(Collider other)

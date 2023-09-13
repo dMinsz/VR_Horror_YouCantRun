@@ -36,7 +36,6 @@ public abstract class BaseMonster : MonoBehaviour
         yield return new WaitUntil(() => { return Camera.main != null; });
 
         player = Camera.main.gameObject;
-        Debug.Log($"{gameObject.name} : MainCam Ã£À½");
 
         yield break;
     }

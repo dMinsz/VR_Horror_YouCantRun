@@ -9,7 +9,6 @@ public class MonsterManager : MonoBehaviour
     public void InitSpawnArray()
     {
         GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("MonsterSpawnPoint");
-        Debug.Log($"스폰포인트 수 {spawnPointObjects.Length}");
         spawnPoints = new Vector3[spawnPointObjects.Length];
         for(int i = 0; i < spawnPointObjects.Length; i++)
         {

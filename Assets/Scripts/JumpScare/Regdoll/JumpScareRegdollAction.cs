@@ -20,14 +20,6 @@ public class JumpScareRegdollAction : MonoBehaviour
     {
         DisableFocusAndEventZoneDetecting();
         GameObject spawnMonster = Instantiate<GameObject>(regDollObejct, objectSpawnZone.position ,Quaternion.identity);
-        if (spawnMonster != null)
-        {
-            Debug.Log("스폰완료");
-        } else
-        {
-            Debug.Log("스폰실패");
-        }
-
     }
 
     public void ShakeCam()

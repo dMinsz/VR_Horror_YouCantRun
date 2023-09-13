@@ -20,6 +20,5 @@ public class PlaySFX : MonoBehaviour
             GameManager.Sound.PlaySound(clip[Random.Range(0,clip.Length)],Audio.SFX,transform.position,volume);
             yield return new WaitForSeconds(Random.Range(0.7f,1.5f));
         }
-        yield return null;
     }
 }
