@@ -124,7 +124,7 @@ public class SoundManager : MonoBehaviour
         }
         else if (type == Audio.SFX)
         {
-            Debug.Log("This is SFX");
+            //Debug.Log("This is SFX");
             if (loop)
             {
                 loopSFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX");
