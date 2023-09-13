@@ -42,12 +42,10 @@ public class GhostEncounterSequence : MonoBehaviour
     {
         LightArrayInit();
 
-        Debug.Log("유령출몰 시작함수 진입");
         if (isStarted)
             return;
         // 유령출몰 시퀀스 시작
 
-        Debug.Log("유령출몰 시작함수 시작");
         isStarted = true;
         SetDoor(false);
         owner.EncounterCoroutine = StartCoroutine(EncounterCoroutine());
@@ -55,7 +53,6 @@ public class GhostEncounterSequence : MonoBehaviour
 
     public void GhostEncounterEnds()
     {
-        Debug.Log("유령출몰 끝");
         owner.EndSequence();
         SetDoor(true);
     }

@@ -48,14 +48,12 @@ public class GhostEncounterAction : MonoBehaviour
     {
         if (isStarted)
             return;
-        Debug.Log("시퀀스 시작");
         isStarted = true;
         sequence.GhostEncounterStart();
     }
 
     public void EndSequence()
     {
-        Debug.Log("시퀀스 종료");
         isStarted = false;
         sequence.IsStarted = false;
         eventZone.IsRunning = false;
@@ -74,7 +72,6 @@ public class GhostEncounterAction : MonoBehaviour
         yield return new WaitUntil(() => { return Camera.main != null; });
 
         AddFlashLightToBlinkingLights();
-        Debug.Log($"{gameObject.name} : MainCam 찾음");
 
         yield break;
     }

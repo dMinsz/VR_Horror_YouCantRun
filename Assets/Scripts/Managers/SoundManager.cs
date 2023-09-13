@@ -101,13 +101,12 @@ public class SoundManager : MonoBehaviour
 
         if (audioClip == null)
         {
-            Debug.Log("클립없음");
+            Debug.Log("No AudioClip");
             return;
         }
 
         if (type == Audio.BGM)
         {
-            Debug.Log("This is BGM");
             bgmObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/BGM");
             bgmObj.transform.parent = transform;
             bgmSource = bgmObj.GetComponent<AudioSource>();
@@ -124,7 +123,6 @@ public class SoundManager : MonoBehaviour
         }
         else if (type == Audio.SFX)
         {
-            Debug.Log("This is SFX");
             if (loop)
             {
                 loopSFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX");
@@ -160,7 +158,6 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("This is UISFX");
             if (loop)
             {
                 loopUISFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX");
@@ -178,7 +175,6 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("This is UISFX and NOT LOOP");
                 GameObject addObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX", true);
 
                 addObj.transform.parent = transform;

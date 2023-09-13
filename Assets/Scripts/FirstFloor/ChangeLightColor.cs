@@ -9,7 +9,6 @@ public class ChangeLightColor : MonoBehaviour
     {
         light = GetComponentInChildren<Light>();
     }
-    // Start is called before the first frame update
     void Start()
     {
         if (GameManager.Gimmick.UnderTo1F)

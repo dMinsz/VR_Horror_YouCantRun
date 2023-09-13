@@ -26,10 +26,8 @@ public class MonsterDetecting : MonoBehaviour
 
     void LateUpdate()
     {
-        // ī�޶� �þ� ���� ���� Collider�� �����ȴٸ�
         if (cam == null)
         {
-            Debug.Log("cam is Null");
             return;
         }
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
@@ -57,8 +55,6 @@ public class MonsterDetecting : MonoBehaviour
         yield return new WaitUntil(() => { return Camera.main != null; });
 
         cam = Camera.main;
-        Debug.Log($"{gameObject.name}: MainCam ã��");
-
         yield break;
     }
 

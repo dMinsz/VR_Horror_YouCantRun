@@ -59,14 +59,12 @@ public class StateChase : MonsterStateBase<Mannequin>
 
     public void MannequinChasePose()
     {
-        Debug.Log("Chase Pose 함수");
         pose = ManneqionPose.Chase;
         owner.Animator.SetTrigger($"Chase_{Random.Range(1,6)}");
     }
 
     public void MannequinSurprisePose()
     {
-        Debug.Log("Surprise Pose 함수");
         pose = ManneqionPose.Surprise;
         owner.Animator.SetTrigger("Surprise");
     }

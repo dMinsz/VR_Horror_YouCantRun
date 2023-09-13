@@ -5,6 +5,8 @@ using UnityEngine;
 public class PushForward : MonoBehaviour
 {
     [SerializeField] float pushPower;
+    [SerializeField] EventStartZone eventZone;
+
     Rigidbody body;
 
     private void Awake()
@@ -14,6 +16,7 @@ public class PushForward : MonoBehaviour
 
     private void OnEnable()
     {
+        eventZone.IsRunning = false;
         body.AddForce(transform.forward * pushPower,ForceMode.Impulse);
         GameManager.Sound.PlaySound("JumpScare_1", Audio.UISFX);
     }
