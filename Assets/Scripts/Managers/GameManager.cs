@@ -24,6 +24,23 @@ public class GameManager : MonoBehaviour
     private static UIManager uiManager;
     public static UIManager UI { get { return uiManager; } }
 
+    //Sound Manager
+    private static SoundManager soundManager;
+    public static SoundManager Sound { get { return soundManager; } }
+
+    //Monster Manager
+    private static MonsterManager monsterManager;
+    public static MonsterManager Monster { get { return monsterManager; } }
+
+    //Inventory
+    private static SpecialItemManager specialItemManager;
+    public static SpecialItemManager Items { get { return specialItemManager; } }
+
+    //gimmick Manager
+
+    private static GimmickManager gimmickManager;
+    public static GimmickManager Gimmick { get { return gimmickManager; } }
+
 
     private GameManager() { }
 
@@ -52,7 +69,6 @@ public class GameManager : MonoBehaviour
 
     private void InitManagers()
     {
-
         GameObject resourceObj = new GameObject();
         resourceObj.name = "ResourceManager";
         resourceObj.transform.SetParent(transform);
@@ -63,18 +79,35 @@ public class GameManager : MonoBehaviour
         poolObj.transform.SetParent(transform);
         poolManager = poolObj.AddComponent<PoolManager>();
 
-
         GameObject uiObj = new GameObject();
         uiObj.name = "UIManager";
         uiObj.transform.parent = transform;
         uiManager = uiObj.AddComponent<UIManager>();
-
 
         GameObject sObj = new GameObject();
         sObj.name = "SceneManagerEX";
         sObj.transform.SetParent(transform);
         sceneManager = sObj.AddComponent<SceneManagerEX>();
 
+        GameObject soundObj = new GameObject();
+        soundObj.name = "SoundManager";
+        soundObj.transform.parent = transform;
+        soundManager = soundObj.AddComponent<SoundManager>();
+
+        GameObject monsterObj = new GameObject();
+        monsterObj.name = "MonsterManager";
+        monsterObj.transform.parent = transform;
+        monsterManager = monsterObj.AddComponent<MonsterManager>();
+
+        GameObject invenObj = new GameObject();
+        invenObj.name = "SpecialItemManager";
+        invenObj.transform.parent = transform;
+        specialItemManager = invenObj.AddComponent<SpecialItemManager>();
+
+        GameObject gmObj = new GameObject();
+        gmObj.name = "GimmickManager";
+        gmObj.transform.parent = transform;
+        gimmickManager = gmObj.AddComponent<GimmickManager>();
 
         poolManager.Init();
     }
