@@ -20,7 +20,7 @@ public class TestDoor : MonoBehaviour
 
     private void Start()
     {
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
         StartCoroutine(StopAngle());
     }
 
