@@ -14,6 +14,7 @@ public class ChangeLightColor : MonoBehaviour
     {
         if (GameManager.Gimmick.UnderTo1F)
         {
+            if(light != null)
             light.color = Color.red;
         }
     }
