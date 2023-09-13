@@ -39,13 +39,21 @@ public class SceneChanger : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                isChange = true;
 
-                Player player = other.gameObject.transform.root.GetComponent<Player>();
+                if (nowFloor == floor.End)
+                {
+                    GameManager.Scene.LoadScene("StartScene");
+                }
+                else 
+                {
+                    isChange = true;
 
-                player.OffPhisics();
+                    Player player = other.gameObject.transform.root.GetComponent<Player>();
 
-                mainRoutine = StartCoroutine(SceneChange(other));
+                    player.OffPhisics();
+
+                    mainRoutine = StartCoroutine(SceneChange(other));
+                }
 
             }
 
