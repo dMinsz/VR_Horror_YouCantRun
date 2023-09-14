@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAngle: 120
+  assist: {fileID: 0}
 --- !u!54 &6676564438923227678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -942,13 +943,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7389428967503923365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d4a49d61ba2dc449a83943009873cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c39938151a81c443a7e24998eb3f1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   sounds:
-  - {fileID: 8300000, guid: 6fa6643e86449cb47a5bc2976e881c59, type: 3}
   - {fileID: 8300000, guid: b0d4efdbeb87f464bad6868b8b3f285f, type: 3}
+  - {fileID: 8300000, guid: 6fa6643e86449cb47a5bc2976e881c59, type: 3}
 --- !u!82 &8124001098597692176
 AudioSource:
   m_ObjectHideFlags: 0

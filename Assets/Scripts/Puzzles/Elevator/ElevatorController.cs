@@ -21,6 +21,9 @@ public class ElevatorController : MonoBehaviour
     public Vector3 leftOrigin;
     public Vector3 rightOrigin;
 
+    public AudioSource audioSource;
+    public AudioClip elevatorBellClip;
+    public AudioClip elevatorOpenClip;
 
     Coroutine OpenCoroutine;
 
@@ -28,6 +31,7 @@ public class ElevatorController : MonoBehaviour
     {
         leftOrigin = leftDoor.transform.position;
         rightOrigin = rightDoor.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -120,6 +124,9 @@ public class ElevatorController : MonoBehaviour
     {
         if (OpenCoroutine == null)
         {
+            audioSource.clip = elevatorBellClip;
+            audioSource.Play();
+
             OpenCoroutine = StartCoroutine(OpenElevatorRoutine());
         }
 
@@ -159,6 +166,12 @@ public class ElevatorController : MonoBehaviour
 
     public void CloseDoor()
     {
+        if (open && audioSource.isPlaying == false) 
+        {
+            audioSource.clip = elevatorOpenClip;
+            audioSource.Play();
+        }
+
         leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin, 0.05f);
         rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin, 0.05f);
 
@@ -176,14 +189,20 @@ public class ElevatorController : MonoBehaviour
     // 코루틴에서 부드러운 움직임 x -> 수정 필요
     IEnumerator OpenElevatorRoutine()
     {
+        yield return new WaitUntil(() => audioSource.isPlaying == false);
+
+        audioSource.clip = elevatorOpenClip;
+        audioSource.Play();
+
         while (open == false) 
         {
-            
             leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin + Vector3.left * 3f, 0.05f);
             rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin + Vector3.right * 3f, 0.05f);
 
             if (Vector3.Distance(leftDoor.transform.position, leftOrigin - Vector3.left * 10f) <= 0.01f)
             {
+               
+
                 leftDoor.GetComponent<Collider>().enabled = false;
                 rightDoor.GetComponent<Collider>().enabled = false;
 
