@@ -106,13 +106,13 @@ public class Mannequin : BaseMonster
 
     public void MannequinBecameInvisible()
     {
-        // Dormant or Chase
-        if (PlayerInColliderRange(AttackRange).Length > 0)
+        if (Vector3.Distance(playerPos.position, transform.position) < AttackRange)  // 플레이어가 공격범위에 들어오면 Attack으로 상태 변경
         {
-            if(curState != Mannequin_State.Attack)
-                ChangeState(Mannequin_State.Attack);
+            ChangeState(Mannequin_State.Attack);
             return;
-        } else if (PlayerInColliderRange(ChaseRange).Length > 0)
+        }
+
+        if (PlayerInColliderRange(ChaseRange).Length > 0)
         {
             // Chase , 안에 있음
             if (curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant && curState != Mannequin_State.Attack)
