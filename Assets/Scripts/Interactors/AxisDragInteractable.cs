@@ -142,14 +142,13 @@ namespace ldw
             }
         }
 
-        [Obsolete]
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
 
-            var interactor = args.interactor;
+            var interactor = args.interactorObject;
             m_GrabbedOffset = interactor.transform.position - transform.position;
-            m_GrabbingInteractor = interactor;
+            m_GrabbingInteractor = (XRBaseInteractor)interactor;
         }
 
         protected override void OnSelectExited(SelectExitEventArgs args)
