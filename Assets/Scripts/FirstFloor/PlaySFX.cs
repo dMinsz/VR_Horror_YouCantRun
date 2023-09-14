@@ -30,7 +30,8 @@ public class PlaySFX : MonoBehaviour
     {
         while (true)
         {
-            GameManager.Sound.PlaySound(clip[Random.Range(0,clip.Length)],Audio.SFX,transform.position,volume);
+            AudioClip audioclip = clip[Random.Range(0, clip.Length)];
+            GameManager.Sound.PlaySound(audioclip, Audio.SFX,transform.position,volume);
             yield return new WaitForSeconds(Random.Range(startTime, endTime));
         }
         //yield return null;
