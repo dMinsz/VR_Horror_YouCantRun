@@ -13,11 +13,11 @@ public class StartScene : BaseScene
         None
     }
 
-    public floorType floor;
+    public floorType gotoFloor;
     public void StartGame() 
     {
 
-        switch (floor)
+        switch (gotoFloor)
         {
             case floorType.First:
                 GameManager.Scene.LoadScene("1F");
