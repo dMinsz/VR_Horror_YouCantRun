@@ -13,6 +13,26 @@ public class StartScene : BaseScene
         None
     }
 
+    public void Goto(int floor)
+    {
+        switch (floor)
+        {
+            case 1:
+                GameManager.Scene.LoadScene("1F");
+                break;
+            case 2:
+                GameManager.Scene.LoadScene("2F");
+                break;
+            case 3:
+                GameManager.Scene.LoadScene("3F");
+                break;
+            case -1:
+                GameManager.Scene.LoadScene("UnderGround");
+                break;
+        }
+    }
+
+
     public floorType gotoFloor;
     public void StartGame() 
     {
