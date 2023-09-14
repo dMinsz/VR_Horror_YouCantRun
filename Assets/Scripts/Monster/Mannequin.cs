@@ -115,7 +115,7 @@ public class Mannequin : BaseMonster
         } else if (PlayerInColliderRange(ChaseRange).Length > 0)
         {
             // Chase , 안에 있음
-            if (curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant)
+            if (curState != Mannequin_State.Chase && curState != Mannequin_State.Dormant && curState != Mannequin_State.Attack)
                 ChangeState(Mannequin_State.Chase);
             return;
         } else 
