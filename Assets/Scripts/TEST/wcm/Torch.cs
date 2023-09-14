@@ -1,25 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.InputSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngineInternal;
 
 public class Torch : MonoBehaviour
 {
-    private bool IsOn = true;
+    private bool IsOn = false;
 
-    Light light;
-    public GameObject lightObject;
+    private GameObject lightObject;
+    private GameObject meshCollide;
+    public UnityEvent offEvent;
+    public UnityEvent onEvent;
+
 
     private void Start()
     {
         lightObject = transform.GetChild(0).gameObject;
-        //lightObject = GetComponentInChildren<Light>().gameObject;
-        //light = GetComponentInChildren<Light>();
+        meshCollide = transform.GetChild(3).gameObject;
+
+        OnOffLightMesh();       
     }
-    public void OnOffLight()
+
+    public void OnOffLightMesh()
     {
-        //light.enabled = IsOn;
-        lightObject.SetActive(IsOn);
         IsOn = !IsOn;
+        lightObject.SetActive(IsOn);
+        meshCollide.SetActive(IsOn);
+
+        if(!IsOn) offEvent?.Invoke();
+        else onEvent?.Invoke();
     }
 }
