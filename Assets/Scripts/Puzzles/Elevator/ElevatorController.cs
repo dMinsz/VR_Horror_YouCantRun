@@ -21,26 +21,33 @@ public class ElevatorController : MonoBehaviour
     public Vector3 leftOrigin;
     public Vector3 rightOrigin;
 
+    public AudioSource audioSource;
+    public AudioClip elevatorBellClip;
+    public AudioClip elevatorOpenClip;
+
+    Coroutine OpenCoroutine;
+
     private void Awake()
     {
         leftOrigin = leftDoor.transform.position;
         rightOrigin = rightDoor.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
     //for test
     private void Update()
     {
-        if (fuseActive && leverActive && !open)
-        {
-            OpenDoor();
-        }
+        //if (fuseActive && leverActive && !open)
+        //{
+        //    OpenDoor();
+        //}
 
-        if (isDebug)
-        {
-            fuseActive = true;
-            leverActive = true;
-        }
+        //if (isDebug)
+        //{
+        //    fuseActive = true;
+        //    leverActive = true;
+        //}
     }
 
     public void EnableFuse()
@@ -115,17 +122,25 @@ public class ElevatorController : MonoBehaviour
 
     public void ForceOpenDoor() 
     {
-        if (!open)
+        if (OpenCoroutine == null)
         {
-            leftDoor.GetComponent<Collider>().enabled = false;
-            rightDoor.GetComponent<Collider>().enabled = false;
-            // StartCoroutine(OpenElevatorRoutine());
-            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left * 10f, 3f);
-            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right * 10f, 3f);
+            audioSource.clip = elevatorBellClip;
+            audioSource.Play();
 
-            open = true;
-            
+            OpenCoroutine = StartCoroutine(OpenElevatorRoutine());
         }
+
+        //if (!open)
+        //{
+        //    leftDoor.GetComponent<Collider>().enabled = false;
+        //    rightDoor.GetComponent<Collider>().enabled = false;
+        //    // StartCoroutine(OpenElevatorRoutine());
+        //    leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left * 10f, 3f);
+        //    rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right * 10f, 3f);
+
+        //    open = true;
+            
+        //}
     }
 
     public void OpenDoor()  
@@ -151,6 +166,12 @@ public class ElevatorController : MonoBehaviour
 
     public void CloseDoor()
     {
+        if (open && audioSource.isPlaying == false) 
+        {
+            audioSource.clip = elevatorOpenClip;
+            audioSource.Play();
+        }
+
         leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin, 0.05f);
         rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin, 0.05f);
 
@@ -165,22 +186,31 @@ public class ElevatorController : MonoBehaviour
         
     }
 
-
     // 코루틴에서 부드러운 움직임 x -> 수정 필요
     IEnumerator OpenElevatorRoutine()
     {
-        Debug.Log("OpenDoor");
-        open = true;
-        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left, 1f);
-        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right, 1f);
+        yield return new WaitUntil(() => audioSource.isPlaying == false);
 
-        yield return new WaitForSeconds(5f);
+        audioSource.clip = elevatorOpenClip;
+        audioSource.Play();
 
-        Debug.Log("CloseDoor");
-        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.right, 1f);
-        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.left, 1f);
-        open = false;
+        while (open == false) 
+        {
+            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin + Vector3.left * 3f, 0.05f);
+            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin + Vector3.right * 3f, 0.05f);
 
-        yield return null;
+            if (Vector3.Distance(leftDoor.transform.position, leftOrigin - Vector3.left * 10f) <= 0.01f)
+            {
+               
+
+                leftDoor.GetComponent<Collider>().enabled = false;
+                rightDoor.GetComponent<Collider>().enabled = false;
+
+
+                open = true;
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
     }
 }

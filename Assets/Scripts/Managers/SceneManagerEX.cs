@@ -63,7 +63,7 @@ public class SceneManagerEX : MonoBehaviour
 
     IEnumerator LoadingRoutine(string sceneName)
     {
-
+        GameManager.Sound.Clear();
         //loadingUI.gameObject.SetActive(true);
 
         if (!CurrentScene.isClear)

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestDoor : MonoBehaviour
@@ -8,6 +9,8 @@ public class TestDoor : MonoBehaviour
 
     private Collider coll;
     public float MaxAngle = 120f;
+
+    public DoorAssist assist;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,7 +20,7 @@ public class TestDoor : MonoBehaviour
 
     private void Start()
     {
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
         StartCoroutine(StopAngle());
     }
 
@@ -25,10 +28,30 @@ public class TestDoor : MonoBehaviour
     {
         while (true)
         {
+            if (joint.angle >= 10)
+            {
+                /*transform.rotation = Quaternion.Euler(transform.rotation.x, 120, transform.rotation.z);
+                yield return new WaitUntil(() => joint.angle >= MaxAngle);*/
+                assist.OffColliders();
+                rb.AddForce(transform.forward * -50f, ForceMode.Acceleration);
+            }
+
+            if (joint.angle <= -10)
+            {
+                /*transform.rotation = Quaternion.Euler(transform.rotation.x, -120, transform.rotation.z);
+
+                yield return new WaitUntil(() => joint.angle <= -MaxAngle);*/
+                assist.OffColliders();
+                rb.AddForce(Vector3.forward * 50f, ForceMode.Acceleration);
+            }
+
             if (joint.angle >= MaxAngle || joint.angle <= -MaxAngle)
             {
                 coll.enabled = false;
                 rb.isKinematic = true;
+
+                assist.OnColliders();
+                assist.DestroyHandle();
 
                 break;
             }

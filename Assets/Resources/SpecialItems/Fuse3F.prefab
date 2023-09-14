@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3526526160167063901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d4a49d61ba2dc449a83943009873cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c39938151a81c443a7e24998eb3f1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
@@ -409,7 +409,7 @@ MonoBehaviour:
         m_MethodName: PlaySE
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 731b3828d08cf8b449f399efcd0ee867,
+          m_ObjectArgument: {fileID: 8300000, guid: 526e86a8d70673846ab02b8ea9b4c5b1,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
         m_MethodName: PlaySE
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 731b3828d08cf8b449f399efcd0ee867,
+          m_ObjectArgument: {fileID: 8300000, guid: 526e86a8d70673846ab02b8ea9b4c5b1,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -552,7 +552,7 @@ MonoBehaviour:
         m_MethodName: PlaySE
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 731b3828d08cf8b449f399efcd0ee867,
+          m_ObjectArgument: {fileID: 8300000, guid: 2fb725ae32f0165469aa510a1de64017,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0

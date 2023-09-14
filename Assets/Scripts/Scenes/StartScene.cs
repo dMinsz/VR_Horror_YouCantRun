@@ -13,11 +13,31 @@ public class StartScene : BaseScene
         None
     }
 
-    public floorType floor;
+    public void Goto(int floor)
+    {
+        switch (floor)
+        {
+            case 1:
+                GameManager.Scene.LoadScene("1F");
+                break;
+            case 2:
+                GameManager.Scene.LoadScene("2F");
+                break;
+            case 3:
+                GameManager.Scene.LoadScene("3F");
+                break;
+            case -1:
+                GameManager.Scene.LoadScene("UnderGround");
+                break;
+        }
+    }
+
+
+    public floorType gotoFloor;
     public void StartGame() 
     {
 
-        switch (floor)
+        switch (gotoFloor)
         {
             case floorType.First:
                 GameManager.Scene.LoadScene("1F");
@@ -32,6 +52,11 @@ public class StartScene : BaseScene
                 GameManager.Scene.LoadScene("UnderGround");
                 break;
         }
+    }
+
+    public void QuitGame() 
+    {
+        Application.Quit();
     }
 
     protected override IEnumerator LoadingRoutine()

@@ -22,4 +22,11 @@ public class DoorAssist : MonoBehaviour
         }
     }
 
+    public void DestroyHandle() 
+    {
+        //handles
+        colls[1].enabled = false;
+        colls[2].enabled = false;
+    }
+
 }
