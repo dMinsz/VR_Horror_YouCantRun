@@ -34,6 +34,11 @@ public class StartScene : BaseScene
         }
     }
 
+    public void QuitGame() 
+    {
+        Application.Quit();
+    }
+
     protected override IEnumerator LoadingRoutine()
     {
 
