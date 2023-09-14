@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 65334305400010152}
   - component: {fileID: 2439004435589365366}
   - component: {fileID: 6651166490929477919}
-  - component: {fileID: 5233847425715656392}
   m_Layer: 0
   m_Name: Handle2
   m_TagString: Untagged
@@ -523,21 +522,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!138 &5233847425715656392
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3805470748777580741}
-  m_ConnectedBody: {fileID: 6676564438923227678}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6251141057270229875
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAngle: 120
+  assist: {fileID: 0}
 --- !u!54 &6676564438923227678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -958,13 +943,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7389428967503923365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d4a49d61ba2dc449a83943009873cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c39938151a81c443a7e24998eb3f1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   sounds:
-  - {fileID: 8300000, guid: 6fa6643e86449cb47a5bc2976e881c59, type: 3}
   - {fileID: 8300000, guid: b0d4efdbeb87f464bad6868b8b3f285f, type: 3}
+  - {fileID: 8300000, guid: 6fa6643e86449cb47a5bc2976e881c59, type: 3}
 --- !u!82 &8124001098597692176
 AudioSource:
   m_ObjectHideFlags: 0

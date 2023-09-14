@@ -2641,7 +2641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081182549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.972, y: 0, z: 62.19}
+  m_LocalPosition: {x: -19.972, y: 0, z: 59.493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4638,7 +4638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  isDebug: 1
+  isDebug: 0
   StartPos: {fileID: 1678048965}
 --- !u!4 &2039538152
 Transform:
@@ -32971,6 +32971,11 @@ PrefabInstance:
       objectReference: {fileID: 6961643620400909443}
     - target: {fileID: 5236057287499202678, guid: eb5684c5b50457c499c42e4a2320b8b5,
         type: 3}
+      propertyPath: fuseActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236057287499202678, guid: eb5684c5b50457c499c42e4a2320b8b5,
+        type: 3}
       propertyPath: leverActive
       value: 0
       objectReference: {fileID: 0}
@@ -37543,6 +37548,11 @@ PrefabInstance:
       propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6961643620400909442}
+    - target: {fileID: 516795207236939211, guid: 5820676a2b377534a9ec1302afd3922f,
+        type: 3}
+      propertyPath: OnPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ForceOpenDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 852956752177667904, guid: 5820676a2b377534a9ec1302afd3922f,
         type: 3}
       propertyPath: m_RootOrder
