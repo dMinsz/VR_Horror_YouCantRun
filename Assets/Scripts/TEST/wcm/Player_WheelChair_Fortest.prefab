@@ -3476,6 +3476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList: []
   slots: []
+  numSlots: 0
 --- !u!1 &2840543499680739368
 GameObject:
   m_ObjectHideFlags: 0
