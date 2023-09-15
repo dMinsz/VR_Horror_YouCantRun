@@ -50,17 +50,35 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator ClearRoutine()
     {
-        float elapsedTime = 0;
         float currentVolume = AudioListener.volume;
 
+        // 씬매니저의 로딩시간이 페이드아웃 시간보다 작기 때문에 While문 로직을 뺌.
+        AudioListener.volume = 0;
+        Debug.Log("브금지우기");
+        if (bgmObj != null)
+        {
+            Debug.Log($"브금지우기 : {bgmObj.name}");
+            GameManager.Resource.Destroy(bgmObj);
+        }
+        if (loopSFX != null)
+            GameManager.Resource.Destroy(loopSFX);
+        isMuted = true;
+        yield return null;
+
+        // 아래는 FadeOut Version
+        /*
         while (elapsedTime < 1f)
         {
             elapsedTime += Time.deltaTime;
             AudioListener.volume = Mathf.Lerp(currentVolume, 0, elapsedTime / 1f);
             if (AudioListener.volume <= 0f)
             {
+                Debug.Log("브금지우기");
                 if (bgmObj != null)
+                {
+                    Debug.Log($"브금지우기 : {bgmObj.name}");
                     GameManager.Resource.Destroy(bgmObj);
+                }
                 if (loopSFX != null)
                     GameManager.Resource.Destroy(loopSFX);
                 isMuted = true;
@@ -68,6 +86,7 @@ public class SoundManager : MonoBehaviour
             }
             yield return null;
         }
+        */
     }
 
     public void FadeInAudio()
