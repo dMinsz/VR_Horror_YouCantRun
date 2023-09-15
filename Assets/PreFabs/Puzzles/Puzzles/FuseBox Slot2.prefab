@@ -188,7 +188,7 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
-  acceptedType: Fuse2_1
+  acceptedType: Fuse2F_1
 --- !u!114 &3099086819815418851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
-  acceptedType: Fuse2_2
+  acceptedType: Fuse2F_2
 --- !u!114 &3191901726843398388
 MonoBehaviour:
   m_ObjectHideFlags: 0
