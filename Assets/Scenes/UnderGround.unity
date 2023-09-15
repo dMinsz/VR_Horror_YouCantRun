@@ -4740,7 +4740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  isDebug: 0
+  isDebug: 1
   StartPos: {fileID: 1678048965}
 --- !u!4 &2039538152
 Transform:
