@@ -2452,6 +2452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FuseUnderGround
       objectReference: {fileID: 0}
+    - target: {fileID: 2253936162913829076, guid: ac9eedaab1ad5634397cf69441ff85b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2962470423451939527, guid: ac9eedaab1ad5634397cf69441ff85b1,
         type: 3}
       propertyPath: m_RootOrder
@@ -4729,7 +4734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  isDebug: 1
+  isDebug: 0
   StartPos: {fileID: 1678048965}
 --- !u!4 &2039538152
 Transform:
@@ -17942,7 +17947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2278329528456923568
 GameObject:
   m_ObjectHideFlags: 0
