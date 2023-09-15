@@ -40,7 +40,7 @@ public class ElevatorController : MonoBehaviour
     {
         //if (fuseActive && leverActive && !open)
         //{
-        //    OpenDoor();
+        //    ForceOpenDoor();
         //}
 
         //if (isDebug)
@@ -122,12 +122,16 @@ public class ElevatorController : MonoBehaviour
 
     public void ForceOpenDoor() 
     {
+
+        leftDoor.GetComponent<Collider>().enabled = false;
+        rightDoor.GetComponent<Collider>().enabled = false;
+
         if (OpenCoroutine == null)
         {
+            OpenCoroutine = StartCoroutine(OpenElevatorRoutine());
+
             audioSource.clip = elevatorBellClip;
             audioSource.Play();
-
-            OpenCoroutine = StartCoroutine(OpenElevatorRoutine());
         }
 
         //if (!open)
@@ -143,31 +147,32 @@ public class ElevatorController : MonoBehaviour
         //}
     }
 
-    public void OpenDoor()  
-    {
-        // 퓨즈와 레버가 모두 활성화 되어있으면 실행
-        if (fuseActive && leverActive)
-        {
-            if (!open)
-            {
-                leftDoor.GetComponent<Collider>().enabled = false;
-                rightDoor.GetComponent<Collider>().enabled = false;
-                // StartCoroutine(OpenElevatorRoutine());
-                leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left * 10f, 3f);
-                rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right * 10f, 3f);
-                open = true;
-            }
-        }
-        else
-        {
-            Debug.Log("Not Active");
-        }
-    }
+    //public void OpenDoor()  
+    //{
+    //    // 퓨즈와 레버가 모두 활성화 되어있으면 실행
+    //    if (fuseActive && leverActive)
+    //    {
+    //        if (!open)
+    //        {
+    //            leftDoor.GetComponent<Collider>().enabled = false;
+    //            rightDoor.GetComponent<Collider>().enabled = false;
+    //            // StartCoroutine(OpenElevatorRoutine());
+    //            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftDoor.transform.position + Vector3.left * 10f, 3f);
+    //            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightDoor.transform.position + Vector3.right * 10f, 3f);
+    //            open = true;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Not Active");
+    //    }
+    //}
 
     public void CloseDoor()
     {
-        if (open && audioSource.isPlaying == false) 
+        if (open) 
         {
+            audioSource.Pause();
             audioSource.clip = elevatorOpenClip;
             audioSource.Play();
         }
@@ -186,7 +191,6 @@ public class ElevatorController : MonoBehaviour
         
     }
 
-    // 코루틴에서 부드러운 움직임 x -> 수정 필요
     IEnumerator OpenElevatorRoutine()
     {
         yield return new WaitUntil(() => audioSource.isPlaying == false);
@@ -199,10 +203,8 @@ public class ElevatorController : MonoBehaviour
             leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin + Vector3.left * 3f, 0.05f);
             rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin + Vector3.right * 3f, 0.05f);
 
-            if (Vector3.Distance(leftDoor.transform.position, leftOrigin - Vector3.left * 10f) <= 0.01f)
+            if (Vector3.Distance(leftDoor.transform.position, leftOrigin + Vector3.left * 3f) <= 0.1f)
             {
-               
-
                 leftDoor.GetComponent<Collider>().enabled = false;
                 rightDoor.GetComponent<Collider>().enabled = false;
 

@@ -2665,7 +2665,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081182549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.972, y: 0, z: 59.493}
+  m_LocalPosition: {x: -19.972, y: 0, z: 61.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4453,6 +4453,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8124772310239207434, guid: 8b188e9c557d2064bb320389beebef71,
     type: 3}
   m_PrefabInstance: {fileID: 1922690692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1973774063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7008607229622775763, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4490662205331095834}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1980401998
 PrefabInstance:
@@ -12282,7 +12288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431353259462566212}
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.049, y: 0, z: 0}
+  m_LocalPosition: {x: -0.017, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12387,7 +12393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431353258893188837}
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.097, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13652,7 +13658,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -13749,7 +13756,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -24101,7 +24109,7 @@ PrefabInstance:
     - target: {fileID: 5195126205228122380, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.011
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 5195126205228122380, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
         type: 3}
@@ -24140,9 +24148,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1973774063}
+    - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
+        type: 3}
       propertyPath: m_OnLeverActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6961643620400909442}
+    - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7574036105943060615, guid: 2a5472fa5553d5f4a9751dde8f7fd8bf,
         type: 3}
       propertyPath: m_OnLeverDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
