@@ -1,15 +1,13 @@
-using ldw;
-using System.Net.Sockets;
-using System.Security.Cryptography;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-/*//ÆÄ¶ó¹ÌÅÍ¸¦ ´øÁö±â À§ÇÑ ÀÌº¥Æ®
+/*//ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 [System.Serializable]
 public class MyEvent : UnityEvent<MyParameters> { }
 
-//ÀÌº¥Æ® ´øÁö±â À§ÇÑ ÆÄ¶ó¹ÌÅÍ
+//ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
 [System.Serializable]
 public class MyParameters
 {
@@ -19,10 +17,16 @@ public class MyParameters
 
 public class Slot1 : XRSocketInteractor
 {
+    private Vector3 slotSize = new Vector3(0.2f, 0.1f, 0.2f);
+    private Vector3 itemSize;
+    private Vector3 itemCenter;
+
+    private Transform attachRepos;
+    private float ratio;
+
     public int slotNum;
     public string itemName;
 
-    private Transform itemTransform;
 
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
@@ -31,34 +35,47 @@ public class Slot1 : XRSocketInteractor
     protected override void Start()
     {
         base.Start();
-        GameObject emptyObject = new GameObject("EmptyObject");
-
-        // GameObjectÀÇ Transform °¡Á®¿À±â
-        Transform itemTransform = emptyObject.transform;
-
-        // TransformÀ» ÃÊ±âÈ­ÇÏ·Á¸é À§Ä¡, È¸Àü ¹× ½ºÄÉÀÏ °ªÀ» ¼³Á¤ÇÕ´Ï´Ù.
-        itemTransform.position = Vector3.zero;
-        itemTransform.rotation = Quaternion.identity;
-        itemTransform.localScale = Vector3.one;
     }
 
     [System.Obsolete]
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
-        //Å©±âÁÙÀÌ±â
-        if (args.interactableObject.transform.gameObject.name == "Hint_Chart_1")
-        {
-            itemTransform.position = args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position;
-            itemTransform.localRotation = args.interactableObject.transform.localRotation;
-            itemTransform.localScale = args.interactableObject.transform.localScale;
+        GameObject obj = args.interactableObject.transform.gameObject;
 
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position = args.interactableObject.transform.position;
-            args.interactableObject.transform.GetChild(3).localRotation = Quaternion.Euler(0f, 180f, 0f);
-            args.interactableObject.transform.localScale = Vector3.one * 0.1f;
+        //item Center ë©”ì‰¬ëœë”ì˜ ì¤‘ê°„
+        itemCenter = obj.GetComponentInChildren<MeshRenderer>().bounds.center;
+
+        //itemí¬ê¸°
+        itemSize = obj.GetComponentInChildren<MeshRenderer>().bounds.size;
+
+        //Attach í¬ì¸íŠ¸ê°€ ìˆì„ê²½ìš° ? ê¹Šì€ë³µì‚¬
+        /*if (args.interactableObject.transform.Find("Attach"))
+        {
+            Transform AttachPoint = args.interactableObject.transform.Find("Attach");
+            attachRepos.position = new Vector3(AttachPoint.position.x, AttachPoint.position.y, AttachPoint.position.z);
+            attachRepos.rotation = new Quaternion(AttachPoint.rotation.x, AttachPoint.rotation.y, AttachPoint.rotation.z, AttachPoint.rotation.w);
+        }*/
+        //grabinteractable ì˜ attachTransformë°”ê¾¸ê¸°
+        //args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position = itemCenter;
+
+        //í¬ê¸°ë°”ê¾¸ê¸°
+        if (itemSize.x > 0.2f || itemSize.z > 0.2f)
+        {
+            if (itemSize.x >= itemSize.z)
+                ratio = slotSize.x / itemSize.x;
+            else
+                ratio = (slotSize.z / itemSize.z);
+
+            args.interactableObject.transform.localScale *= ratio;
         }
-        //args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position = args.interactableObject.transform.position;
+        else
+            ratio = 1.0f;
+
+        //ì°¨íŠ¸ë©´ ëŒë¦¬ê¸°
+        if (args.interactableObject.transform.gameObject.name == "Hint_Chart_1")
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+
         //args.interactableObject.transform.GetChild(3).localRotation = Quaternion.Euler(0f, 180f, 0f);
-        //args.interactableObject.transform.localScale = Vector3.one * 0.1f;
 
         base.OnSelectEntering(args);
     }
@@ -74,42 +91,32 @@ public class Slot1 : XRSocketInteractor
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+        if (args.interactableObject.transform.gameObject.name == "Hint_Chart_1")
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.localRotation = Quaternion.Euler(90f, -90f, 90f);
         base.OnSelectExited(args);
-        if (args.interactableObject.transform.name == "Hint_Chart_1")
-        {
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position = itemTransform.position;
-            args.interactableObject.transform.GetChild(3).localRotation = itemTransform.localRotation;
-            args.interactableObject.transform.localScale = itemTransform.localScale;
-        }
+        args.interactableObject.transform.localScale *= (1.0f / ratio);
     }
 
-
-
-
-    //¼ÒÄÏ select¾ÆÀÌÅÛ È®ÀÎÈÄ Ãß°¡
     public void socketCheck()
     {
-        //selectµÈ object È®ÀÎ
         IXRSelectInteractable socketObj = this.GetOldestInteractableSelected();
 
 
         itemName = socketObj.transform.name;
         //socketObj.transform.gameObject.GetComponent<XRGrabInteractable>().attachTransform.position = socketObj.transform.position;
 
-        //¾ÆÀÌÅÛ Ãß°¡ ÀÌº¥Æ®
         AddItemEvent?.Invoke(slotNum, itemName);
 
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
 
-    // ¼ÒÄÏ ³»¿ë¹° µå¶ø
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹° ï¿½ï¿½ï¿½
     public void socketDrop()
     {
         IXRSelectInteractable obj = this.GetOldestInteractableSelected();
 
 
         itemName = "";
-        //»èÁ¦ ÀÌº¥Æ®¹ß»ı
         RemoveItemEvent?.Invoke(slotNum);
 
     }
