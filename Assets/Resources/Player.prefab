@@ -5424,6 +5424,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6461559591391359186, guid: 01667b2b9ef1ae6418b7ab6b3cb7a38b,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6313037141315238708}
+    - target: {fileID: 6461559591391359186, guid: 01667b2b9ef1ae6418b7ab6b3cb7a38b,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01667b2b9ef1ae6418b7ab6b3cb7a38b, type: 3}
 --- !u!1 &6477739296204165461 stripped
