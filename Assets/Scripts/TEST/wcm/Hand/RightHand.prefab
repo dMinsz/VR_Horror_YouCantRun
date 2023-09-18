@@ -431,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7026480821619271028}
-  - component: {fileID: 7732016215126285821}
+  - component: {fileID: 3557083958368147442}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -456,7 +456,7 @@ Transform:
   m_Father: {fileID: 4285720830117197204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!95 &7732016215126285821
+--- !u!95 &3557083958368147442
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//마개를 뺏을시 물이 빠지는 코드 -> 물의 scale 과 높이감소
 public class DrainWater : MonoBehaviour
 {
     private Vector3 initialScale; // 초기 크기
@@ -21,6 +22,8 @@ public class DrainWater : MonoBehaviour
         
     }
 
+
+    //코루틴으로 수행
     public void StartDrain()
     {
         StartCoroutine(ChangeSizeOverTime());

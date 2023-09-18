@@ -1,62 +1,47 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
-/*//�Ķ���͸� ������ ���� �̺�Ʈ
-[System.Serializable]
-public class MyEvent : UnityEvent<MyParameters> { }
-
-//�̺�Ʈ ������ ���� �Ķ����
-[System.Serializable]
-public class MyParameters
+public class Slot_ : XRSocketInteractor
 {
-    public int parameter1;
-    public string parameter2;
-}*/
-
-public class Slot1 : XRSocketInteractor
-{
+    //기존 slotSize
     private Vector3 slotSize = new Vector3(0.2f, 0.1f, 0.2f);
-    private Vector3 itemSize;
-    private Vector3 itemCenter;
 
-    private Transform attachRepos;
+    //습득된 item의 Size / ratio
+    private Vector3 itemSize;
     private float ratio;
 
+    //슬롯이름과 들어가있는 아이템 이름
     public int slotNum;
     public string itemName;
 
-
+    // 아이템 제거 / 습득 이벤트
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
 
-
+    //xrsocketinteraciton 상속
     protected override void Start()
     {
         base.Start();
     }
 
+    //소켓에들어갈떄
     [System.Obsolete]
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
+        //접촉된 물체 할당
         GameObject obj = args.interactableObject.transform.gameObject;
-
-        //item Center 메쉬랜더의 중간
-        itemCenter = obj.GetComponentInChildren<MeshRenderer>().bounds.center;
 
         //item크기
         itemSize = obj.GetComponentInChildren<MeshRenderer>().bounds.size;
 
-        //Attach 포인트가 있을경우 ? 깊은복사
-        /*if (args.interactableObject.transform.Find("Attach"))
+        //socketAttach 포인트가 있을경우 ? grab interactable attachpoint 변경
+        if(args.interactableObject.transform.Find("SocketAttach"))
         {
-            Transform AttachPoint = args.interactableObject.transform.Find("Attach");
-            attachRepos.position = new Vector3(AttachPoint.position.x, AttachPoint.position.y, AttachPoint.position.z);
-            attachRepos.rotation = new Quaternion(AttachPoint.rotation.x, AttachPoint.rotation.y, AttachPoint.rotation.z, AttachPoint.rotation.w);
-        }*/
-        //grabinteractable 의 attachTransform바꾸기
-        //args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.position = itemCenter;
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("SocketAttach");
+        }
 
         //크기바꾸기
         if (itemSize.x > 0.2f || itemSize.z > 0.2f)
@@ -71,12 +56,6 @@ public class Slot1 : XRSocketInteractor
         else
             ratio = 1.0f;
 
-        //차트면 돌리기
-        if (args.interactableObject.transform.gameObject.name == "Hint_Chart_1")
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-
-        //args.interactableObject.transform.GetChild(3).localRotation = Quaternion.Euler(0f, 180f, 0f);
-
         base.OnSelectEntering(args);
     }
     protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -89,14 +68,18 @@ public class Slot1 : XRSocketInteractor
         base.OnSelectExiting(args);
     }
 
+    // socket에서 빠진후
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        if (args.interactableObject.transform.gameObject.name == "Hint_Chart_1")
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform.localRotation = Quaternion.Euler(90f, -90f, 90f);
         base.OnSelectExited(args);
+        if (args.interactableObject.transform.Find("Attach"))
+        {
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("Attach");
+        }
         args.interactableObject.transform.localScale *= (1.0f / ratio);
     }
 
+    // 소켓에 물체가 들어왔을 때
     public void socketCheck()
     {
         IXRSelectInteractable socketObj = this.GetOldestInteractableSelected();
@@ -110,14 +93,12 @@ public class Slot1 : XRSocketInteractor
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
 
-    // ���� ���빰 ���
+    //소켓에 물체가 떨어졌을때
     public void socketDrop()
     {
         IXRSelectInteractable obj = this.GetOldestInteractableSelected();
 
-
         itemName = "";
         RemoveItemEvent?.Invoke(slotNum);
-
     }
 }
