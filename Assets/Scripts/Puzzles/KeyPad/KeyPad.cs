@@ -25,35 +25,55 @@ namespace ldw
 
         public string userInput = "";
 
+        public bool isClicked;
+
         private void Start()
         {
-            // userInputText.text = "";
             PasswordReset();
+            isClicked = false;
         }
 
         private void PasswordReset()
         {
             userInput = "";
-            // userInputText.text = userInput;
         }
 
         public void OnClickKeyButton(int keyPadNum)
         {
-            if(userInput.Length >= 4)
+            if (!isClicked)
             {
-                Debug.Log($"Length Over, current userInput : {userInput}");
+                if (keyPadNum == 10)
+                    EraseButton();
+                else if (keyPadNum == 11)
+                    InputButton();
+                else
+                {
+                    if (userInput.Length >= 4)
+                    {
+
+                    }
+                    else
+                    {
+                        userInput += keyPadNum;
+                        Debug.Log($"{keyPadNum} insert, userInput : {userInput}");
+                        userInputText.text = $"{userInput}";
+                    }
+                }
+                StartCoroutine(ButtonCoolTime());
             }
-            else
-            {
-                userInput += keyPadNum;
-                Debug.Log($"{keyPadNum} insert, userInput : {userInput}");
-                userInputText.text = $"{userInput}";
-            }
+        }
+
+        IEnumerator ButtonCoolTime()
+        {
+            isClicked = true;
+            yield return new WaitForSeconds(1f);
+            isClicked = false;
+            yield return null;
         }
 
         public void EraseButton()
         {
-            if(userInput.Length > 0)
+            if (userInput.Length > 0)
             {
                 userInput = userInput.Substring(0, userInput.Length - 1);
                 Debug.Log($"{userInput}");
@@ -82,6 +102,7 @@ namespace ldw
 
                 DisCorrectPassword.Invoke();
             }
+
         }
     }
 

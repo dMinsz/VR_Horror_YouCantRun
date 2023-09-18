@@ -1771,7 +1771,6 @@ Transform:
   m_Children:
   - {fileID: 6891684753292126983}
   - {fileID: 6967642719640326893}
-  - {fileID: 5292611346516959166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2281,89 +2280,4 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 205411252869145803, guid: c1a32503a30c9f7479fd0916301ba69b,
     type: 3}
   m_PrefabInstance: {fileID: 7091988885812393510}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7865220260453647782
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6625539584589771740}
-    m_Modifications:
-    - target: {fileID: 651322433069532087, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: CorrectPassword.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 6871517412817681640}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.455
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.39499885
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395170347344167074, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: m_Name
-      value: LockKeyPad
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368537178187113434, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-        type: 3}
-      propertyPath: OnKeyCardCollision.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 6871517412817681640}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6963e0f6c00c8c84790e6f6052cfc511, type: 3}
---- !u!4 &5292611346516959166 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
-    type: 3}
-  m_PrefabInstance: {fileID: 7865220260453647782}
   m_PrefabAsset: {fileID: 0}

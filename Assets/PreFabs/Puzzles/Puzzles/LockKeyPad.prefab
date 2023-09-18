@@ -212,9 +212,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 3155727158561882599}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -478,9 +478,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 205363066452395132}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -670,9 +670,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 4623187235508851380}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -862,9 +862,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 1379657877643825197}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -1085,9 +1085,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 6101116302920672126}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -1277,9 +1277,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 6569027335192932034}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -1469,9 +1469,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 8553755659386377293}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -1692,9 +1692,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 7079446411949056468}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -1753,7 +1753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2618211916871621144
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,9 +2000,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 3423779594743029088}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -2192,9 +2192,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 2300639710685223363}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -2403,9 +2403,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 5576555029434729966}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
@@ -2493,7 +2493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6019854827601843589
 Transform:
   m_ObjectHideFlags: 0
@@ -3144,9 +3144,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 483895119066734150}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.0015
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
+  buttonTransformOffset: 0.025
   buttonTransformSize: 0.015
   isToggleButton: 0
   OnPressEvent:
