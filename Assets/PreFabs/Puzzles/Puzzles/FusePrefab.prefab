@@ -268,7 +268,7 @@ MonoBehaviour:
         m_MethodName: PlaySE
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 7e85b2d3bdd0e934bafb40d6968467ff,
+          m_ObjectArgument: {fileID: 8300000, guid: 2fb725ae32f0165469aa510a1de64017,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  DisableSocketOnSocketed: 0
+  DisableSocketOnSocketed: 1
 --- !u!65 &3974457575947262946
 BoxCollider:
   m_ObjectHideFlags: 0

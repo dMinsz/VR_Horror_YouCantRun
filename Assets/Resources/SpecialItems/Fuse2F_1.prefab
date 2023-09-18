@@ -276,7 +276,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  DisableSocketOnSocketed: 0
+  DisableSocketOnSocketed: 1
 --- !u!65 &4528855507645642226
 BoxCollider:
   m_ObjectHideFlags: 0
