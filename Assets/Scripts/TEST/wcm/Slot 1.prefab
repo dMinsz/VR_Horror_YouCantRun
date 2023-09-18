@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896931b02bfd72d4ab3fc2fa4678b06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControllingInteractor: {fileID: 8016887873216154}
+  m_ControllingInteractor: {fileID: 0}
 --- !u!1 &8016887873216156
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,9 +68,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8016887873216155}
-  - component: {fileID: 8016887873216154}
   - component: {fileID: 8016887873216153}
-  - component: {fileID: 8016887873216152}
+  - component: {fileID: 6461559591391359186}
   m_Layer: 0
   m_Name: Slot 1
   m_TagString: Untagged
@@ -94,7 +93,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8016887873216154
+--- !u!65 &8016887873216153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016887873216156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6461559591391359186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8016887873216156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
+  m_Script: {fileID: 11500000, guid: cd325cfb3e8548f45a057c902e7f65fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -112,7 +124,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 8016887497693423}
+  m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -126,8 +138,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8016887873216152}
-        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+      - m_Target: {fileID: 6461559591391359186}
+        m_TargetAssemblyTypeName: Slot_, Assembly-CSharp
         m_MethodName: socketCheck
         m_Mode: 1
         m_Arguments:
@@ -141,8 +153,8 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8016887873216152}
-        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+      - m_Target: {fileID: 6461559591391359186}
+        m_TargetAssemblyTypeName: Slot_, Assembly-CSharp
         m_MethodName: socketDrop
         m_Mode: 1
         m_Arguments:
@@ -168,7 +180,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
+  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: 37b1af56393084e7ab9de66c87a92966,
+    type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
   m_InteractableHoverScale: 1
@@ -178,31 +191,6 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
---- !u!65 &8016887873216153
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8016887873216156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8016887873216152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8016887873216156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b247fb31b5812e54d84c9839209594e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   slotNum: 0
   itemName: 
   AddItemEvent:
