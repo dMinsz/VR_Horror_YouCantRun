@@ -106,9 +106,11 @@ public class Mannequin : BaseMonster
 
     public void MannequinBecameInvisible()
     {
+
         if (Vector3.Distance(playerPos.position, transform.position) < AttackRange)  // 플레이어가 공격범위에 들어오면 Attack으로 상태 변경
         {
-            ChangeState(Mannequin_State.Attack);
+            if(curState != Mannequin_State.Attack)
+                ChangeState(Mannequin_State.Attack);
             return;
         }
 
