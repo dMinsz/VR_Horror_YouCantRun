@@ -1,56 +1,104 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
-/*//ÆÄ¶ó¹ÌÅÍ¸¦ ´øÁö±â À§ÇÑ ÀÌº¥Æ®
-[System.Serializable]
-public class MyEvent : UnityEvent<MyParameters> { }
-
-//ÀÌº¥Æ® ´øÁö±â À§ÇÑ ÆÄ¶ó¹ÌÅÍ
-[System.Serializable]
-public class MyParameters
+public class Slot : XRSocketInteractor
 {
-    public int parameter1;
-    public string parameter2;
-}*/
+    //ê¸°ì¡´ slotSize
+    private Vector3 slotSize = new Vector3(0.2f, 0.1f, 0.2f);
 
-public class Slot : MonoBehaviour
-{
+    //ìŠµë“ëœ itemì˜ Size / ratio
+    private Vector3 itemSize;
+    private float ratio;
+
+    //ìŠ¬ë¡¯ì´ë¦„ê³¼ ë“¤ì–´ê°€ìˆëŠ” ì•„ì´í…œ ì´ë¦„
     public int slotNum;
     public string itemName;
-    XRSocketInteractor socket;
 
+    // ì•„ì´í…œ ì œê±° / ìŠµë“ ì´ë²¤íŠ¸
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
 
-    void Start()
+    //xrsocketinteraciton ìƒì†
+    protected override void Start()
     {
-        socket = GetComponent<XRSocketInteractor>();
+        base.Start();
     }
 
-    //¼ÒÄÏ select¾ÆÀÌÅÛ È®ÀÎÈÄ Ãß°¡
+    //ì†Œì¼“ì—ë“¤ì–´ê°ˆë–„
+    [System.Obsolete]
+    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    {
+        //ì ‘ì´‰ëœ ë¬¼ì²´ í• ë‹¹
+        GameObject obj = args.interactableObject.transform.gameObject;
+
+        //itemí¬ê¸°
+        itemSize = obj.GetComponentInChildren<MeshRenderer>().bounds.size;
+
+        //socketAttach í¬ì¸íŠ¸ê°€ ìˆì„ê²½ìš° ? grab interactable attachpoint ë³€ê²½
+        if(args.interactableObject.transform.Find("SocketAttach"))
+        {
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("SocketAttach");
+        }
+
+        //í¬ê¸°ë°”ê¾¸ê¸°
+        if (itemSize.x > 0.2f || itemSize.z > 0.2f)
+        {
+            if (itemSize.x >= itemSize.z)
+                ratio = slotSize.x / itemSize.x;
+            else
+                ratio = (slotSize.z / itemSize.z);
+
+            args.interactableObject.transform.localScale *= ratio;
+        }
+        else
+            ratio = 1.0f;
+
+        base.OnSelectEntering(args);
+    }
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+    }
+
+    protected override void OnSelectExiting(SelectExitEventArgs args)
+    {
+        base.OnSelectExiting(args);
+    }
+
+    // socketì—ì„œ ë¹ ì§„í›„
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        base.OnSelectExited(args);
+        if (args.interactableObject.transform.Find("Attach"))
+        {
+            args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("Attach");
+        }
+        args.interactableObject.transform.localScale *= (1.0f / ratio);
+    }
+
+    // ì†Œì¼“ì— ë¬¼ì²´ê°€ ë“¤ì–´ì™”ì„ ë•Œ
     public void socketCheck()
     {
-        //selecteµÈ object È®ÀÎ
-        IXRSelectInteractable objName = socket.GetOldestInteractableSelected();
-        itemName = objName.transform.name;
-        //¾ÆÀÌÅÛ Ãß°¡ ÀÌº¥Æ®
+        IXRSelectInteractable socketObj = this.GetOldestInteractableSelected();
+
+
+        itemName = socketObj.transform.name;
+        //socketObj.transform.gameObject.GetComponent<XRGrabInteractable>().attachTransform.position = socketObj.transform.position;
+
         AddItemEvent?.Invoke(slotNum, itemName);
-
-
 
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
 
-    // ¼ÒÄÏ ³»¿ë¹° µå¶ø
+    //ì†Œì¼“ì— ë¬¼ì²´ê°€ ë–¨ì–´ì¡Œì„ë•Œ
     public void socketDrop()
     {
-        IXRSelectInteractable obj = socket.GetOldestInteractableSelected();
+        IXRSelectInteractable obj = this.GetOldestInteractableSelected();
 
-        
         itemName = "";
-        //»èÁ¦ ÀÌº¥Æ®¹ß»ı
         RemoveItemEvent?.Invoke(slotNum);
-
     }
 }
