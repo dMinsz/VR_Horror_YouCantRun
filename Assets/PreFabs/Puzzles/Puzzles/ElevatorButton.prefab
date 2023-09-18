@@ -170,10 +170,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 4381541520495132112}
-  buttonPressDistance: 0.02
+  buttonPressDistance: 0.01
   buttonPressBuffer: 0.01
-  buttonTransformOffset: 0.2
-  buttonTransformSize: 0.15
+  buttonTransformOffset: 0.23
+  buttonTransformSize: 0.2
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:

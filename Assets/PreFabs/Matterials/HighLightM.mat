@@ -10,10 +10,9 @@ Material:
   m_Name: HighLightM
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
-  - _EMISSION
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -101,15 +100,15 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.886003, g: 1, b: 0, a: 1}
-    - _Color: {r: 0.886003, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0.20881364, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.20881361, b: 0, a: 1}
     - _EmissionColor: {r: 0.09803922, g: 0.09411765, b: 0.09411765, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

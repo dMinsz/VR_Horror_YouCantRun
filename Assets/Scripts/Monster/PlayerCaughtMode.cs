@@ -79,7 +79,7 @@ public class PlayerCaughtMode : MonoBehaviour
                 }
                 GotoNextPoint();
             }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
         phisics.SetActive(true);
         

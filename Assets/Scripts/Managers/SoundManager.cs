@@ -50,17 +50,35 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator ClearRoutine()
     {
-        float elapsedTime = 0;
         float currentVolume = AudioListener.volume;
 
+        // 씬매니저의 로딩시간이 페이드아웃 시간보다 작기 때문에 While문 로직을 뺌.
+        AudioListener.volume = 0;
+        Debug.Log("브금지우기");
+        if (bgmObj != null)
+        {
+            Debug.Log($"브금지우기 : {bgmObj.name}");
+            GameManager.Resource.Destroy(bgmObj);
+        }
+        if (loopSFX != null)
+            GameManager.Resource.Destroy(loopSFX);
+        isMuted = true;
+        yield return null;
+
+        // 아래는 FadeOut Version
+        /*
         while (elapsedTime < 1f)
         {
             elapsedTime += Time.deltaTime;
             AudioListener.volume = Mathf.Lerp(currentVolume, 0, elapsedTime / 1f);
             if (AudioListener.volume <= 0f)
             {
+                Debug.Log("브금지우기");
                 if (bgmObj != null)
+                {
+                    Debug.Log($"브금지우기 : {bgmObj.name}");
                     GameManager.Resource.Destroy(bgmObj);
+                }
                 if (loopSFX != null)
                     GameManager.Resource.Destroy(loopSFX);
                 isMuted = true;
@@ -68,6 +86,7 @@ public class SoundManager : MonoBehaviour
             }
             yield return null;
         }
+        */
     }
 
     public void FadeInAudio()
@@ -94,20 +113,19 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip audioClip, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f, bool loop = false)
+    public void PlaySound(AudioClip audioClip, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f,bool is3D = true, bool loop = false)
     {
         StopCoroutine(FadeInRoutine());
         StopCoroutine(ClearRoutine());
 
         if (audioClip == null)
         {
-            Debug.Log("클립없음");
+            Debug.Log("No Clip");
             return;
         }
 
         if (type == Audio.BGM)
         {
-            Debug.Log("This is BGM");
             bgmObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/BGM");
             bgmObj.transform.parent = transform;
             bgmSource = bgmObj.GetComponent<AudioSource>();
@@ -116,6 +134,7 @@ public class SoundManager : MonoBehaviour
             bgmSource.transform.position = pos;
             bgmSource.transform.parent = transform;
             bgmSource.volume = volume;
+            bgmSource.spatialBlend = is3D ? 1 : 0;
             bgmSource.pitch = pitch;
             bgmSource.clip = audioClip;
             bgmSource.loop = true;
@@ -124,7 +143,6 @@ public class SoundManager : MonoBehaviour
         }
         else if (type == Audio.SFX)
         {
-            //Debug.Log("This is SFX");
             if (loop)
             {
                 loopSFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX");
@@ -160,7 +178,6 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("This is UISFX");
             if (loop)
             {
                 loopUISFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX");
@@ -178,7 +195,6 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("This is UISFX and NOT LOOP");
                 GameObject addObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX", true);
 
                 addObj.transform.parent = transform;
@@ -221,10 +237,10 @@ public class SoundManager : MonoBehaviour
         yield break;
     }
 
-    public void PlaySound(string path, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f, bool loop = false)
+    public void PlaySound(string path, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f,bool is3D = true, bool loop = false)
     {
         AudioClip audioClip = GetOrAddAudioClip(path, type);
-        PlaySound(audioClip, type, pos, volume, pitch, loop);
+        PlaySound(audioClip, type, pos, volume, pitch,is3D, loop);
     }
 
     public AudioClip GetOrAddAudioClip(string path, Audio type = Audio.SFX)

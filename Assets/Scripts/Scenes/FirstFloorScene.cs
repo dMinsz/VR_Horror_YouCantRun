@@ -24,6 +24,7 @@ public class FirstFloorScene : BaseScene
             //Caught Test
 
             GameManager.Gimmick.UnderTo1F = true;
+            sceneChanger.OpenDoor();
 
             destroyedObjects.SetActive(false);
             obstructions.SetActive(true);
@@ -40,7 +41,6 @@ public class FirstFloorScene : BaseScene
             //player.GetComponent<Player>().SetupItems();
 
 
-            sceneChanger.OpenDoor();
         }
     }
 

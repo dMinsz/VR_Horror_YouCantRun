@@ -94,12 +94,13 @@ public class SceneChanger : MonoBehaviour
 
                 other.gameObject.transform.root.rotation = EndPoint.rotation;
 
-                if (evCon.open)
+                if (evCon.open == true)
                 {
                     evCon.CloseDoor();
                 }
 
-                if (!evCon.open)
+
+                if (evCon.open == false)
                 {
 
                     yield return new WaitForSeconds(1f); // EV Move Wait
@@ -152,25 +153,6 @@ public class SceneChanger : MonoBehaviour
         }
 
         yield return null;
-    }
-
-    public IEnumerator OpenDoorE()
-    {
-        canChange = false;
-        //coll.enabled = false;
-
-        while (true) // Open Door
-        {
-            if (!evCon.open)
-            {
-                evCon.ForceOpenDoor();
-            }
-            if (evCon.open)
-            {
-                break;
-            }
-            yield return new WaitForFixedUpdate();
-        }
     }
 
 

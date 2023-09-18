@@ -63,7 +63,7 @@ public class SceneManagerEX : MonoBehaviour
 
     IEnumerator LoadingRoutine(string sceneName)
     {
-
+        GameManager.Sound.Clear();
         //loadingUI.gameObject.SetActive(true);
 
         if (!CurrentScene.isClear)
@@ -87,6 +87,7 @@ public class SceneManagerEX : MonoBehaviour
             yield return null;
         }
 
+
         //추가로딩할것들 로딩
         CurrentScene.LoadAsync();
 
@@ -96,13 +97,17 @@ public class SceneManagerEX : MonoBehaviour
             yield return null;
         }
 
+
         oper.allowSceneActivation = true;
         //loadingUI.SetProgress(1f);
         //loadingUI.FadeOut();
 
 
+        GameManager.Sound.InitSound();
         //yield return new WaitForSecondsRealtime(0.3f); // wait Fade out
         Time.timeScale = 1f;
+
+        GameManager.Sound.FadeInAudio();
 
         //loadingUI.gameObject.SetActive(false);
     }

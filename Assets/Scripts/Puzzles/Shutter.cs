@@ -22,6 +22,7 @@ public class Shutter : MonoBehaviour
 
     public IEnumerator MoveUp() 
     {
+        GameManager.Sound.PlaySound("ShutterUP", Audio.SFX, transform.position,3f);
         while (true) 
         {
             this.transform.position = Vector3.Lerp(transform.position, endPoint.position, 0.01f);

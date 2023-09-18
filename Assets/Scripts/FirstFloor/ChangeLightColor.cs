@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ChangeLightColor : MonoBehaviour
 {
-    Light light;
+    Light firstFloorLight;
     private void Awake()
     {
-        light = GetComponentInChildren<Light>();
+        firstFloorLight = GetComponentInChildren<Light>();
     }
     // Start is called before the first frame update
     void Start()
     {
         if (GameManager.Gimmick.UnderTo1F)
         {
-            light.color = Color.red;
+            if(firstFloorLight != null)
+                firstFloorLight.color = Color.red;
         }
     }
 }

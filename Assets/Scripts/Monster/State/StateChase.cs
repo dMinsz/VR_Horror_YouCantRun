@@ -59,14 +59,12 @@ public class StateChase : MonsterStateBase<Mannequin>
 
     public void MannequinChasePose()
     {
-        Debug.Log("Chase Pose 함수");
         pose = ManneqionPose.Chase;
         owner.Animator.SetTrigger($"Chase_{Random.Range(1,6)}");
     }
 
     public void MannequinSurprisePose()
     {
-        Debug.Log("Surprise Pose 함수");
         pose = ManneqionPose.Surprise;
         owner.Animator.SetTrigger("Surprise");
     }
@@ -87,8 +85,8 @@ public class StateChase : MonsterStateBase<Mannequin>
     {
         while (mannequinMove)
         {
-            yield return new WaitForEndOfFrame();
             owner.Agent.destination = owner.playerPos.position;
+            yield return new WaitForEndOfFrame();
         }
         yield return null;
 
@@ -101,7 +99,7 @@ public class StateChase : MonsterStateBase<Mannequin>
         {
             yield return new WaitForSeconds(Random.Range(0.3f,0.6f));
             GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(1, 8)}", Audio.SFX, owner.transform.position, 0.7f, 0.9f);
-            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(7, 15)}", Audio.SFX, owner.transform.position, 0.2f, 0.9f);
+            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(7, 14)}", Audio.SFX, owner.transform.position, 0.2f, 0.9f);
         }
     }
 }
