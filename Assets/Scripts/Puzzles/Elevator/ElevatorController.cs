@@ -146,7 +146,7 @@ public class ElevatorController : MonoBehaviour
                 leftDoor.GetComponent<Collider>().enabled = false;
                 rightDoor.GetComponent<Collider>().enabled = false;
 
-                if (OpenCoroutine == null)
+                if (isCoroutineRunning == false)
                 {
                     OpenCoroutine = StartCoroutine(OpenElevatorRoutine());
 
@@ -173,7 +173,7 @@ public class ElevatorController : MonoBehaviour
         leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, leftOrigin, 0.05f);
         rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, rightOrigin, 0.05f);
 
-        if (Vector3.Distance(leftDoor.transform.position, leftOrigin) <= 0.01f)
+        if (Vector3.Distance(leftDoor.transform.position, leftOrigin) <= 0.011f)
         {
             leftDoor.GetComponent<Collider>().enabled = true;
             rightDoor.GetComponent<Collider>().enabled = true;
@@ -184,8 +184,10 @@ public class ElevatorController : MonoBehaviour
 
     }
 
+    bool isCoroutineRunning = false;
     IEnumerator OpenElevatorRoutine()
     {
+        isCoroutineRunning = true;
         yield return new WaitUntil(() => audioSource.isPlaying == false);
 
         audioSource.clip = elevatorOpenClip;
@@ -207,5 +209,7 @@ public class ElevatorController : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
+
+        isCoroutineRunning = false;
     }
 }

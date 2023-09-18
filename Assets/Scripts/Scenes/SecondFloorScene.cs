@@ -19,8 +19,15 @@ public class SecondFloorScene : BaseScene
         {
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+            //sceneChanger.OpenDoor();
         }
     }
+
+    //debug
+    //private void Start()
+    //{
+    //    sceneChanger.OpenDoor();
+    //}
 
     protected override IEnumerator LoadingRoutine()
     {
