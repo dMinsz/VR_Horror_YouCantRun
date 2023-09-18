@@ -7,7 +7,6 @@ public class TestDoor : MonoBehaviour
     private Rigidbody rb;
     private HingeJoint joint;
 
-    private Collider coll;
     public float MaxAngle = 120f;
 
     public DoorAssist assist;
@@ -15,7 +14,6 @@ public class TestDoor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         joint = GetComponent<HingeJoint>();
-        coll = GetComponent<Collider>();
     }
 
     private void Start()
@@ -28,35 +26,63 @@ public class TestDoor : MonoBehaviour
     {
         while (true)
         {
-            if (joint.angle >= 1)
+            /*if (joint.angle >= 1 && joint.angle < 20)
             {
+                Debug.Log("1<5");
+                rb.AddForce(transform.forward * -200f, ForceMode.Impulse);
                 assist.OffColliders();
-                rb.AddForce(Vector3.forward * -50f, ForceMode.Acceleration);
             }
-
-            if (joint.angle <= -1)
+            if (joint.angle > -20 && joint.angle <= -1)
             {
+                Debug.Log("-1<-5");
+                rb.AddForce(transform.forward * 200f, ForceMode.Impulse);
                 assist.OffColliders();
-                rb.AddForce(Vector3.forward * 50f, ForceMode.Acceleration);
-            }
-
+            }*/
             if (joint.angle >= MaxAngle || joint.angle <= -MaxAngle)
             {
-                coll.enabled = false;
                 rb.isKinematic = true;
 
                 assist.OnColliders();
                 assist.DestroyHandle();
 
+                Debug.Log("Max");
                 break;
             }
             yield return null;
         }
     }
 
-    public void Test()
+    public void KeyCardInteract()
     {
         // 카드 키 상호작용
-        gameObject.SetActive(false);
+        rb.isKinematic = false;
+    }
+
+    public void PushDoor()
+    {
+        if (joint.angle >= 25f)
+        {
+            Debug.Log(">=20");
+            rb.AddForce(Vector3.right * -500f, ForceMode.Impulse);
+            assist.OffColliders();
+        }
+        else if (joint.angle >= 1f && joint.angle < 20f)
+        {
+            Debug.Log("1<20");
+            rb.AddForce(Vector3.right * -1000f, ForceMode.Impulse);
+            assist.OffColliders();
+        }
+        else if (joint.angle > -20f && joint.angle <= -1f)
+        {
+            Debug.Log("-1<-20");
+            rb.AddForce(Vector3.left * 1000f, ForceMode.Impulse);
+            assist.OffColliders();
+        }
+        else if (joint.angle <= -25f)
+        {
+            Debug.Log("<=-20");
+            rb.AddForce(Vector3.left * 500f, ForceMode.Impulse);
+            assist.OffColliders();
+        }
     }
 }
