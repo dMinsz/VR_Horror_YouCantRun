@@ -28,19 +28,14 @@ public class TestDoor : MonoBehaviour
     {
         while (true)
         {
-            if (joint.angle >= 10)
+            if (joint.angle >= 1)
             {
-                /*transform.rotation = Quaternion.Euler(transform.rotation.x, 120, transform.rotation.z);
-                yield return new WaitUntil(() => joint.angle >= MaxAngle);*/
                 assist.OffColliders();
-                rb.AddForce(transform.forward * -50f, ForceMode.Acceleration);
+                rb.AddForce(Vector3.forward * -50f, ForceMode.Acceleration);
             }
 
-            if (joint.angle <= -10)
+            if (joint.angle <= -1)
             {
-                /*transform.rotation = Quaternion.Euler(transform.rotation.x, -120, transform.rotation.z);
-
-                yield return new WaitUntil(() => joint.angle <= -MaxAngle);*/
                 assist.OffColliders();
                 rb.AddForce(Vector3.forward * 50f, ForceMode.Acceleration);
             }
