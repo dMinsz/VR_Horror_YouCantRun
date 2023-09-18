@@ -1477,7 +1477,7 @@ MonoBehaviour:
   mannequinPartsQuaternion: []
   moveSpeed: 2.5
   angle: 360
-  senseRange: 40
+  senseRange: 30
   chaseRange: 50
   attackRange: 2
   targetMask:
