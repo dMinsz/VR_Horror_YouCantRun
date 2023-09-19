@@ -333,10 +333,13 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource audioSource = addObj.GetComponent<AudioSource>();
         audioSource.PlayOneShot(audioClip);
-        yield return new WaitWhile(() => { return audioSource.isPlaying; });
+        yield return new WaitWhile(() => { return addObj != null && audioSource.isPlaying; });
         if (addObj != null)
         {
             GameManager.Resource.Destroy(addObj);
+        } else
+        {
+            Debug.Log("Already Destroy");
         }
         yield break;
     }
