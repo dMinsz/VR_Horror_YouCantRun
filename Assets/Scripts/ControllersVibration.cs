@@ -20,9 +20,10 @@ public class ControllersVibration : MonoBehaviour
 
     public void Vibe() 
     {
-        foreach (var xr in xrs) 
-        {
-            xr.SendHapticImpulse(Amplitude, duration);
-        }
+        
+            var controller = (XRController)GameObject.FindObjectOfType(typeof(XRController));
+
+            controller.SendHapticImpulse(Amplitude, duration);
+        
     }
 }
