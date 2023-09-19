@@ -20,7 +20,6 @@ public class FadeSetCamera : MonoBehaviour
     {
         yield return new WaitUntil(() => { return Camera.main != null; });
 
-        fadeCanvas.Re
         mainCam = Camera.main.gameObject;
         Debug.Log($"{gameObject.name} : MainCam Ã£À½");
 
