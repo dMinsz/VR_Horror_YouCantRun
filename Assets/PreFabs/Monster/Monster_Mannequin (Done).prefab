@@ -1475,7 +1475,7 @@ MonoBehaviour:
   - {fileID: 7796808864310197789}
   - {fileID: 7796808863779887841}
   mannequinPartsQuaternion: []
-  moveSpeed: 2.5
+  moveSpeed: 1.2
   angle: 360
   senseRange: 55
   chaseRange: 60
@@ -1493,7 +1493,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 1
+  m_Speed: 1.2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
