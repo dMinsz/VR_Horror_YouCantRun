@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/TEST/wcm/water.prefab.meta
+guid: 2d0df038f38d2a044a9dd435f39eab50
+========
+guid: bcff68436767c294fa3a762182fe5b23
+>>>>>>>> develop:Assets/Scenes/TEST/DefaultMap.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
