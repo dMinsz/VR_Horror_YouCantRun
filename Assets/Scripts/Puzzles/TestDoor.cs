@@ -18,7 +18,6 @@ public class TestDoor : MonoBehaviour
 
     private void Start()
     {
-        //rb.isKinematic = false;
         StartCoroutine(StopAngle());
     }
 
@@ -26,18 +25,6 @@ public class TestDoor : MonoBehaviour
     {
         while (true)
         {
-            /*if (joint.angle >= 1 && joint.angle < 20)
-            {
-                Debug.Log("1<5");
-                rb.AddForce(transform.forward * -200f, ForceMode.Impulse);
-                assist.OffColliders();
-            }
-            if (joint.angle > -20 && joint.angle <= -1)
-            {
-                Debug.Log("-1<-5");
-                rb.AddForce(transform.forward * 200f, ForceMode.Impulse);
-                assist.OffColliders();
-            }*/
             if (joint.angle >= MaxAngle || joint.angle <= -MaxAngle)
             {
                 rb.isKinematic = true;
@@ -62,25 +49,21 @@ public class TestDoor : MonoBehaviour
     {
         if (joint.angle >= 25f)
         {
-            Debug.Log(">=20");
             rb.AddForce(Vector3.right * -500f, ForceMode.Impulse);
             assist.OffColliders();
         }
         else if (joint.angle >= 1f && joint.angle < 20f)
         {
-            Debug.Log("1<20");
             rb.AddForce(Vector3.right * -1000f, ForceMode.Impulse);
             assist.OffColliders();
         }
         else if (joint.angle > -20f && joint.angle <= -1f)
         {
-            Debug.Log("-1<-20");
             rb.AddForce(Vector3.left * 1000f, ForceMode.Impulse);
             assist.OffColliders();
         }
         else if (joint.angle <= -25f)
         {
-            Debug.Log("<=-20");
             rb.AddForce(Vector3.left * 500f, ForceMode.Impulse);
             assist.OffColliders();
         }

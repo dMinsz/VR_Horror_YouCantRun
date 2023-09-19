@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Text;
 using TMPro;
-using System.Linq;
 
 namespace ldw
 {
@@ -24,8 +21,13 @@ namespace ldw
         public string password;
 
         public string userInput = "";
-
         public bool isClicked;
+
+        [SerializeField]
+        AudioSource audioSource;
+        public AudioClip touchClip;
+        public AudioClip correctClip;
+        public AudioClip disCorrectClip;
 
         private void Start()
         {
@@ -48,17 +50,15 @@ namespace ldw
                     InputButton();
                 else
                 {
-                    if (userInput.Length >= 4)
-                    {
-
-                    }
-                    else
+                    if (userInput.Length < 4)
                     {
                         userInput += keyPadNum;
-                        Debug.Log($"{keyPadNum} insert, userInput : {userInput}");
                         userInputText.text = $"{userInput}";
                     }
                 }
+                audioSource.clip = touchClip;
+                audioSource.Play();
+
                 StartCoroutine(ButtonCoolTime());
             }
         }
@@ -76,12 +76,7 @@ namespace ldw
             if (userInput.Length > 0)
             {
                 userInput = userInput.Substring(0, userInput.Length - 1);
-                Debug.Log($"{userInput}");
                 userInputText.text = userInput;
-            }
-            else
-            {
-                Debug.Log("userInput is null");
             }
         }
 
@@ -89,21 +84,21 @@ namespace ldw
         {
             if (userInput == password)
             {
-                Debug.Log($"{userInput} is Right Password");
                 userInputText.text = "";
 
+                audioSource.clip = correctClip;
+                audioSource.Play();
                 CorrectPassword.Invoke();
             }
             else
             {
-                Debug.Log($"{userInput} is Wrong Password, Password Reset");
                 PasswordReset();
                 userInputText.text = "";
 
+                audioSource.clip = disCorrectClip;
+                audioSource.Play();
                 DisCorrectPassword.Invoke();
             }
-
         }
     }
-
 }

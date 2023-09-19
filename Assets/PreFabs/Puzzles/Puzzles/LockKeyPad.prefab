@@ -220,19 +220,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4066826163401200080}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -500,19 +488,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9186092333661715907}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -706,19 +682,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2477785523485080632}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -912,19 +876,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3042807773831007324}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1149,19 +1101,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3622836736536684606}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1355,19 +1295,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 772653102182096712}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1561,19 +1489,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2742436037841718531}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1798,19 +1714,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8064381033065225771}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2037,19 +1941,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2228683446943062987}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2243,19 +2135,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 651322433069532087}
-        m_TargetAssemblyTypeName: ldw.KeyPad, Assembly-CSharp
-        m_MethodName: InputButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2480,19 +2360,7 @@ MonoBehaviour:
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 688487793502428914}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2807,7 +2675,7 @@ MonoBehaviour:
   CorrectPassword:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2927655025008373349}
         m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
         m_MethodName: CorrectPassword
         m_Mode: 1
@@ -2831,7 +2699,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2050599325098521299}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
         m_MethodName: 
         m_Mode: 6
@@ -2846,9 +2714,9 @@ MonoBehaviour:
   DisCorrectPassword:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2050599325098521299}
+      - m_Target: {fileID: 2927655025008373349}
         m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: DisCorrectPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2861,6 +2729,10 @@ MonoBehaviour:
   password: 1234
   userInput: 
   isClicked: 0
+  audioSource: {fileID: 5994273005817759060}
+  touchClip: {fileID: 8300000, guid: 99897c8de00a8ac47b2502d94e5fbeb6, type: 3}
+  correctClip: {fileID: 8300000, guid: e5c1b36b7a5a41448a4898091e39543e, type: 3}
+  disCorrectClip: {fileID: 8300000, guid: 18a71a516116cb44a9b72c2d3561a496, type: 3}
 --- !u!1 &7346995554357650552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3291,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3952b3c84816d4fb30a6f8970a1d79, type: 3}
+--- !u!82 &5994273005817759060 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5139463602483950769, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476306981376618981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7494717969712110312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
