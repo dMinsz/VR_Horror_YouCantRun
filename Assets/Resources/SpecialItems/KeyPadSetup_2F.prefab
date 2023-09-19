@@ -301,7 +301,7 @@ FixedJoint:
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 10
+  m_ConnectedMassScale: 1
 --- !u!1 &1015771215457238450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1458,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 107127723723123666}
     m_Modifications:
+    - target: {fileID: 537561442002965254, guid: 6963e0f6c00c8c84790e6f6052cfc511,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d072bd193db0e484b8fecf3ce9713a84, type: 2}
     - target: {fileID: 651322433069532087, guid: 6963e0f6c00c8c84790e6f6052cfc511,
         type: 3}
       propertyPath: CorrectPassword.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1481,7 +1486,7 @@ PrefabInstance:
     - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4210091
+      value: 1.571
       objectReference: {fileID: 0}
     - target: {fileID: 2618211916871621144, guid: 6963e0f6c00c8c84790e6f6052cfc511,
         type: 3}

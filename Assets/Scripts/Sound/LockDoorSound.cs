@@ -14,7 +14,7 @@ public class LockDoorSound : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     public void LockSound()
