@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2525279893292563484}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 555679582790157423}
   - component: {fileID: 4736673973689232884}
   - component: {fileID: 2650508290895319477}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: PAGE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 7201183624147160944}
   - component: {fileID: 1345598412687454632}
   - component: {fileID: 3686917748088009912}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Hint_Memo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,18 +398,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3686917748088009912}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1197450119493916789}
         m_TargetAssemblyTypeName: ldw.InteractSound, Assembly-CSharp
         m_MethodName: PlaySE
@@ -426,18 +414,6 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3686917748088009912}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1197450119493916789}
         m_TargetAssemblyTypeName: ldw.InteractSound, Assembly-CSharp
         m_MethodName: PlaySE
@@ -543,7 +519,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
@@ -573,7 +549,7 @@ GameObject:
   - component: {fileID: 4200392172617597194}
   - component: {fileID: 2943863314385855863}
   - component: {fileID: 4409117015794138733}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6168110460043033792}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: SocketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587309767818462672, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
         type: 3}
