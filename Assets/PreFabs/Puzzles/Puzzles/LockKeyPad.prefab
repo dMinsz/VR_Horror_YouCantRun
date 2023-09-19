@@ -1878,7 +1878,6 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6019854827601843589}
   - {fileID: 6998752964303350075}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2642,92 +2641,6 @@ Transform:
   m_Father: {fileID: 7988466676518262028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5680834492962694934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6019854827601843589}
-  - component: {fileID: 2780430668333285356}
-  - component: {fileID: 6368537178187113434}
-  m_Layer: 0
-  m_Name: KeyCardCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6019854827601843589
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2618211916871621144}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2780430668333285356
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.084193945, y: 0.11903489, z: 0.03518969}
-  m_Center: {x: -0.035535216, y: 0.058932483, z: 0.013669312}
---- !u!114 &6368537178187113434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229b62c89b610d248abc2e99b2ff46bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnKeyCardCollision:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7604011447483388169}
-        m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
-        m_MethodName: CorrectPassword
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestDoor, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  DestroyedOnTriggered: 0
 --- !u!1 &5945505813189970973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,7 +2871,7 @@ Transform:
   - {fileID: 3655045553884354161}
   - {fileID: 7494717969712110312}
   m_Father: {fileID: 2618211916871621144}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &651322433069532087
 MonoBehaviour:
@@ -3030,6 +2943,10 @@ MonoBehaviour:
   password: 1234
   userInput: 
   isClicked: 0
+  audioSource: {fileID: 5994273005817759060}
+  touchClip: {fileID: 8300000, guid: d439c0877cc773147b1afac3d3c74746, type: 3}
+  correctClip: {fileID: 8300000, guid: cee676216f4872c49b8406099b7e1e7d, type: 3}
+  disCorrectClip: {fileID: 8300000, guid: 2406719d5ab36254285c75c8babd7db3, type: 3}
 --- !u!1 &7346995554357650552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3404,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3952b3c84816d4fb30a6f8970a1d79, type: 3}
+--- !u!82 &5994273005817759060 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5139463602483950769, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476306981376618981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7494717969712110312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
