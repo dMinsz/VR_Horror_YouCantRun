@@ -104,7 +104,7 @@ public class StateChase : MonsterStateBase<Mannequin>
         while (mannequinMove)
         {
             yield return null;
-            objectBGM = GameManager.Sound.PlaySound("Mannequin_Chase_BGM",Audio.SFX,owner.gameObject,1f,0.8f,true,20f);
+            objectBGM = GameManager.Sound.PlaySound("Mannequin_cry",Audio.SFX,owner.gameObject,1f,0.8f,true,20f);
             yield return new WaitForSeconds(35f);
         }
     }
