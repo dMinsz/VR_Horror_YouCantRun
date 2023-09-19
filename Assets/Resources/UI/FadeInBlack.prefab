@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 955056669580061640}
   - component: {fileID: 955056669580061641}
   - component: {fileID: 955056669580061646}
+  - component: {fileID: -9084195593774143700}
   m_Layer: 5
   m_Name: FadeInBlack
   m_TagString: Untagged
@@ -49,7 +50,7 @@ Canvas:
   m_GameObject: {fileID: 955056669580061647}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -101,6 +102,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-9084195593774143700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955056669580061647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a5abb47514d0c4faf24dbaea4513ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &955056670895266373
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
