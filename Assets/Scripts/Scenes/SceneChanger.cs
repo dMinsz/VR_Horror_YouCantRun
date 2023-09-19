@@ -30,8 +30,10 @@ public class SceneChanger : MonoBehaviour
 
     AudioSource sfx;
 
+    [HideInInspector]public ControllersVibration vibe;
     private void Awake()
     {
+        vibe = GetComponent<ControllersVibration>();
         sfx = GetComponent<AudioSource>();
         coll = GetComponent<Collider>();
     }
@@ -122,6 +124,7 @@ public class SceneChanger : MonoBehaviour
                             {
                                 ev.floorText.text = "2";
                                 sfx.Play();
+                                vibe.Vibe();
                             }
                             break;
                     }
@@ -190,6 +193,8 @@ public class SceneChanger : MonoBehaviour
         canChange = true;
 
     }
+
+
 
 
 }

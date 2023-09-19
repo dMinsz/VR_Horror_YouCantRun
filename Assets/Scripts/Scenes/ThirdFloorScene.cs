@@ -11,6 +11,8 @@ public class ThirdFloorScene : BaseScene
 
     public Transform StartPos;
 
+    public SceneChanger changer;
+
     protected override void Awake()
     {
         if (isDebug)
@@ -18,6 +20,9 @@ public class ThirdFloorScene : BaseScene
             //test
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
+
+            changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
+
             //player = GameManager.Pool.Get(true, playerPrefab, StartPos[0].position, StartPos[0].rotation);
         }
     }
@@ -27,6 +32,7 @@ public class ThirdFloorScene : BaseScene
         playerPrefab = GameManager.Resource.Load<GameObject>("Player");
         player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
+        changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
 
         progress = 1f;
         yield return null;

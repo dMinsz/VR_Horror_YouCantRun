@@ -1073,6 +1073,9 @@ MonoBehaviour:
   - {fileID: 2823687609665948029}
   - {fileID: 2823687610888405073}
   - {fileID: 8567805428194735351}
+  controllers:
+  - {fileID: 746217533105656436}
+  - {fileID: 746217534657630868}
 --- !u!54 &8567805428194735351
 Rigidbody:
   m_ObjectHideFlags: 0

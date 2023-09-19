@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  isDebug: 1
+  isDebug: 0
   StartPos: {fileID: 1678048965}
 --- !u!4 &2039538152
 Transform:
@@ -31501,6 +31501,7 @@ MonoBehaviour:
   EndPoint: {fileID: 1582868043}
   evCon: {fileID: 6961643620400909442}
   ev: {fileID: 1430824944699877574}
+  vibe: {fileID: 0}
 --- !u!65 &6589559723507799146
 BoxCollider:
   m_ObjectHideFlags: 0

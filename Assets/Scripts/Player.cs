@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class Player : MonoBehaviour
 
     public WheelInteractable[] phisics;
     public Rigidbody[] rigidbodies;
+
+    [SerializeField] public ActionBasedController[] controllers;
     public void SetupItems()
     {
         for (int i = 0; i < GameManager.Items.itemList.Length; i++)
