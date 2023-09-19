@@ -22,7 +22,7 @@ public class Slot_ : XRSocketInteractor
         base.Start();
     }
 
-    [System.Obsolete]
+    //[System.Obsolete]
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         GameObject obj = args.interactableObject.transform.gameObject;
