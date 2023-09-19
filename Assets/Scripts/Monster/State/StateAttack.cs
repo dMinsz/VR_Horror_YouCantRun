@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
  
@@ -42,7 +41,7 @@ public class StateAttack : MonsterStateBase<Mannequin>
 
     public override void Setup()
     {
-        audioClip = GameManager.Resource.Load<AudioClip>("Sounds/JumpScare_1");
+        audioClip = GameManager.Resource.Load<AudioClip>($"Sounds/JumpScare_{Random.Range(1,8)}");
     }
 
     public override void Transition()

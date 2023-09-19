@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public enum Audio { BGM, SFX, UISFX, Size }
 
@@ -113,7 +114,122 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip audioClip, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f,bool is3D = true, bool loop = false)
+    public GameObject PlaySound(AudioClip audioClip, Audio type = Audio.SFX, GameObject obj = null, float volume = 1.0f, float pitch = 1.0f, bool is3D = true, float maxDistance = 10f, bool loop = false)
+    {
+        StopCoroutine(FadeInRoutine());
+        StopCoroutine(ClearRoutine());
+
+        GameObject soundObj = null;
+
+        if (audioClip == null)
+        {
+            Debug.Log("No Clip");
+            return soundObj;
+        }
+
+        if (type == Audio.BGM)
+        {
+            bgmObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/BGM");
+            bgmObj.transform.parent = transform;
+            bgmSource = bgmObj.GetComponent<AudioSource>();
+            if (bgmSource.isPlaying)
+                bgmSource.Stop();
+            bgmSource.transform.parent = obj.transform;
+            bgmSource.transform.position = obj.transform.position;
+            bgmSource.volume = volume;
+            bgmSource.spatialBlend = is3D ? 1 : 0;
+            bgmSource.pitch = pitch;
+            bgmSource.clip = audioClip;
+            bgmSource.loop = true;
+            bgmSource.maxDistance = maxDistance != 10 ? maxDistance : 10;
+            bgmObj.name = bgmSource.clip.name;
+            bgmSource.Play();
+            soundObj = bgmObj;
+        }
+        else if (type == Audio.SFX)
+        {
+            if (loop)
+            {
+                loopSFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX");
+                addSource = loopSFX.GetComponent<AudioSource>();
+                addSource.transform.parent = obj.transform;
+                addSource.transform.position = obj.transform.position;
+                addSource.volume = volume;
+                addSource.pitch = pitch;
+                addSource.clip = audioClip;
+                addSource.loop = loop;
+                addSource.maxDistance = maxDistance != 10 ? maxDistance : 10;
+                loopSFX.name = addSource.clip.name;
+                sfxSources.Add(addSource);
+                soundObj = loopSFX;
+
+                addSource.Play();
+            }
+            else
+            {
+                GameObject addObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/SFX", true);
+
+                addObj.transform.parent = transform;
+                addSource = addObj.GetComponent<AudioSource>();
+                addSource.transform.position = obj.transform.position;
+                addSource.transform.parent = obj.transform;
+                addSource.volume = volume;
+                addSource.pitch = pitch;
+                addSource.clip = audioClip;
+                addSource.loop = loop;
+                addSource.maxDistance = maxDistance != 10 ? maxDistance : 10;
+                addObj.name = addSource.clip.name;
+                sfxSources.Add(addSource);
+                soundObj = addObj;
+
+                StartCoroutine(SFXPlayRoutine(addObj, audioClip));
+            }
+        }
+        else
+        {
+            if (loop)
+            {
+                loopUISFX = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX");
+                addSource = loopUISFX.GetComponent<AudioSource>();
+                addSource.transform.position = obj.transform.position;
+                addSource.transform.parent = obj.transform;
+                addSource.volume = volume;
+                addSource.pitch = pitch;
+                addSource.clip = audioClip;
+                addSource.loop = loop;
+                addSource.maxDistance = maxDistance != 10 ? maxDistance : 10;
+                loopUISFX.name = addSource.clip.name;
+                sfxSources.Add(addSource);
+                soundObj = loopUISFX;
+
+                addSource.Play();
+            }
+            else
+            {
+                GameObject addObj = GameManager.Resource.Instantiate<GameObject>("SoundObject/UISFX", true);
+
+                addObj.transform.parent = transform;
+                addSource = addObj.GetComponent<AudioSource>();
+                addSource.transform.position = obj.transform.position;
+                addSource.transform.parent = obj.transform;
+                addSource.volume = volume;
+                addSource.pitch = pitch;
+                addSource.clip = audioClip;
+                addSource.loop = loop;
+                addSource.maxDistance = maxDistance != 10 ? maxDistance : 10;
+                addObj.name = addSource.clip.name;
+                sfxSources.Add(addSource);
+                soundObj = addObj;
+
+                StartCoroutine(UISFXPlayRoutine(addObj, audioClip));
+            }
+        }
+
+        return soundObj;
+
+    }
+
+    public void PlaySound(AudioClip audioClip, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f,bool is3D = true, float maxDistance = 10f, bool loop = false)
     {
         StopCoroutine(FadeInRoutine());
         StopCoroutine(ClearRoutine());
@@ -237,10 +353,17 @@ public class SoundManager : MonoBehaviour
         yield break;
     }
 
-    public void PlaySound(string path, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f,bool is3D = true, bool loop = false)
+    public void PlaySound(string path, Audio type = Audio.SFX, Vector3 pos = new Vector3(), float volume = 1.0f, float pitch = 1.0f, bool is3D = true, float maxDistance = 10f, bool loop = false)
     {
         AudioClip audioClip = GetOrAddAudioClip(path, type);
-        PlaySound(audioClip, type, pos, volume, pitch,is3D, loop);
+        PlaySound(audioClip, type, pos, volume, pitch, is3D,maxDistance, loop);
+    }
+
+    public GameObject PlaySound(string path, Audio type = Audio.SFX, GameObject obj = null, float volume = 1.0f, float pitch = 1.0f, bool is3D = true, float maxDistance = 10f, bool loop = false)
+    {
+        AudioClip audioClip = GetOrAddAudioClip(path, type);
+        return PlaySound(audioClip, type, obj, volume, pitch, is3D, maxDistance, loop);
+       
     }
 
     public AudioClip GetOrAddAudioClip(string path, Audio type = Audio.SFX)
