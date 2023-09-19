@@ -10,6 +10,7 @@ public class JumpScareEventStartCondition : MonoBehaviour
     Collider col;
     Plane[] cameraFrustum;
     float nowFocusTime;
+    Coroutine findCam;
 
     private bool isRunning;
 
@@ -24,7 +25,7 @@ public class JumpScareEventStartCondition : MonoBehaviour
 
     private void Start()
     {
-        cam = Camera.main;
+        findCam = StartCoroutine(FindMainCamera());
     }
 
     public void PlayerIn()
@@ -71,5 +72,19 @@ public class JumpScareEventStartCondition : MonoBehaviour
             // 플레이어 시야에 FocusObject가 없다.
             Debug.Log("응시X");
         }
+    }
+
+    IEnumerator FindMainCamera()
+    {
+        yield return new WaitUntil(() => { return Camera.main != null; });
+
+        cam = Camera.main;
+
+        yield break;
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(findCam);
     }
 }
