@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1427704621}
   - component: {fileID: 1427704620}
   - component: {fileID: 1427704619}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1465853775}
   - component: {fileID: 1465853774}
   - component: {fileID: 1465853773}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 1585990293}
   - component: {fileID: 1585990292}
   - component: {fileID: 1585990291}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 2102908361}
   - component: {fileID: 2102908360}
   - component: {fileID: 2102908359}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 5176461077664608096}
   - component: {fileID: 5176461077664608094}
   - component: {fileID: 5176461077664608097}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: Slot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 268435457
+    m_Bits: 268435456
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 5176461077867796784}
   - component: {fileID: 5176461077867796787}
   - component: {fileID: 5176461077867796786}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 5176461077989604457}
   - component: {fileID: 5176461077989604455}
   - component: {fileID: 5176461077989604454}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 268435457
+    m_Bits: 268435456
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 5176461078301440663}
   - component: {fileID: 5176461078301440661}
   - component: {fileID: 5176461078301440660}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 5176461078639185705}
   - component: {fileID: 5176461078639185703}
   - component: {fileID: 5176461078639185702}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 5176461078676863361}
   - component: {fileID: 5176461078676863359}
   - component: {fileID: 5176461078676863358}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: Slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 268435457
+    m_Bits: 268435456
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 5176461078843765157}
   - component: {fileID: 5176461078843765156}
   - component: {fileID: 5176461078843765159}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 5176461078845485153}
   - component: {fileID: 5176461078845485151}
   - component: {fileID: 5176461078845485150}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1295,7 +1295,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 268435457
+    m_Bits: 268435456
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 5176461078885197302}
   - component: {fileID: 5176461078885197305}
   - component: {fileID: 5176461078885197304}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 5176461079132490778}
   - component: {fileID: 5176461079132490776}
   - component: {fileID: 5176461079132490779}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 5176461079280692208}
   - component: {fileID: 5176461079280692206}
   - component: {fileID: 5176461079280692209}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 5176461079314730866}
   - component: {fileID: 5176461079314730869}
   - component: {fileID: 5176461079314730868}
-  m_Layer: 31
+  m_Layer: 30
   m_Name: SocketHighlight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

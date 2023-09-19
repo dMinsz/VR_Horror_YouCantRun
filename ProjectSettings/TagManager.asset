@@ -38,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Slot
   - MarkItems
   m_SortingLayers:
   - name: Default
