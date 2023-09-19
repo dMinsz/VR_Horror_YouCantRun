@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowTest : MonoBehaviour
+public class FastZone : MonoBehaviour
 {
     bool isChange = false;
 
@@ -14,7 +14,7 @@ public class SlowTest : MonoBehaviour
             {
 
 
-                other.transform.root.GetComponent<PlayerCaughtMode>().changeSpeed(1.0f);
+                other.transform.root.GetComponent<PlayerCaughtMode>().changeSpeed(4.0f);
 
                 //other.transform.root.GetComponent<PlayerCaughtMode>().StopMove();
                 isChange = true;
@@ -22,11 +22,11 @@ public class SlowTest : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && GameManager.Gimmick.UnderTo1F)
-        {
-            other.transform.root.GetComponent<PlayerCaughtMode>().changeSpeed(2.0f);
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player") && GameManager.Gimmick.UnderTo1F)
+    //    {
+    //        other.transform.root.GetComponent<PlayerCaughtMode>().changeSpeed(2.0f);
+    //    }
+    //}
 }
