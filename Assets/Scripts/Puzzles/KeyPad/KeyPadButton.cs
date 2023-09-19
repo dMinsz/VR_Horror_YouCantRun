@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,12 @@ namespace ldw
         // 키 패드 클릭 시 발생되는 이벤트
         [SerializeField]
         UnityEvent KeyPadClicked;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("KeyPad"))
+                OnKeyPadButtonClicked();
+        }
 
         public void OnKeyPadButtonClicked()
         {
