@@ -13,6 +13,7 @@ public class GoToUnderGround : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                GameManager.Sound.PlaySound("FirstFloor_Fall", Audio.UISFX, Camera.main.transform.position);
                 this.gameObject.SetActive(false);
                 isChange = true;
             }
