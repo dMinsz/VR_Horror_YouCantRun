@@ -141,9 +141,9 @@ public class SceneChanger : MonoBehaviour
                             {
                                 ev.floorText.text = "2";
                                 sfx.Play();
-                                GameManager.UI.FadeOut(1.6f);
                                 vibe.Vibe();
                                 yield return new WaitForSeconds(2f);
+                                GameManager.UI.FadeOut(1.6f);
                             }
                             break;
                     }
