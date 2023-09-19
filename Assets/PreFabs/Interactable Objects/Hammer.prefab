@@ -184,8 +184,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6236888717443767360}
   - component: {fileID: 1587357711}
-  - component: {fileID: 1587357712}
   - component: {fileID: 1587357710}
+  - component: {fileID: 8184667888380260568}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -226,20 +226,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1587357712
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234602261014354586}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.017
-  m_Height: 0.18
-  m_Direction: 2
-  m_Center: {x: 0.000094264746, y: 0, z: 0.015389994}
 --- !u!114 &1587357710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +404,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &8184667888380260568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6234602261014354586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.027268277, y: 0.028961042, z: 0.1707176}
+  m_Center: {x: 0.00006640423, y: 0.000090307556, z: -0.08243896}
 --- !u!1 &7453633868694055963
 GameObject:
   m_ObjectHideFlags: 0
