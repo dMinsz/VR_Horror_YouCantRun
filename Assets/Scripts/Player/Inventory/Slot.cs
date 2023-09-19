@@ -20,7 +20,7 @@ public class Slot : XRSocketInteractor
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
 
-    private bool canSocket = true;
+    
     private GameObject[] highlightlist;
 
     //xrsocketinteraciton 상속
