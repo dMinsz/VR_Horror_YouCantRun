@@ -108,7 +108,7 @@ public class SceneManagerEX : MonoBehaviour
         Time.timeScale = 1f;
 
         GameManager.Sound.FadeInAudio();
-
+        GameManager.UI.FadeIn(0.5f);
         //loadingUI.gameObject.SetActive(false);
     }
 

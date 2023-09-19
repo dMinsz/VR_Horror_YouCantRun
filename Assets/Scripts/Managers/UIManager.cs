@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
 
         blackImage = fadeInCanvas.GetComponentInChildren<Image>();
 
+        nowFading = false;
+
     }
     public void Reset()
     {
@@ -63,11 +65,13 @@ public class UIManager : MonoBehaviour
             fadeInCanvas.gameObject.name = "FadeInCanvas";
             fadeInCanvas.sortingOrder = 0;
             blackImage = fadeInCanvas.GetComponentInChildren<Image>();
+            nowFading = false;
         }
     }
 
     public void FadeIn(float fadeTime)
     {
+        Debug.Log("Fade In");
         if (fadeInCanvas == null || blackImage == null)
             Reset();
         if (!nowFading)
@@ -85,7 +89,7 @@ public class UIManager : MonoBehaviour
         while(startTime < fadeTime)
         {
             if (blackImage == null)
-                yield break;
+                blackImage = fadeInCanvas.GetComponentInChildren<Image>();
             startTime += Time.deltaTime;
             float alpha = Mathf.Lerp(1f,0f, startTime / fadeTime);
             imageColor.a = alpha;
@@ -98,6 +102,7 @@ public class UIManager : MonoBehaviour
 
     public void FadeOut(float fadeTime)
     {
+        Debug.Log("Fade Out");
         if (fadeInCanvas == null || blackImage == null)
             Reset();
         if (!nowFading)
@@ -116,7 +121,7 @@ public class UIManager : MonoBehaviour
         while (startTime < fadeTime)
         {
             if (blackImage == null)
-                yield break;
+                blackImage = fadeInCanvas.GetComponentInChildren<Image>();
             startTime += Time.deltaTime;
             float alpha = Mathf.Lerp(0f, 1f, startTime / fadeTime);
             imageColor.a = alpha;
