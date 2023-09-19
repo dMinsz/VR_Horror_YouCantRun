@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 2823687609097002866}
   - component: {fileID: 2823687609097002864}
   - component: {fileID: 2823687609097002867}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: caster_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 2823687609242889879}
   - component: {fileID: 2823687609242889877}
   - component: {fileID: 2823687609242889876}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: caster_fork_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1446,7 +1446,7 @@ GameObject:
   - component: {fileID: 2823687609675929086}
   - component: {fileID: 2823687609675929084}
   - component: {fileID: 2823687609675929087}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: spokes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,7 +1529,7 @@ GameObject:
   - component: {fileID: 2823687609688242168}
   - component: {fileID: 2823687609688242166}
   - component: {fileID: 2823687609688242169}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: backrest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1612,7 +1612,7 @@ GameObject:
   - component: {fileID: 2823687609801026180}
   - component: {fileID: 2823687609801026178}
   - component: {fileID: 2823687609801026181}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handrim_brackets_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 2823687610109101058}
   - component: {fileID: 2823687610109101056}
   - component: {fileID: 2823687610109101059}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handrim_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 2823687610198091045}
   - component: {fileID: 2823687610198091043}
   - component: {fileID: 2823687610198091042}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: foot_plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2424,7 +2424,7 @@ GameObject:
   - component: {fileID: 2823687610238031695}
   - component: {fileID: 2823687610238031693}
   - component: {fileID: 2823687610238031692}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: wheel_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3205,7 +3205,7 @@ GameObject:
   - component: {fileID: 2823687610463252385}
   - component: {fileID: 2823687610463252415}
   - component: {fileID: 2823687610463252414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: caster_fork_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3363,7 +3363,7 @@ GameObject:
   - component: {fileID: 2823687610616681088}
   - component: {fileID: 2823687610616681118}
   - component: {fileID: 2823687610616681089}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: caster_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3446,7 +3446,7 @@ GameObject:
   - component: {fileID: 2823687610640925506}
   - component: {fileID: 2823687610640925504}
   - component: {fileID: 2823687610640925507}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: wheel_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3531,7 +3531,7 @@ GameObject:
   - component: {fileID: 2823687610678158046}
   - component: {fileID: 2823687610678158044}
   - component: {fileID: 2823687610678158047}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3619,7 +3619,7 @@ GameObject:
   - component: {fileID: 2823687610738878765}
   - component: {fileID: 2823687610738878763}
   - component: {fileID: 2823687610738878762}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handrim_brackets_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3703,7 +3703,7 @@ GameObject:
   - component: {fileID: 2823687610805253437}
   - component: {fileID: 2823687610805253435}
   - component: {fileID: 2823687610805253434}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cloth_guards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3901,7 +3901,7 @@ GameObject:
   - component: {fileID: 2823687610999072349}
   - component: {fileID: 2823687610999072347}
   - component: {fileID: 2823687610999072346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handrim_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3984,7 +3984,7 @@ GameObject:
   - component: {fileID: 2823687611123633592}
   - component: {fileID: 2823687611123633590}
   - component: {fileID: 2823687611123633593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4067,7 +4067,7 @@ GameObject:
   - component: {fileID: 2823687611145289977}
   - component: {fileID: 2823687611145289975}
   - component: {fileID: 2823687611145289974}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: spokes_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4600,15 +4600,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2823687610678158046}
     m_Modifications:
+    - target: {fileID: 1427704617, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465853771, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585990289, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102908357, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5176461077664608097, guid: 6cda194e45771d6469a439d15476c49f,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 268435456
       objectReference: {fileID: 0}
+    - target: {fileID: 5176461077664608099, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461077867796788, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5176461077989604454, guid: 6cda194e45771d6469a439d15476c49f,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 268435456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461077989604456, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5176461078579016864, guid: 6cda194e45771d6469a439d15476c49f,
         type: 3}
@@ -4675,10 +4706,35 @@ PrefabInstance:
       propertyPath: m_InteractionLayers.m_Bits
       value: 268435456
       objectReference: {fileID: 0}
+    - target: {fileID: 5176461078676863360, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461078843765161, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5176461078845485150, guid: 6cda194e45771d6469a439d15476c49f,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 268435456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461078845485152, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461078885197306, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461079314730870, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
