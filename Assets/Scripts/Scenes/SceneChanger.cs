@@ -28,8 +28,11 @@ public class SceneChanger : MonoBehaviour
     Collider coll;
     Coroutine mainRoutine;
 
+    AudioSource sfx;
+
     private void Awake()
     {
+        sfx = GetComponent<AudioSource>();
         coll = GetComponent<Collider>();
     }
 
@@ -116,12 +119,19 @@ public class SceneChanger : MonoBehaviour
                             ev.floorText.text = "1";
                             break;
                         case floor.Third:
-                            ev.floorText.text = "2";
+                            {
+                                ev.floorText.text = "2";
+                                sfx.Play();
+                            }
                             break;
                     }
 
+                    if (sfx.isPlaying == true)
+                    {
+                        yield return new WaitUntil(() => sfx.isPlaying == false);
+                    }
 
-                    yield return new WaitForSeconds(0.2f); // EV Change Floor Wait
+                    yield return new WaitForSeconds(0.5f); // EV Change Floor Wait
 
                     //Scene change
                     switch (nowFloor)
