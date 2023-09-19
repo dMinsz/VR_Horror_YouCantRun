@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555084147413281865}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3844948416007311750}
   - component: {fileID: 7427060279852436918}
   - component: {fileID: 4579155251966903846}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: PAGE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1100557830515063463}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: SocketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 8906627597031232036}
   - component: {fileID: 7580226225394811643}
   - component: {fileID: 3990854531873936439}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 2145189872190510231}
   - component: {fileID: 2823713932175608820}
   - component: {fileID: 7742554511928803456}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Hint_Chart_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587309767818462672, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
         type: 3}
