@@ -11,6 +11,6 @@ public class BGMPlay : MonoBehaviour
     void Start()
     {
         float audioVolume = volume > 0 ? volume : 1; 
-        GameManager.Sound.PlaySound(clip,Audio.BGM,transform.position, audioVolume, 1f, is3D);
+        GameManager.Sound.PlaySound(clip,Audio.BGM, this.gameObject, audioVolume, 1f, is3D);
     }
 }

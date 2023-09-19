@@ -57,7 +57,7 @@ public class RefrigerationAction : MonoBehaviour
 
     public IEnumerator MoveTable(GameObject tableObj,Vector3 pos)
     {
-        GameManager.Sound.PlaySound($"Metal_Table_Slide_{Random.Range(1, 4)}", Audio.SFX, tableObj.transform.position, 1.5f);
+        GameManager.Sound.PlaySound($"Metal_Table_Slide_{Random.Range(1, 4)}", Audio.SFX, tableObj.gameObject, 1.5f);
         while (tableObj.transform.localPosition.y > pos.y) {
             yield return new WaitForEndOfFrame();
             tableObj.transform.Translate(new Vector3(0f, -0.05f, 0f) * 100f * Time.deltaTime);

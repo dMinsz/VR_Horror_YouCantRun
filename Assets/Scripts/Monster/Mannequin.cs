@@ -40,6 +40,8 @@ public class Mannequin : BaseMonster
     public Coroutine mannequinSoundPlayCoroutine;
     public Coroutine mannequinAnimationCoroutine;
     public Coroutine mannequinStopCoroutine;
+    public Coroutine mannequinChaseBGMPlayCoroutine;
+
 
     public override void Awake()
     {
