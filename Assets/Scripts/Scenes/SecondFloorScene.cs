@@ -46,5 +46,6 @@ public class SecondFloorScene : BaseScene
     {
 
         GameManager.Resource.Destroy(player);
+        GameManager.Sound.Clear();
     }
 }

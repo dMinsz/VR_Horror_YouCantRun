@@ -5181,6 +5181,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2823687610678158046}
     m_Modifications:
+    - target: {fileID: 5176461077664608097, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 268435456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461077989604454, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 268435456
+      objectReference: {fileID: 0}
     - target: {fileID: 5176461078579016864, guid: 6cda194e45771d6469a439d15476c49f,
         type: 3}
       propertyPath: m_RootOrder
@@ -5240,6 +5250,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Inventory (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461078676863358, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 268435456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176461078845485150, guid: 6cda194e45771d6469a439d15476c49f,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 268435456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cda194e45771d6469a439d15476c49f, type: 3}
