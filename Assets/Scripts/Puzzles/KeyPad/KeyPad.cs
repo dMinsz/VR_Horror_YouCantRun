@@ -31,6 +31,11 @@ namespace ldw
 
         private Coroutine coolTimeCoroutine;
 
+        public void SetIsClicked()
+        {
+            isClicked = false;
+        }
+
         private void Start()
         {
             PasswordReset();
@@ -105,7 +110,8 @@ namespace ldw
 
         public void OnDisable()
         {
-            StopCoroutine(coolTimeCoroutine);
+            if(coolTimeCoroutine != null)
+                StopCoroutine(coolTimeCoroutine);
         }
     }
 }
