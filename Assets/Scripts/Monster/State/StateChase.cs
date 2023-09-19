@@ -8,6 +8,7 @@ enum ManneqionPose { None,Chase, Surprise, Size }
 public class StateChase : MonsterStateBase<Mannequin>
 {
     bool mannequinMove;
+    GameObject objectBGM;
     [SerializeField] ManneqionPose pose;
 
     public StateChase(Mannequin owner) : base(owner)
@@ -20,12 +21,18 @@ public class StateChase : MonsterStateBase<Mannequin>
         mannequinMove = true;
         owner.mannequinMoveCoroutine = owner.StartCoroutine(MannequinMove());
         owner.mannequinSoundPlayCoroutine = owner.StartCoroutine(PlayMoveSound());
+        owner.mannequinChaseBGMPlayCoroutine = owner.StartCoroutine(PlaySingingSound());
     }
 
     public override void Exit()
     {
         pose = ManneqionPose.None;
         mannequinMove = false;
+        GameManager.Resource.Destroy(objectBGM);
+        objectBGM = null;
+        owner.StopCoroutine(owner.mannequinMoveCoroutine);
+        owner.StopCoroutine(owner.mannequinSoundPlayCoroutine);
+        owner.StopCoroutine(owner.mannequinChaseBGMPlayCoroutine);
     }
 
     public override void LateUpdate()
@@ -92,14 +99,23 @@ public class StateChase : MonsterStateBase<Mannequin>
 
     }
 
+    public IEnumerator PlaySingingSound()
+    {
+        while (mannequinMove)
+        {
+            yield return null;
+            objectBGM = GameManager.Sound.PlaySound("Mannequin_cry",Audio.SFX,owner.gameObject,1f,0.8f,true,20f);
+            yield return new WaitForSeconds(35f);
+        }
+    }
     public IEnumerator PlayMoveSound()
     {
 
         while (mannequinMove)
         {
             yield return new WaitForSeconds(Random.Range(0.3f,0.6f));
-            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(1, 8)}", Audio.SFX, owner.transform.position, 0.7f, 0.9f);
-            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(7, 14)}", Audio.SFX, owner.transform.position, 0.2f, 0.9f);
+            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(1, 8)}", Audio.SFX, owner.gameObject, 0.4f, 0.9f);
+            GameManager.Sound.PlaySound($"MannequinMove_{Random.Range(7, 14)}", Audio.SFX, owner.gameObject, 0.2f, 0.9f);
         }
     }
 }

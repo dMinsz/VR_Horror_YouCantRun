@@ -28,8 +28,13 @@ public class SceneChanger : MonoBehaviour
     Collider coll;
     Coroutine mainRoutine;
 
+    AudioSource sfx;
+
+    [HideInInspector]public ControllersVibration vibe;
     private void Awake()
     {
+        vibe = GetComponent<ControllersVibration>();
+        sfx = GetComponent<AudioSource>();
         coll = GetComponent<Collider>();
     }
 
@@ -42,7 +47,8 @@ public class SceneChanger : MonoBehaviour
 
                 if (nowFloor == floor.End)
                 {
-                    GameManager.Scene.LoadScene("StartScene");
+                    isChange = true;
+                    mainRoutine = StartCoroutine(FinalSceneChange());
                 }
                 else 
                 {
@@ -74,6 +80,22 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
+    public void FadeIn(float fadeTime)
+    {
+        GameManager.UI.FadeIn(fadeTime);
+    }
+
+    public void FadeOut(float fadeTime)
+    {
+        GameManager.UI.FadeOut(fadeTime);
+    }
+
+    IEnumerator FinalSceneChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.Scene.LoadScene("StartScene");
+
+    }
     IEnumerator SceneChange(Collider other)
     {
         //Move to End Point
@@ -116,12 +138,22 @@ public class SceneChanger : MonoBehaviour
                             ev.floorText.text = "1";
                             break;
                         case floor.Third:
-                            ev.floorText.text = "2";
+                            {
+                                ev.floorText.text = "2";
+                                sfx.Play();
+                                vibe.Vibe();
+                                yield return new WaitForSeconds(2f);
+                                GameManager.UI.FadeOut(1.6f);
+                            }
                             break;
                     }
 
+                    if (sfx != null && sfx.isPlaying == true)
+                    {
+                        yield return new WaitUntil(() => sfx.isPlaying == false);
+                    }
 
-                    yield return new WaitForSeconds(0.2f); // EV Change Floor Wait
+                    yield return new WaitForSeconds(0.5f); // EV Change Floor Wait
 
                     //Scene change
                     switch (nowFloor)
@@ -180,6 +212,8 @@ public class SceneChanger : MonoBehaviour
         canChange = true;
 
     }
+
+
 
 
 }

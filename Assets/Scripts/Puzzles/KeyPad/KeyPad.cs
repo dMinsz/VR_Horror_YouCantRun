@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Text;
 using TMPro;
-using System.Linq;
 
 namespace ldw
 {
@@ -24,44 +21,69 @@ namespace ldw
         public string password;
 
         public string userInput = "";
+        public bool isClicked;
+
+        [SerializeField]
+        AudioSource audioSource;
+        public AudioClip touchClip;
+        public AudioClip correctClip;
+        public AudioClip disCorrectClip;
+
+        private Coroutine coolTimeCoroutine;
+
+        public void SetIsClicked()
+        {
+            isClicked = false;
+        }
 
         private void Start()
         {
-            // userInputText.text = "";
             PasswordReset();
+            isClicked = false;
         }
 
         private void PasswordReset()
         {
             userInput = "";
-            // userInputText.text = userInput;
         }
 
         public void OnClickKeyButton(int keyPadNum)
         {
-            if(userInput.Length >= 4)
+            if (!isClicked)
             {
-                Debug.Log($"Length Over, current userInput : {userInput}");
+                if (keyPadNum == 10)
+                    EraseButton();
+                else if (keyPadNum == 11)
+                    InputButton();
+                else
+                {
+                    if (userInput.Length < 4)
+                    {
+                        userInput += keyPadNum;
+                        userInputText.text = $"{userInput}";
+                    }
+                }
+                audioSource.clip = touchClip;
+                audioSource.Play();
+
+                coolTimeCoroutine = StartCoroutine(ButtonCoolTime());
             }
-            else
-            {
-                userInput += keyPadNum;
-                Debug.Log($"{keyPadNum} insert, userInput : {userInput}");
-                userInputText.text = $"{userInput}";
-            }
+        }
+
+        IEnumerator ButtonCoolTime()
+        {
+            isClicked = true;
+            yield return new WaitForSeconds(1f);
+            isClicked = false;
+            yield return null;
         }
 
         public void EraseButton()
         {
-            if(userInput.Length > 0)
+            if (userInput.Length > 0)
             {
                 userInput = userInput.Substring(0, userInput.Length - 1);
-                Debug.Log($"{userInput}");
                 userInputText.text = userInput;
-            }
-            else
-            {
-                Debug.Log("userInput is null");
             }
         }
 
@@ -69,20 +91,27 @@ namespace ldw
         {
             if (userInput == password)
             {
-                Debug.Log($"{userInput} is Right Password");
                 userInputText.text = "";
 
+                audioSource.clip = correctClip;
+                audioSource.Play();
                 CorrectPassword.Invoke();
             }
             else
             {
-                Debug.Log($"{userInput} is Wrong Password, Password Reset");
                 PasswordReset();
                 userInputText.text = "";
 
+                audioSource.clip = disCorrectClip;
+                audioSource.Play();
                 DisCorrectPassword.Invoke();
             }
         }
-    }
 
+        public void OnDisable()
+        {
+            if(coolTimeCoroutine != null)
+                StopCoroutine(coolTimeCoroutine);
+        }
+    }
 }

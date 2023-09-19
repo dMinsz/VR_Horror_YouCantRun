@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
  
@@ -8,7 +7,7 @@ public class StateAttack : MonsterStateBase<Mannequin>
 {
     AudioClip audioClip;
     Transform originTransform;
-
+    
     public StateAttack(Mannequin owner) : base(owner)
     {
     }
@@ -19,6 +18,7 @@ public class StateAttack : MonsterStateBase<Mannequin>
         owner.HorrorLight.enabled = true;
         owner.Agent.speed = 0;
         GameManager.Sound.PlaySound(audioClip, Audio.UISFX, owner.transform.position, 0.6f);
+        MannequinJumpScare();
         owner.StartCoroutine(RegenMonster());
     }
             
@@ -26,7 +26,7 @@ public class StateAttack : MonsterStateBase<Mannequin>
     {
     }
 
-    public override void LateUpdate()
+    public void MannequinJumpScare()
     {
         owner.transform.position = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z) + new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z) * 1.5f;
 
@@ -40,9 +40,14 @@ public class StateAttack : MonsterStateBase<Mannequin>
         owner.transform.rotation = origin;
     }
 
+    public override void LateUpdate()
+    {
+
+    }
+
     public override void Setup()
     {
-        audioClip = GameManager.Resource.Load<AudioClip>("Sounds/JumpScare_1");
+        audioClip = GameManager.Resource.Load<AudioClip>($"Sounds/JumpScare_{Random.Range(1,8)}");
     }
 
     public override void Transition()

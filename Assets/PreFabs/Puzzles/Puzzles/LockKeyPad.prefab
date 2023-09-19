@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 7988466676518262028}
   - component: {fileID: 8132021594750697248}
   - component: {fileID: 4066826163401200080}
+  - component: {fileID: 107127722603387325}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -105,7 +106,7 @@ BoxCollider:
   m_GameObject: {fileID: 957404644121497325}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -212,26 +213,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 3155727158561882599}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4066826163401200080}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -254,6 +243,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127722603387325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957404644121497325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &1092442418088015721
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +341,7 @@ GameObject:
   - component: {fileID: 8077631393176084938}
   - component: {fileID: 257009113936048716}
   - component: {fileID: 9186092333661715907}
+  - component: {fileID: 107127723289918259}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -371,7 +374,7 @@ BoxCollider:
   m_GameObject: {fileID: 2018067075978624365}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -478,26 +481,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 205363066452395132}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9186092333661715907}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -520,6 +511,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723289918259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018067075978624365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2138508007690963501
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +535,7 @@ GameObject:
   - component: {fileID: 3925831792329280126}
   - component: {fileID: 5460044268359915804}
   - component: {fileID: 2477785523485080632}
+  - component: {fileID: 107127723490070328}
   m_Layer: 0
   m_Name: Button5
   m_TagString: Untagged
@@ -563,7 +568,7 @@ BoxCollider:
   m_GameObject: {fileID: 2138508007690963501}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -670,26 +675,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 4623187235508851380}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2477785523485080632}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -712,6 +705,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723490070328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138508007690963501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2523865933643714795
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +729,7 @@ GameObject:
   - component: {fileID: 3908755621552602301}
   - component: {fileID: 8708894252302568296}
   - component: {fileID: 3042807773831007324}
+  - component: {fileID: 107127723414415617}
   m_Layer: 0
   m_Name: Button7
   m_TagString: Untagged
@@ -755,7 +762,7 @@ BoxCollider:
   m_GameObject: {fileID: 2523865933643714795}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -862,26 +869,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 1379657877643825197}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3042807773831007324}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -904,6 +899,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723414415617
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523865933643714795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2543686270202252110
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +954,7 @@ GameObject:
   - component: {fileID: 8051153154299240760}
   - component: {fileID: 6852623577056555152}
   - component: {fileID: 3622836736536684606}
+  - component: {fileID: 107127722583032326}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -978,7 +987,7 @@ BoxCollider:
   m_GameObject: {fileID: 2619082058347433199}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1085,26 +1094,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 6101116302920672126}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3622836736536684606}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1127,6 +1124,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127722583032326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619082058347433199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2662899190863359005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1148,7 @@ GameObject:
   - component: {fileID: 1878345643191683756}
   - component: {fileID: 3759015235191322130}
   - component: {fileID: 772653102182096712}
+  - component: {fileID: 107127723474953528}
   m_Layer: 0
   m_Name: Button6
   m_TagString: Untagged
@@ -1170,7 +1181,7 @@ BoxCollider:
   m_GameObject: {fileID: 2662899190863359005}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1277,26 +1288,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 6569027335192932034}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 772653102182096712}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1319,6 +1318,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723474953528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662899190863359005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2768263497549090967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1342,7 @@ GameObject:
   - component: {fileID: 4578169425816771699}
   - component: {fileID: 8371625276009161617}
   - component: {fileID: 2742436037841718531}
+  - component: {fileID: 107127723639605395}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -1362,7 +1375,7 @@ BoxCollider:
   m_GameObject: {fileID: 2768263497549090967}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1469,26 +1482,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 8553755659386377293}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2742436037841718531}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1511,6 +1512,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723639605395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768263497549090967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &2801381724108079660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1567,7 @@ GameObject:
   - component: {fileID: 2821136412038702126}
   - component: {fileID: 7664942364610662260}
   - component: {fileID: 8064381033065225771}
+  - component: {fileID: 107127722261085921}
   m_Layer: 0
   m_Name: Button8
   m_TagString: Untagged
@@ -1585,7 +1600,7 @@ BoxCollider:
   m_GameObject: {fileID: 3155075706030694294}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1692,26 +1707,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 7079446411949056468}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8064381033065225771}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1734,6 +1737,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127722261085921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155075706030694294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &3395170347344167074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,17 +1759,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2618211916871621144}
-  - component: {fileID: 1439491929952540093}
-  - component: {fileID: 3755699729968406903}
-  - component: {fileID: 7766885751395522454}
-  - component: {fileID: 7604011447483388169}
   m_Layer: 0
   m_Name: LockKeyPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2618211916871621144
 Transform:
   m_ObjectHideFlags: 0
@@ -1763,93 +1775,14 @@ Transform:
   m_GameObject: {fileID: 3395170347344167074}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6019854827601843589}
+  - {fileID: 1675024137864046697}
   - {fileID: 6998752964303350075}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &1439491929952540093
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395170347344167074}
-  m_Mesh: {fileID: 8687099326466859636, guid: 898f7e61b7088c04d9d0e03aca408a56, type: 3}
---- !u!23 &3755699729968406903
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395170347344167074}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: d072bd193db0e484b8fecf3ce9713a84, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7766885751395522454
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395170347344167074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8687099326466859636, guid: 898f7e61b7088c04d9d0e03aca408a56, type: 3}
---- !u!114 &7604011447483388169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395170347344167074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e110683c0a91e9e4f99a053406e88e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyPad: {fileID: 2100000, guid: d072bd193db0e484b8fecf3ce9713a84, type: 2}
-  keyPadCorrect: {fileID: 2100000, guid: cfbde001f0568a34a9b570d40b08b8c8, type: 2}
-  keyPadDisCorrect: {fileID: 2100000, guid: ea66505ec406a0b49abcb4ceb58502ec, type: 2}
 --- !u!1 &3514785934399640247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1794,7 @@ GameObject:
   - component: {fileID: 9007537151874883271}
   - component: {fileID: 7600051374254880697}
   - component: {fileID: 2228683446943062987}
+  - component: {fileID: 107127723246974910}
   m_Layer: 0
   m_Name: Button0
   m_TagString: Untagged
@@ -1893,7 +1827,7 @@ BoxCollider:
   m_GameObject: {fileID: 3514785934399640247}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2000,26 +1934,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 3423779594743029088}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2228683446943062987}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2042,6 +1964,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723246974910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514785934399640247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &4377095452823330681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +1988,7 @@ GameObject:
   - component: {fileID: 1875524590425385487}
   - component: {fileID: 8359366132922792933}
   - component: {fileID: 5214740299497915524}
+  - component: {fileID: 107127722752846880}
   m_Layer: 0
   m_Name: InputButton
   m_TagString: Untagged
@@ -2085,7 +2021,7 @@ BoxCollider:
   m_GameObject: {fileID: 4377095452823330681}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2192,36 +2128,49 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 2300639710685223363}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 651322433069532087}
-        m_TargetAssemblyTypeName: ldw.KeyPad, Assembly-CSharp
-        m_MethodName: InputButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
   OnValueChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  keyPadNum: 0
+  keyPadNum: 11
   KeyPadClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 651322433069532087}
+        m_TargetAssemblyTypeName: ldw.KeyPad, Assembly-CSharp
+        m_MethodName: OnClickKeyButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &107127722752846880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377095452823330681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &5205664045147138180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,6 +2213,7 @@ GameObject:
   - component: {fileID: 7091336749971892413}
   - component: {fileID: 5444892427662654465}
   - component: {fileID: 688487793502428914}
+  - component: {fileID: 107127723722448023}
   m_Layer: 0
   m_Name: Button9
   m_TagString: Untagged
@@ -2296,7 +2246,7 @@ BoxCollider:
   m_GameObject: {fileID: 5304717715251872295}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2403,26 +2353,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 5576555029434729966}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 688487793502428914}
-        m_TargetAssemblyTypeName: ldw.KeyPadButton, Assembly-CSharp
-        m_MethodName: OnKeyPadButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2445,6 +2383,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &107127723722448023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304717715251872295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &5362786322493419667
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,92 +2427,6 @@ Transform:
   m_Father: {fileID: 7988466676518262028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5680834492962694934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6019854827601843589}
-  - component: {fileID: 2780430668333285356}
-  - component: {fileID: 6368537178187113434}
-  m_Layer: 0
-  m_Name: KeyCardCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6019854827601843589
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2618211916871621144}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2780430668333285356
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.084193945, y: 0.11903489, z: 0.03518969}
-  m_Center: {x: -0.035535216, y: 0.058932483, z: 0.013669312}
---- !u!114 &6368537178187113434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680834492962694934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229b62c89b610d248abc2e99b2ff46bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnKeyCardCollision:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7604011447483388169}
-        m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
-        m_MethodName: CorrectPassword
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestDoor, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  DestroyedOnTriggered: 0
 --- !u!1 &5945505813189970973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,6 +2655,7 @@ Transform:
   m_Children:
   - {fileID: 738804861971386031}
   - {fileID: 3655045553884354161}
+  - {fileID: 7494717969712110312}
   m_Father: {fileID: 2618211916871621144}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2809,7 +2675,7 @@ MonoBehaviour:
   CorrectPassword:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7604011447483388169}
+      - m_Target: {fileID: 2927655025008373349}
         m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
         m_MethodName: CorrectPassword
         m_Mode: 1
@@ -2834,9 +2700,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestDoor, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2848,7 +2714,7 @@ MonoBehaviour:
   DisCorrectPassword:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7604011447483388169}
+      - m_Target: {fileID: 2927655025008373349}
         m_TargetAssemblyTypeName: KeyPadRenderSwitch, Assembly-CSharp
         m_MethodName: DisCorrectPassword
         m_Mode: 1
@@ -2862,6 +2728,11 @@ MonoBehaviour:
         m_CallState: 2
   password: 1234
   userInput: 
+  isClicked: 0
+  audioSource: {fileID: 5994273005817759060}
+  touchClip: {fileID: 8300000, guid: 99897c8de00a8ac47b2502d94e5fbeb6, type: 3}
+  correctClip: {fileID: 8300000, guid: e5c1b36b7a5a41448a4898091e39543e, type: 3}
+  disCorrectClip: {fileID: 8300000, guid: 18a71a516116cb44a9b72c2d3561a496, type: 3}
 --- !u!1 &7346995554357650552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,6 +2876,7 @@ GameObject:
   - component: {fileID: 1860538357471731965}
   - component: {fileID: 5087720786100927262}
   - component: {fileID: 7111054478289202049}
+  - component: {fileID: 107127722627901983}
   m_Layer: 0
   m_Name: EraseButton
   m_TagString: Untagged
@@ -3037,7 +2909,7 @@ BoxCollider:
   m_GameObject: {fileID: 8104557505029913766}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3144,36 +3016,49 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonTransform: {fileID: 483895119066734150}
-  buttonPressDistance: 0.007
+  buttonPressDistance: 0.004
   buttonPressBuffer: 0.001
-  buttonTransformOffset: 0.01
-  buttonTransformSize: 0.015
+  buttonTransformOffset: 0.035
+  buttonTransformSize: 0
   isToggleButton: 0
   OnPressEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 651322433069532087}
-        m_TargetAssemblyTypeName: ldw.KeyPad, Assembly-CSharp
-        m_MethodName: EraseButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnReleaseEvent:
     m_PersistentCalls:
       m_Calls: []
   OnValueChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  keyPadNum: 0
+  keyPadNum: 10
   KeyPadClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 651322433069532087}
+        m_TargetAssemblyTypeName: ldw.KeyPad, Assembly-CSharp
+        m_MethodName: OnClickKeyButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &107127722627901983
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104557505029913766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!1 &8348953069212182295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,3 +3121,185 @@ Transform:
   m_Father: {fileID: 7091336749971892413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1203684759661318018
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2618211916871621144}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000037748947
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 65b7a4c8e95f41548915a6538ade414c,
+        type: 3}
+      propertyPath: m_Name
+      value: Visual
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65b7a4c8e95f41548915a6538ade414c, type: 3}
+--- !u!4 &1675024137864046697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65b7a4c8e95f41548915a6538ade414c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1203684759661318018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2050599325098521299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 65b7a4c8e95f41548915a6538ade414c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1203684759661318018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2927655025008373349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050599325098521299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e110683c0a91e9e4f99a053406e88e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPad: {fileID: 2100000, guid: d072bd193db0e484b8fecf3ce9713a84, type: 2}
+  keyPadCorrect: {fileID: 2100000, guid: cfbde001f0568a34a9b570d40b08b8c8, type: 2}
+  keyPadDisCorrect: {fileID: 2100000, guid: ea66505ec406a0b49abcb4ceb58502ec, type: 2}
+--- !u!1001 &1476306981376618981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6998752964303350075}
+    m_Modifications:
+    - target: {fileID: 1587309767818462672, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_Name
+      value: InteractSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c3952b3c84816d4fb30a6f8970a1d79, type: 3}
+--- !u!82 &5994273005817759060 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5139463602483950769, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476306981376618981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7494717969712110312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476306981376618981}
+  m_PrefabAsset: {fileID: 0}
