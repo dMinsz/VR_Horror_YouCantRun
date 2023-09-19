@@ -129,6 +129,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 988800893671550846}
+        m_TargetAssemblyTypeName: LockDoorSound, Assembly-CSharp
+        m_MethodName: LockSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -386,6 +398,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 988800893671550846}
+        m_TargetAssemblyTypeName: LockDoorSound, Assembly-CSharp
+        m_MethodName: LockSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -634,6 +658,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4355698927070541501}
         m_TargetAssemblyTypeName: ldw.InteractSound, Assembly-CSharp
         m_MethodName: PlayRandomSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9080162277140357446}
+        m_TargetAssemblyTypeName: LockDoorSound, Assembly-CSharp
+        m_MethodName: LockSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1186,6 +1222,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9080162277140357446}
+        m_TargetAssemblyTypeName: LockDoorSound, Assembly-CSharp
+        m_MethodName: LockSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -1490,6 +1538,7 @@ GameObject:
   - component: {fileID: 6305680670260360687}
   - component: {fileID: 6305680670260360689}
   - component: {fileID: 7273644135069887057}
+  - component: {fileID: 9080162277140357446}
   m_Layer: 0
   m_Name: TestDoor
   m_TagString: Untagged
@@ -1659,6 +1708,20 @@ MonoBehaviour:
   - {fileID: 6305680670260360687}
   - {fileID: 6792830178194995659}
   - {fileID: 850531510186406488}
+--- !u!114 &9080162277140357446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035247381735816612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a553aa8d6d2724bbc378b27cc4b936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 4355698927070541500}
+  lockSound: {fileID: 8300000, guid: 2ff7327ecf8763c4f8ffc2c8e7b07bdd, type: 3}
 --- !u!1 &6036538258895900026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1965,7 @@ GameObject:
   - component: {fileID: 6625539585940329480}
   - component: {fileID: 6625539585940329494}
   - component: {fileID: 7530527388146912182}
+  - component: {fileID: 988800893671550846}
   m_Layer: 0
   m_Name: TestDoor
   m_TagString: Untagged
@@ -2071,6 +2135,20 @@ MonoBehaviour:
   - {fileID: 6625539585940329480}
   - {fileID: 5923386905851123756}
   - {fileID: 557694191443284927}
+--- !u!114 &988800893671550846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895401953255316547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a553aa8d6d2724bbc378b27cc4b936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 4355698928103759951}
+  lockSound: {fileID: 8300000, guid: 2ff7327ecf8763c4f8ffc2c8e7b07bdd, type: 3}
 --- !u!1 &6895525141220714317
 GameObject:
   m_ObjectHideFlags: 0
