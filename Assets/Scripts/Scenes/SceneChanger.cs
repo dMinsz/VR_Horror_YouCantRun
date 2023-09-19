@@ -120,8 +120,8 @@ public class SceneChanger : MonoBehaviour
                             break;
                         case floor.Third:
                             {
-                                sfx.Play();
                                 ev.floorText.text = "2";
+                                sfx.Play();
                             }
                             break;
                     }
