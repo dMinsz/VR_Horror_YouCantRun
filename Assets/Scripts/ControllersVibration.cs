@@ -8,8 +8,8 @@ public class ControllersVibration : MonoBehaviour
 
     private XRBaseController[] xrs = new XRBaseController[2];
 
-    public float duration = 0.7f;
-    public float Amplitude = 3f;
+    public float duration = 5f;
+    public float Amplitude = 1f;
 
 
     public void Setup(XRBaseController left, XRBaseController right) 

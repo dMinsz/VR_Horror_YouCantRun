@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public WheelInteractable[] phisics;
     public Rigidbody[] rigidbodies;
 
-    [SerializeField] public ActionBasedController[] controllers;
+    [SerializeField] public XRBaseController[] controllers;
     public void SetupItems()
     {
         for (int i = 0; i < GameManager.Items.itemList.Length; i++)
