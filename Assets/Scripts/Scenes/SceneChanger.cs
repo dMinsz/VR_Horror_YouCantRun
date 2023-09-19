@@ -126,7 +126,7 @@ public class SceneChanger : MonoBehaviour
                             break;
                     }
 
-                    if (sfx.isPlaying == true)
+                    if (sfx != null && sfx.isPlaying == true)
                     {
                         yield return new WaitUntil(() => sfx.isPlaying == false);
                     }
