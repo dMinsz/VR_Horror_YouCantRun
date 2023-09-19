@@ -29,8 +29,10 @@ public class ThirdFloorScene : BaseScene
 
     private void Start()
     {
-        changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
-
+        if (isDebug)
+        {
+            changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
+        }
     }
 
     protected override IEnumerator LoadingRoutine()

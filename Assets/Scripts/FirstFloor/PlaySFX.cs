@@ -15,7 +15,7 @@ public class PlaySFX : MonoBehaviour
     {
         if (isLoop)
         {
-            GameManager.Sound.PlaySound(clip[Random.Range(0, clip.Length)], Audio.SFX, transform.position, volume, 1f, true);
+            GameManager.Sound.PlaySound(clip[Random.Range(0, clip.Length)], Audio.SFX, this.gameObject , volume, 1f, true);
         }
         else
         {
@@ -31,7 +31,7 @@ public class PlaySFX : MonoBehaviour
         while (true)
         {
             AudioClip audioclip = clip[Random.Range(0, clip.Length)];
-            GameManager.Sound.PlaySound(audioclip, Audio.SFX,transform.position,volume);
+            GameManager.Sound.PlaySound(audioclip, Audio.SFX,this.gameObject,volume);
             yield return new WaitForSeconds(Random.Range(startTime, endTime));
         }
         //yield return null;
