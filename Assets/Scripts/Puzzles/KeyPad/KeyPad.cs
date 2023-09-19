@@ -29,6 +29,8 @@ namespace ldw
         public AudioClip correctClip;
         public AudioClip disCorrectClip;
 
+        private Coroutine coolTimeCoroutine;
+
         private void Start()
         {
             PasswordReset();
@@ -59,7 +61,7 @@ namespace ldw
                 audioSource.clip = touchClip;
                 audioSource.Play();
 
-                StartCoroutine(ButtonCoolTime());
+                coolTimeCoroutine = StartCoroutine(ButtonCoolTime());
             }
         }
 
@@ -99,6 +101,11 @@ namespace ldw
                 audioSource.Play();
                 DisCorrectPassword.Invoke();
             }
+        }
+
+        public void OnDisable()
+        {
+            StopCoroutine(coolTimeCoroutine);
         }
     }
 }
