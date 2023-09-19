@@ -5,25 +5,25 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Slot : XRSocketInteractor
 {
-    //ê¸°ì¡´ slotSize
+    //±âÁ¸ slotSize
     private Vector3 slotSize = new Vector3(0.2f, 0.1f, 0.2f);
 
-    //ìŠµë“ëœ itemì˜ Size / ratio
+    //½ÀµæµÈ itemÀÇ Size / ratio
     private Vector3 itemSize;
     private float ratio;
 
-    //ìŠ¬ë¡¯ì´ë¦„ê³¼ ë“¤ì–´ê°€ìˆëŠ” ì•„ì´í…œ ì´ë¦„
+    //½½·ÔÀÌ¸§°ú µé¾î°¡ÀÖ´Â ¾ÆÀÌÅÛ ÀÌ¸§
     public int slotNum;
     public string itemName;
 
-    // ì•„ì´í…œ ì œê±° / ìŠµë“ ì´ë²¤íŠ¸
+    // ¾ÆÀÌÅÛ Á¦°Å / ½Àµæ ÀÌº¥Æ®
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
 
     
     private GameObject[] highlightlist;
 
-    //xrsocketinteraciton ìƒì†
+    //xrsocketinteraciton »ó¼Ó
     protected override void Start()
     {
         base.Start();
@@ -56,25 +56,25 @@ public class Slot : XRSocketInteractor
         //canSocket = true;
         //curState = State.None;
     }
-    //ì†Œì¼“ì—ë“¤ì–´ê°ˆë–„
+    //¼ÒÄÏ¿¡µé¾î°¥‹š
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         Debug.Log("selectEntering");
 
 
-        //ì ‘ì´‰ëœ ë¬¼ì²´ í• ë‹¹
+        //Á¢ÃËµÈ ¹°Ã¼ ÇÒ´ç
         GameObject obj = args.interactableObject.transform.gameObject;
 
-        //itemí¬ê¸°
+        //itemÅ©±â
         itemSize = obj.GetComponentInChildren<MeshRenderer>().bounds.size;
 
-        //socketAttach í¬ì¸íŠ¸ê°€ ìˆì„ê²½ìš° ? grab interactable attachpoint ë³€ê²½
+        //socketAttach Æ÷ÀÎÆ®°¡ ÀÖÀ»°æ¿ì ? grab interactable attachpoint º¯°æ
         if (args.interactableObject.transform.Find("SocketAttach"))
         {
             args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("SocketAttach");
         }
 
-        //í¬ê¸°ë°”ê¾¸ê¸°
+        //Å©±â¹Ù²Ù±â
         if (itemSize.x > 0.2f || itemSize.z > 0.2f)
         {
             if (itemSize.x >= itemSize.z)
@@ -108,7 +108,7 @@ public class Slot : XRSocketInteractor
 
 
 
-    // socketì—ì„œ ë¹ ì§„í›„
+    // socket¿¡¼­ ºüÁøÈÄ
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
@@ -121,7 +121,7 @@ public class Slot : XRSocketInteractor
         //curState = State.None;
     }
 
-    // ì†Œì¼“ì— ë¬¼ì²´ê°€ ë“¤ì–´ì™”ì„ ë•Œ
+    // ¼ÒÄÏ¿¡ ¹°Ã¼°¡ µé¾î¿ÔÀ» ¶§
     public void socketCheck()
     {
         IXRSelectInteractable socketObj = this.GetOldestInteractableSelected();
@@ -135,7 +135,7 @@ public class Slot : XRSocketInteractor
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
 
-    //ì†Œì¼“ì— ë¬¼ì²´ê°€ ë–¨ì–´ì¡Œì„ë•Œ
+    //¼ÒÄÏ¿¡ ¹°Ã¼°¡ ¶³¾îÁ³À»¶§
     public void socketDrop()
     {
         IXRSelectInteractable obj = this.GetOldestInteractableSelected();
