@@ -8,7 +8,7 @@ public class ControllersVibration : MonoBehaviour
 
     private XRBaseController[] xrs = new XRBaseController[2];
 
-    public float duration =3f;
+    public float duration = 5f;
     public float Amplitude = 1f;
 
 
@@ -20,10 +20,9 @@ public class ControllersVibration : MonoBehaviour
 
     public void Vibe() 
     {
-        
-            var controller = (XRController)GameObject.FindObjectOfType(typeof(XRController));
-
-            controller.SendHapticImpulse(Amplitude, duration);
-        
+        foreach (var xr in xrs) 
+        {
+            xr.SendHapticImpulse(Amplitude, duration);
+        }
     }
 }

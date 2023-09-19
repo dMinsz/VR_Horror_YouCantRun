@@ -21,10 +21,16 @@ public class ThirdFloorScene : BaseScene
             playerPrefab = GameManager.Resource.Load<GameObject>("Player");
             player = GameManager.Resource.Instantiate(playerPrefab, StartPos.position, StartPos.rotation);
 
-            changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
+            //changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
 
             //player = GameManager.Pool.Get(true, playerPrefab, StartPos[0].position, StartPos[0].rotation);
         }
+    }
+
+    private void Start()
+    {
+        changer.vibe.Setup(player.GetComponent<Player>().controllers[0], player.GetComponent<Player>().controllers[1]);
+
     }
 
     protected override IEnumerator LoadingRoutine()
