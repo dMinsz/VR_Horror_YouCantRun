@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2498950232327277321}
   - component: {fileID: 2498950232327277323}
   - component: {fileID: 2498950232327277322}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 4984963351635392325}
   - component: {fileID: 4984963351635392323}
   - component: {fileID: 4984963351635392320}
-  m_Layer: 31
+  m_Layer: 22
   m_Name: KeyCard1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4984963351812999324}
-  m_Layer: 31
+  m_Layer: 22
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bde1835aab641e94589ec345b9858c32,
         type: 3}
       propertyPath: m_Layer
-      value: 31
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde1835aab641e94589ec345b9858c32, type: 3}
