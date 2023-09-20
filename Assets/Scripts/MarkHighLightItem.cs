@@ -11,7 +11,7 @@ public class MarkHighLightItem : MonoBehaviour
 
     public void OffHighLight()
     {
-        this.gameObject.layer = LayerMask.NameToLayer("Default");
+        this.gameObject.layer = LayerMask.NameToLayer("Items");
     }
 
 

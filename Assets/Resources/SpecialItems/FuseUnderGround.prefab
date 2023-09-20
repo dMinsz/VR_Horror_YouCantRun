@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 329940731462167844}
   - component: {fileID: 329940731462167845}
   - component: {fileID: 3534717722982912842}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FuseUnderGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 6657324240151268776}
   - component: {fileID: 2994423950896556804}
   - component: {fileID: 8929721146274175335}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2583934683440874892}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 2929422233596268371}
   - component: {fileID: 6798956420198241875}
   - component: {fileID: 8712154213362083364}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
