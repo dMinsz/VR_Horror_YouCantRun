@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8260702766904785196}
   - component: {fileID: 7596348129247866414}
   - component: {fileID: 3675350506001886877}
-  m_Layer: 22
+  m_Layer: 31
   m_Name: Hint_Fuse2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 4842287428497043192}
   - component: {fileID: 3417337927563783087}
   - component: {fileID: 1771273661144132038}
-  m_Layer: 22
+  m_Layer: 31
   m_Name: PAGE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 1293921437425170553}
   - component: {fileID: 542837511849789340}
   - component: {fileID: 9126449369765001284}
-  m_Layer: 22
+  m_Layer: 31
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8335286974544356956}
-  m_Layer: 22
+  m_Layer: 31
   m_Name: SocketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7814353755591424795}
-  m_Layer: 22
+  m_Layer: 31
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ PrefabInstance:
     - target: {fileID: 1587309767818462672, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
         type: 3}
       propertyPath: m_Layer
-      value: 22
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 8970734124747500301, guid: 4c3952b3c84816d4fb30a6f8970a1d79,
         type: 3}

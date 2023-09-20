@@ -44,13 +44,13 @@ public class FirstFloorScene : BaseScene
         }
     }
 
-    private void Start()
-    {
-        if (isDebug)
-        {
-            sceneChanger.OpenDoor();
-        }
-    }
+    //private void Start()
+    //{
+    //    if (isDebug)
+    //    {
+    //        sceneChanger.OpenDoor();
+    //    }
+    //}
 
     protected override IEnumerator LoadingRoutine()
     {
