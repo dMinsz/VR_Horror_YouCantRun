@@ -15,6 +15,11 @@ public abstract class BaseScene : MonoBehaviour
     }
     #endregion
 
+    protected virtual void Start()
+    {
+        GameManager.UI.FadeIn(1f);
+    }
+
     protected virtual void Awake()
     {
         Init();

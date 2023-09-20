@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 //using UnityEngine.EventSystems;
 
 
@@ -9,6 +11,14 @@ public class UIManager : MonoBehaviour
     public Canvas mainCanvas;
 
     private Canvas inGameCanvas;
+
+    private Canvas fadeInCanvas;
+
+    private Image blackImage;
+
+    private bool nowFading;
+
+    private Coroutine fadeInOutCoroutine;
 
     void Awake()
     {
@@ -23,6 +33,15 @@ public class UIManager : MonoBehaviour
         inGameCanvas = GameManager.Resource.Instantiate<Canvas>("UI/Canvas");
         inGameCanvas.gameObject.name = "InGameCanvas";
         inGameCanvas.sortingOrder = 0;
+
+        fadeInCanvas = GameManager.Resource.Instantiate<Canvas>("UI/FadeInBlack");
+        fadeInCanvas.gameObject.name = "FadeInCanvas";
+        inGameCanvas.sortingOrder = 0;
+
+        blackImage = fadeInCanvas.GetComponentInChildren<Image>();
+
+        nowFading = false;
+
     }
     public void Reset()
     {
@@ -39,6 +58,78 @@ public class UIManager : MonoBehaviour
             inGameCanvas.gameObject.name = "InGameCanvas";
             inGameCanvas.sortingOrder = 0;
         }
+
+        if (fadeInCanvas == null)
+        {
+            fadeInCanvas = GameManager.Resource.Instantiate<Canvas>("UI/FadeInBlack");
+            fadeInCanvas.gameObject.name = "FadeInCanvas";
+            fadeInCanvas.sortingOrder = 0;
+            blackImage = fadeInCanvas.GetComponentInChildren<Image>();
+            nowFading = false;
+        }
+    }
+
+    public void FadeIn(float fadeTime)
+    {
+        Debug.Log("Fade In");
+        if (fadeInCanvas == null || blackImage == null)
+            Reset();
+        if (!nowFading)
+        {
+            nowFading = true;
+            fadeInOutCoroutine = StartCoroutine(FadeInCoroutine(fadeTime));
+        }
+    }
+
+    IEnumerator FadeInCoroutine(float fadeTime)
+    {
+        float startTime = 0f;
+        Color imageColor = blackImage.color;
+
+        while(startTime < fadeTime)
+        {
+            if (blackImage == null)
+                blackImage = fadeInCanvas.GetComponentInChildren<Image>();
+            startTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f,0f, startTime / fadeTime);
+            imageColor.a = alpha;
+            blackImage.color = imageColor;
+            yield return null;
+        }
+
+        nowFading = false;
+    }
+
+    public void FadeOut(float fadeTime)
+    {
+        Debug.Log("Fade Out");
+        if (fadeInCanvas == null || blackImage == null)
+            Reset();
+        if (!nowFading)
+        {
+            nowFading = true;
+            fadeInOutCoroutine = StartCoroutine(FadeOutCoroutine(fadeTime));
+        }
+
+    }
+
+    IEnumerator FadeOutCoroutine(float fadeTime)
+    {
+        float startTime = 0f;
+        Color imageColor = blackImage.color;
+
+        while (startTime < fadeTime)
+        {
+            if (blackImage == null)
+                blackImage = fadeInCanvas.GetComponentInChildren<Image>();
+            startTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, startTime / fadeTime);
+            imageColor.a = alpha;
+            blackImage.color = imageColor;
+            yield return null;
+        }
+
+        nowFading = false;
     }
 
     #region IngameUI

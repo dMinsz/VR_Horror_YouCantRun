@@ -47,7 +47,8 @@ public class SceneChanger : MonoBehaviour
 
                 if (nowFloor == floor.End)
                 {
-                    GameManager.Scene.LoadScene("StartScene");
+                    isChange = true;
+                    mainRoutine = StartCoroutine(FinalSceneChange());
                 }
                 else 
                 {
@@ -79,6 +80,22 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
+    public void FadeIn(float fadeTime)
+    {
+        GameManager.UI.FadeIn(fadeTime);
+    }
+
+    public void FadeOut(float fadeTime)
+    {
+        GameManager.UI.FadeOut(fadeTime);
+    }
+
+    IEnumerator FinalSceneChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.Scene.LoadScene("StartScene");
+
+    }
     IEnumerator SceneChange(Collider other)
     {
         //Move to End Point
@@ -125,6 +142,8 @@ public class SceneChanger : MonoBehaviour
                                 ev.floorText.text = "2";
                                 sfx.Play();
                                 vibe.Vibe();
+                                yield return new WaitForSeconds(2f);
+                                GameManager.UI.FadeOut(1.6f);
                             }
                             break;
                     }

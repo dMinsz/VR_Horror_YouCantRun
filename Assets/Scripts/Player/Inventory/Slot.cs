@@ -1,30 +1,29 @@
-using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Slot : XRSocketInteractor
 {
-    //ê¸°ì¡´ slotSize
+    //±âÁ¸ slotSize
     private Vector3 slotSize = new Vector3(0.2f, 0.1f, 0.2f);
 
-    //ìŠµë“ëœ itemì˜ Size / ratio
+    //½ÀµæµÈ itemÀÇ Size / ratio
     private Vector3 itemSize;
     private float ratio;
 
-    //ìŠ¬ë¡¯ì´ë¦„ê³¼ ë“¤ì–´ê°€ìˆëŠ” ì•„ì´í…œ ì´ë¦„
+    //½½·ÔÀÌ¸§°ú µé¾î°¡ÀÖ´Â ¾ÆÀÌÅÛ ÀÌ¸§
     public int slotNum;
     public string itemName;
 
-    // ì•„ì´í…œ ì œê±° / ìŠµë“ ì´ë²¤íŠ¸
+    // ¾ÆÀÌÅÛ Á¦°Å / ½Àµæ ÀÌº¥Æ®
     public UnityEvent<int, string> AddItemEvent;
     public UnityEvent<int> RemoveItemEvent;
 
-    private bool canSocket = true;
+    
     private GameObject[] highlightlist;
 
-    //xrsocketinteraciton ìƒì†
+    //xrsocketinteraciton »ó¼Ó
     protected override void Start()
     {
         base.Start();
@@ -33,53 +32,49 @@ public class Slot : XRSocketInteractor
         highlightlist[1] = transform.GetChild(2).gameObject;
     }
 
-    private void HoverHighglightOn()
-    {
-        if (canSocket)
-            highlightlist[0].SetActive(true);
-        else
-            highlightlist[1].SetActive(true);
-    }
-    private void HoverHighlightOff()
-    {
-        highlightlist[0].SetActive(false);
-        highlightlist[1].SetActive(false);
-    }
-
-    protected override void OnHoverEntering(HoverEnterEventArgs args)
-    {
-        base.OnHoverEntering(args);
-        HoverHighglightOn();
-    }
-
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
-        HoverHighglightOn();
-        base.OnHoverEntered(args);
+        if (isEntered == false)
+        {
+            if (hasSelection)
+            {
+                highlightlist[1].SetActive(true);
+            }
+            else
+            {
+                highlightlist[0].SetActive(true);
+            }
+        }
     }
 
     protected override void OnHoverExited(HoverExitEventArgs args)
     {
         base.OnHoverExited(args);
-        HoverHighlightOff();
+        highlightlist[0].SetActive(false);
+        highlightlist[1].SetActive(false);
+
+        //canSocket = true;
+        //curState = State.None;
     }
-    //[System.Obsolete]
-    //ì†Œì¼“ì—ë“¤ì–´ê°ˆë–„
+    //¼ÒÄÏ¿¡µé¾î°¥‹š
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
-        //ì ‘ì´‰ëœ ë¬¼ì²´ í• ë‹¹
+        Debug.Log("selectEntering");
+
+
+        //Á¢ÃËµÈ ¹°Ã¼ ÇÒ´ç
         GameObject obj = args.interactableObject.transform.gameObject;
 
-        //itemí¬ê¸°
+        //itemÅ©±â
         itemSize = obj.GetComponentInChildren<MeshRenderer>().bounds.size;
 
-        //socketAttach í¬ì¸íŠ¸ê°€ ìˆì„ê²½ìš° ? grab interactable attachpoint ë³€ê²½
-        if(args.interactableObject.transform.Find("SocketAttach"))
+        //socketAttach Æ÷ÀÎÆ®°¡ ÀÖÀ»°æ¿ì ? grab interactable attachpoint º¯°æ
+        if (args.interactableObject.transform.Find("SocketAttach"))
         {
             args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("SocketAttach");
         }
 
-        //í¬ê¸°ë°”ê¾¸ê¸°
+        //Å©±â¹Ù²Ù±â
         if (itemSize.x > 0.2f || itemSize.z > 0.2f)
         {
             if (itemSize.x >= itemSize.z)
@@ -92,22 +87,28 @@ public class Slot : XRSocketInteractor
         else
             ratio = 1.0f;
 
-        canSocket = false;
         base.OnSelectEntering(args);
     }
+
+    bool isEntered = false;
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        base.OnSelectEntered(args);
-        canSocket = false;
-        HoverHighlightOff();
+        highlightlist[0].SetActive(false);
+        highlightlist[1].SetActive(false);
+
+        StartCoroutine(changeValue());
     }
 
-    protected override void OnSelectExiting(SelectExitEventArgs args)
+    IEnumerator changeValue()
     {
-        base.OnSelectExiting(args);
+        isEntered = true;
+        yield return new WaitForSeconds(0.5f);
+        isEntered = false;
     }
 
-    // socketì—ì„œ ë¹ ì§„í›„
+
+
+    // socket¿¡¼­ ºüÁøÈÄ
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
@@ -116,10 +117,11 @@ public class Slot : XRSocketInteractor
             args.interactableObject.transform.GetComponent<XRGrabInteractable>().attachTransform = args.interactableObject.transform.Find("Attach");
         }
         args.interactableObject.transform.localScale *= (1.0f / ratio);
-        canSocket = true;
+        //canSocket = true;
+        //curState = State.None;
     }
 
-    // ì†Œì¼“ì— ë¬¼ì²´ê°€ ë“¤ì–´ì™”ì„ ë•Œ
+    // ¼ÒÄÏ¿¡ ¹°Ã¼°¡ µé¾î¿ÔÀ» ¶§
     public void socketCheck()
     {
         IXRSelectInteractable socketObj = this.GetOldestInteractableSelected();
@@ -133,7 +135,7 @@ public class Slot : XRSocketInteractor
         //Debug.Log(objName.transform.name + " in socket of " + transform.name);
     }
 
-    //ì†Œì¼“ì— ë¬¼ì²´ê°€ ë–¨ì–´ì¡Œì„ë•Œ
+    //¼ÒÄÏ¿¡ ¹°Ã¼°¡ ¶³¾îÁ³À»¶§
     public void socketDrop()
     {
         IXRSelectInteractable obj = this.GetOldestInteractableSelected();
