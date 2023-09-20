@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 810720795173751708}
   - component: {fileID: 810720795173751709}
   - component: {fileID: 4528855507645642226}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fuse2F_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 6657324240151268776}
   - component: {fileID: 2994423950896556804}
   - component: {fileID: 8929721146274175335}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3174923370079232820}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 2842628006319860203}
   - component: {fileID: 6488050029941779355}
   - component: {fileID: 7437940830620607892}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

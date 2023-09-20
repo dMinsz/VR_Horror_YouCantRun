@@ -3430,8 +3430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb295c0f1078d84d9697f18d50c38fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: a8f338f241ca0304d96606bce46ee837, type: 3}
-  volume: 0.15
+  clip: {fileID: 8300000, guid: 55aa5dd7ca85d714295e5b516d04f26c, type: 3}
+  volume: 0.55
   is3D: 0
 --- !u!4 &1525621482
 Transform:
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClear: 0
-  isDebug: 0
+  isDebug: 1
   StartPos: {fileID: 1678048965}
 --- !u!4 &2039538152
 Transform:
